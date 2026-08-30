@@ -1,0 +1,28 @@
+{
+  "title": "3-SimpleSMC",
+  "source_id": "[网鼎杯-2018] Bugku-245",
+  "category": "reverse",
+  "attachment_type": "elf",
+  "detection": {
+    "keywords": ["SMC", "self modifying code", "self decrypting code", "XOR code decrypt", "function prologue", "自修改代码", "自解密", "异或解密代码", "函数序言"],
+    "attachment_features": "关键函数初始为加密/脏字节，运行时由循环XOR恢复后再执行",
+    "condition": "当关键代码区静态反编译失败，但程序存在写代码段/逐字节XOR恢复函数的逻辑时适用"
+  },
+  "method": {
+    "principle": "从SMC解密循环和可推断的标准函数序言恢复循环密钥，解开真实代码后再逆向业务校验。",
+    "steps": ["定位不可反编译的代码区域并修正明显脏字节", "寻找写入代码段或逐字节XOR的SMC循环", "利用标准函数序言或动态内存明文作为known plaintext恢复key", "按程序原解密循环patch代码并重新define function", "分析恢复后的输入变换和比较逻辑", "逆向最终校验算法并正向验证"],
+    "tools": ["IDA", "Ghidra", "gdb", "x64dbg", "IDC/IDAPython", "python3"],
+    "produces_artifact": false
+  },
+  "solver": {
+    "reusable": true,
+    "module_name": "recursive_prefix_xor_reverse",
+    "code": "import sys\nvals=[int(x,0) for x in sys.argv[1:]]\ndef enc(a,n=1):\n    if n==len(a): return\n    for i in range(n): a[i+n]^=a[i]\n    enc(a,n<<1)\nenc(vals)\nprint(bytes(vals).decode('latin1'))\n",
+    "input": "长度为2的幂的整数/十六进制字节数组，每个字节作为独立命令行参数",
+    "output": "按题型递归前缀XOR变换后的字符串"
+  },
+  "verification": {
+    "flag": "flag{d0_y0u_Kn*w_5mC_F1@gCheCk?}",
+    "how": "按公开分析恢复SMC key F1@gChe；对32字节enc数组运行递归XOR脚本得到完整flag"
+  }
+}
