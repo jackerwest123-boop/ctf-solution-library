@@ -1,0 +1,28 @@
+{
+  "title": "robots",
+  "source_id": "[NUAACTF-2017] Bugku-238",
+  "category": "reverse",
+  "attachment_type": "binary(待确认)",
+  "detection": {
+    "keywords": ["reverse engineering", "binary validation", "strings", "cross reference", "逆向", "二进制校验", "字符串", "交叉引用"],
+    "attachment_features": "可执行附件；当前公开题面不足，需原附件确认架构和校验逻辑",
+    "condition": "当二进制通过输入变换和比较判断flag时使用通用静态/动态逆向流程"
+  },
+  "method": {
+    "principle": "从输入点和成功/失败分支反向追踪校验逻辑，并用脚本复现可逆变换。",
+    "steps": ["识别文件格式和架构并扫描字符串", "定位输入函数及成功/失败字符串交叉引用", "还原比较前的输入变换、查表和算术/位运算", "必要时在比较前动态断点观察目标缓冲区", "将算法移植到Python并在原附件上验证"],
+    "tools": ["file", "strings", "IDA", "Ghidra", "gdb/x64dbg", "python3"],
+    "produces_artifact": false
+  },
+  "solver": {
+    "reusable": false,
+    "module_name": "generic_reverse_validation",
+    "code": "",
+    "input": "原始可执行附件",
+    "output": "恢复的校验逻辑与候选flag"
+  },
+  "verification": {
+    "flag": "",
+    "how": "需要取得Bugku原附件后复现；当前不以公开题面猜测flag"
+  }
+}
