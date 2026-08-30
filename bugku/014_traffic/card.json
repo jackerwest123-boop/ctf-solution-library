@@ -1,0 +1,28 @@
+{
+  "title": "traffic",
+  "source_id": "[NUAACTF-2017] Bugku-241",
+  "category": "traffic",
+  "attachment_type": "pcap/pcapng(待确认)",
+  "detection": {
+    "keywords": ["pcap", "pcapng", "Wireshark", "tshark", "follow stream", "traffic analysis", "流量", "流量分析", "追踪流", "导出对象"],
+    "attachment_features": "题面明确指向网络流量，具体协议需原附件确认",
+    "condition": "当附件是抓包文件，需要从会话、协议字段或传输对象中恢复隐藏数据时适用"
+  },
+  "method": {
+    "principle": "先做协议/会话画像，再按高价值流重组应用层内容并对导出对象继续取证。",
+    "steps": ["用capinfos/tshark识别抓包类型和协议层次", "统计endpoints与conversations并锁定异常流", "Follow TCP/UDP Stream或按协议导出对象", "搜索URI、DNS、POST、文件传输与可打印载荷", "对重组数据做file/strings/binwalk/解码", "仅在原包复现后确认flag"],
+    "tools": ["Wireshark", "tshark", "capinfos", "file", "strings", "binwalk"],
+    "produces_artifact": false
+  },
+  "solver": {
+    "reusable": false,
+    "module_name": "pcap_triage_and_stream_extract",
+    "code": "",
+    "input": "pcap/pcapng",
+    "output": "协议画像、候选流、重组载荷和flag候选"
+  },
+  "verification": {
+    "flag": "",
+    "how": "待取得原抓包后按协议画像→流重组→对象提取流程验证"
+  }
+}
