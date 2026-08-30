@@ -1,0 +1,7 @@
+{
+  "title":"3-mirror","source_id":"[网鼎杯-2018] Bugku-250","category":"misc","attachment_type":"unknown",
+  "detection":{"keywords":["mirror","镜像","misc","网鼎杯","隐写"],"attachment_features":"Bugku题面仅给出mirror并提供附件下载","condition":"针对镜像/翻转/文件隐藏类杂项题"},
+  "method":{"principle":"围绕镜像含义检查字节序、图像翻转、位平面和文件拼接等可逆变换。","steps":["识别附件格式","尝试水平/垂直镜像或字节逆序","检查元数据与附加数据","对输出搜索flag格式"],"tools":["file","strings","PIL","binwalk","python3"],"produces_artifact":true},
+  "solver":{"reusable":false,"module_name":"","code":"","input":"题目附件","output":"镜像/逆序处理结果"},
+  "verification":{"flag":"","how":"Bugku公开页未展示免费writeup正文，待附件本地验证"}
+}
