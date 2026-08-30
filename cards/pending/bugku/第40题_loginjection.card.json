@@ -1,0 +1,29 @@
+{
+  "title": "loginjection",
+  "source_id": "[Bugku] 第40题",
+  "capability_id": "",
+  "category": "web",
+  "attachment_type": "无",
+  "detection": {
+    "keywords": ["bugku", "web", "loginjection", "login", "injection", "登录", "注入", "认证绕过", "SQL", "NoSQL"],
+    "attachment_features": "无附件；动态 Web 场景题",
+    "condition": "题名或题面出现 loginjection、login、injection、登录注入等关键词时适用。"
+  },
+  "method": {
+    "principle": "围绕登录请求枚举认证绕过、SQL/NoSQL/LDAP/模板注入点，确认类型后构造最短利用链。",
+    "steps": ["抓取登录请求", "判断参数格式和后端注入类型", "尝试认证绕过 payload", "失败时转为布尔/时间盲注", "登录或读取 flag"],
+    "tools": ["burp", "curl", "sqlmap(仅限授权场景)"],
+    "produces_artifact": false
+  },
+  "solver": {
+    "reusable": false,
+    "module_name": "web_login_injection_notes",
+    "code": "",
+    "input": "动态场景 URL 和登录请求样本。",
+    "output": "可用认证绕过或注入 payload。"
+  },
+  "verification": {
+    "flag": "",
+    "how": "启动 Bugku 场景后抓取登录请求，确认注入类型并复现。"
+  }
+}
