@@ -1,0 +1,29 @@
+{
+  "title": "web1",
+  "source_id": "[Bugku] 第32题",
+  "capability_id": "",
+  "category": "web",
+  "attachment_type": "无",
+  "detection": {
+    "keywords": ["bugku", "web", "password reset", "mt_rand", "随机数", "种子爆破", "admin", "找回密码"],
+    "attachment_features": "无附件；动态 Web 场景题",
+    "condition": "题面出现 admin/admin1/admin2 等目标账号，并存在找回密码或重置流程时适用。"
+  },
+  "method": {
+    "principle": "通过分析密码重置 token 生成逻辑，爆破 PHP 伪随机数种子并预测管理员 token。",
+    "steps": ["枚举目标管理员账号", "触发找回密码并捕获 token", "判断 token 是否与 mt_rand/时间戳相关", "用已知 token 和时间窗口爆破种子", "预测管理员 token 并重置密码", "登录管理员账号读取 flag"],
+    "tools": ["burp", "php_mt_seed", "python3"],
+    "produces_artifact": false
+  },
+  "solver": {
+    "reusable": false,
+    "module_name": "php_reset_token_seed_notes",
+    "code": "",
+    "input": "场景 URL、已知 token、生成时间窗口和源码线索。",
+    "output": "预测的重置 token 或管理员登录凭据。"
+  },
+  "verification": {
+    "flag": "",
+    "how": "启动 Bugku 场景后抓取重置流程，爆破 token 种子并登录 admin。"
+  }
+}
