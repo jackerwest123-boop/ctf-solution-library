@@ -1,16 +1,17 @@
 {
   "platform": "Bugku",
   "competition_url": "https://ctf.bugku.com/challenges/index/gid/2.html",
-  "total_processed": 20,
-  "last_processed": 20,
-  "next_start": 21,
+  "total_processed": 30,
+  "last_processed": 30,
+  "next_start": 31,
   "batch_size": 10,
   "status": "in_progress",
   "latest_batch": {
-    "range": [11, 20],
-    "solved_verified": 5,
-    "method_identified_flag_pending": 1,
+    "range": [21, 30],
+    "solved_verified": 0,
+    "solved_public_flag_pending_local_validation": 1,
+    "method_identified_flag_pending": 5,
     "pending_attachment_validation": 4,
-    "summary_file": "bugku/batch_011_020.json"
+    "summary_file": "bugku/batch_021_030.json"
   }
 }
