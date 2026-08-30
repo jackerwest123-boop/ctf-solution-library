@@ -11,7 +11,17 @@
     {"id":17,"title":"3-最好的语言","category":"reverse","status":"solved_verified","writeup":"bugku/017_3_best_language/README.md","card":"bugku/017_3_best_language/card.json","solver":"solvers/reverse/repeating_xor_known_plaintext.py"},
     {"id":18,"title":"3-SimpleSMC","category":"reverse","status":"solved_verified","writeup":"bugku/018_3_simplesmc/README.md","card":"bugku/018_3_simplesmc/card.json","solver":"solvers/reverse/recursive_prefix_xor_reverse.py"},
     {"id":19,"title":"3-hafuhafu","category":"crypto","status":"solved_verified","writeup":"bugku/019_3_hafuhafu/README.md","card":"bugku/019_3_hafuhafu/card.json","solver":"solvers/crypto/rsa_pq_decrypt.py"},
-    {"id":20,"title":"3-Unpleasant_music","category":"misc","status":"pending_attachment_validation","writeup":"bugku/020_3_unpleasant_music/README.md","card":"bugku/020_3_unpleasant_music/card.json","solver":null}
+    {"id":20,"title":"3-Unpleasant_music","category":"misc","status":"pending_attachment_validation","writeup":"bugku/020_3_unpleasant_music/README.md","card":"bugku/020_3_unpleasant_music/card.json","solver":null},
+    {"id":21,"title":"3-track_hacker","category":"crypto","status":"pending_attachment_validation","writeup":null,"card":"bugku/021_3_track_hacker/card.json","solver":null},
+    {"id":22,"title":"3-dewas","category":"misc","status":"pending_attachment_validation","writeup":null,"card":"bugku/022_3_dewas/card.json","solver":null},
+    {"id":23,"title":"3-mirror","category":"misc","status":"pending_attachment_validation","writeup":null,"card":"bugku/023_3_mirror/card.json","solver":null},
+    {"id":24,"title":"3-I_like_pack","category":"reverse","status":"method_identified_flag_pending","writeup":null,"card":"bugku/024_3_I_like_pack/card.json","solver":null},
+    {"id":25,"title":"3-babyre","category":"reverse","status":"method_identified_flag_pending","writeup":null,"card":"bugku/025_3_babyre/card.json","solver":null},
+    {"id":26,"title":"3-Not_only_base","category":"crypto","status":"method_identified_flag_pending","writeup":null,"card":"bugku/026_3_Not_only_base/card.json","solver":"solvers/crypto/recursive_base_decode.py"},
+    {"id":27,"title":"easy_fs","category":"reverse","status":"solved_public_flag_pending_local_validation","writeup":null,"card":"bugku/027_easy_fs/card.json","solver":null},
+    {"id":28,"title":"baby_N1ES","category":"crypto","status":"method_identified_flag_pending","writeup":null,"card":"bugku/028_baby_N1ES/card.json","solver":"solvers/crypto/feistel_xor_reverse.py"},
+    {"id":29,"title":"Lipstick","category":"misc","status":"method_identified_flag_pending","writeup":null,"card":"bugku/029_Lipstick/card.json","solver":null},
+    {"id":30,"title":"APFS","category":"forensics","status":"pending_attachment_validation","writeup":null,"card":"bugku/030_APFS/card.json","solver":null}
   ],
   "note": "Challenges 1-10 were solved in chat before GitHub output was enabled and can be backfilled later. Entries with pending status intentionally have no guessed verification flag."
 }
