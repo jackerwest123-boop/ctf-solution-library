@@ -1,0 +1,7 @@
+{
+  "title":"3-track_hacker","source_id":"[网鼎杯-2018] Bugku","category":"crypto","attachment_type":"unknown",
+  "detection":{"keywords":["track_hacker","crypto","网鼎杯","密码分析"],"attachment_features":"需题目附件确认具体密码结构","condition":"遇到网鼎杯2018 3-track_hacker原题或同构附件时适用"},
+  "method":{"principle":"先识别附件中的编码、密钥材料和分组结构，再按实际密码原语恢复明文；无附件时不猜flag。","steps":["检查文件类型与可打印字符串","识别Base64/hex/大整数/密钥参数","根据原语建立解密脚本","验证flag格式并复现"],"tools":["file","strings","xxd","python3"],"produces_artifact":false},
+  "solver":{"reusable":false,"module_name":"","code":"","input":"题目附件","output":"解密结果"},
+  "verification":{"flag":"","how":"当前仅确认题目分类与存在性，待下载附件后本地验证"}
+}
