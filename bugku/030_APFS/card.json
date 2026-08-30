@@ -1,0 +1,7 @@
+{
+  "title":"APFS","source_id":"[N1CTF-2018] Bugku","category":"forensics","attachment_type":"disk/image",
+  "detection":{"keywords":["APFS","Apple File System","filesystem","取证","磁盘镜像","N1CTF"],"attachment_features":"N1CTF 2018杂项/取证题，题名指向Apple File System，需镜像附件验证","condition":"适用于APFS磁盘镜像、删除文件恢复和文件系统元数据取证"},
+  "method":{"principle":"解析APFS容器、卷与对象树，从文件系统元数据和未删除/已删除记录中定位flag相关文件。","steps":["识别镜像与APFS容器","枚举卷、快照和目录树","搜索文件名/内容中的flag线索","检查已删除记录与未分配空间","导出目标文件并验证"],"tools":["file","The Sleuth Kit/APFS工具","strings","python3"],"produces_artifact":true},
+  "solver":{"reusable":false,"module_name":"","code":"","input":"APFS磁盘镜像","output":"恢复的文件或文本"},
+  "verification":{"flag":"","how":"当前公开页仅能确认题目与分类，待附件本地取证验证"}
+}
