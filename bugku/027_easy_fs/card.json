@@ -1,0 +1,7 @@
+{
+  "title":"easy_fs","source_id":"[N1CTF-2018] Bugku-254","category":"reverse","attachment_type":"elf",
+  "detection":{"keywords":["easy_fs","filesystem","RSA","leak","逆向","N1CTF"],"attachment_features":"Bugku将其列为Reverse；公开评论给出验证flag，原赛事资料存在分类差异","condition":"遇到包含文件系统/密钥泄露线索并最终恢复RSA明文的逆向或密码混合题"},
+  "method":{"principle":"从程序或文件系统结构中定位泄露的RSA关键材料，恢复私钥参数后解密密文。","steps":["静态/动态分析程序读写的文件与结构","提取泄露的素因子或可用于分解n的信息","重建RSA私钥参数","解密并按flag格式验证"],"tools":["Ghidra/IDA","strings","python3","PyCryptodome"],"produces_artifact":false},
+  "solver":{"reusable":false,"module_name":"","code":"","input":"原题ELF/附件","output":"恢复的RSA关键参数和明文"},
+  "verification":{"flag":"N1CTF{A_sm4ll_l34k_l3ad5_t0_l4rge_br34k}","how":"Bugku easy_fs题目公开评论中给出该flag；仍建议下载原附件后执行本地复现确认"}
+}
