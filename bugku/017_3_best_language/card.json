@@ -1,0 +1,28 @@
+{
+  "title": "3-最好的语言",
+  "source_id": "[网鼎杯-2018] Bugku-244",
+  "category": "reverse",
+  "attachment_type": "python2.7 bytecode/xml dump",
+  "detection": {
+    "keywords": ["python bytecode", "pyc", "Base64", "repeating XOR", "known plaintext", "MD5", "Python字节码", "循环异或", "已知明文攻击", "哈希恢复"],
+    "attachment_features": "Python字节码逻辑将明文分段，部分循环XOR、部分MD5，再整体Base64",
+    "condition": "当逆向Python字节码后发现输出由可逆XOR段和不可逆哈希段拼接组成时适用"
+  },
+  "method": {
+    "principle": "还原字节码的数据分段算法，对可逆段利用已知格式恢复循环密钥，对哈希段独立做字典/哈希恢复，再正向重编码验证。",
+    "steps": ["识别Python版本并还原bytecode控制流", "Base64解码输出并按算法切分数据段", "利用flag前缀/后缀对循环XOR做已知明文攻击", "结合密钥字符集和不重复等约束枚举剩余密钥", "对MD5等不可逆中间段做字典或可靠哈希查询", "拼接候选明文并重新运行原编码算法验证"],
+    "tools": ["python3", "dis/uncompyle tools", "hashlib", "base64"],
+    "produces_artifact": false
+  },
+  "solver": {
+    "reusable": true,
+    "module_name": "repeating_xor_known_plaintext",
+    "code": "import sys\ndef recover(cipher,known,keylen):\n k=[None]*keylen\n for i,b in enumerate(known):\n  v=cipher[i]^b; j=i%keylen\n  if k[j] is not None and k[j]!=v: raise ValueError('inconsistent known plaintext')\n  k[j]=v\n return bytes(x if x is not None else 0 for x in k),k\ndef xor(data,key): return bytes(b^key[i%len(key)] for i,b in enumerate(data))\n# usage: hex_cipher known_text keylen\nc=bytes.fromhex(sys.argv[1]); known=sys.argv[2].encode(); n=int(sys.argv[3]); kb,slots=recover(c,known,n); print('key slots:',slots); print('key:',kb); print('plain:',xor(c,kb))\n",
+    "input": "十六进制密文、与密文起始位置对齐的已知明文、循环密钥长度",
+    "output": "恢复的循环XOR密钥槽及解密结果"
+  },
+  "verification": {
+    "flag": "flag{PyC_1s_613u21i_N0t_Hard}",
+    "how": "使用key1=5914、middle=613u21i、key2=4813拼接后按原XOR+MD5+XOR算法重编码，Base64与题目给定字符串完全一致"
+  }
+}
