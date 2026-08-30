@@ -1,0 +1,7 @@
+{
+  "title":"Lipstick","source_id":"[N1CTF-2018] Bugku-256","category":"misc","attachment_type":"unknown",
+  "detection":{"keywords":["Lipstick","steganography","LSB","image","口红","隐写","N1CTF"],"attachment_features":"Bugku列为MISC并提供附件；原赛事公开资料将其归为steganography/LSB/color方向","condition":"适用于彩色图像通道、LSB或颜色编码型隐写题"},
+  "method":{"principle":"逐通道、逐位平面提取图像像素低位并尝试不同RGB顺序与扫描顺序重组隐藏数据。","steps":["识别图像格式和尺寸","分离RGB/RGBA通道","枚举各通道1-4个低位","尝试行/列扫描与通道排列","把位流转字节后搜索可打印串和flag"],"tools":["PIL","zsteg(如PNG/BMP)","python3"],"produces_artifact":true},
+  "solver":{"reusable":false,"module_name":"","code":"","input":"题目图像附件","output":"提取的位流、文本或图像"},
+  "verification":{"flag":"","how":"Bugku题面提示提交flag时去掉单引号；待附件本地提取后验证"}
+}
