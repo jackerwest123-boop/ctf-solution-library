@@ -1,0 +1,29 @@
+{
+  "title": "strpos and substr",
+  "source_id": "[Bugku] 第31题",
+  "capability_id": "",
+  "category": "web",
+  "attachment_type": "无",
+  "detection": {
+    "keywords": ["bugku", "web", "strpos", "substr", "waf", "绕过", "PHP", "字符串函数"],
+    "attachment_features": "无附件；动态 Web 场景题",
+    "condition": "题面出现 strpos/substr/WAF/bypass 等关键词，且需要绕过 PHP 字符串过滤时适用。"
+  },
+  "method": {
+    "principle": "分析 PHP 字符串函数和过滤条件，结合数组、编码、弱类型等特性绕过 WAF。",
+    "steps": ["定位可控参数", "测试 strpos 返回 0/false 的弱比较边界", "测试 substr 前后缀截断", "结合数组参数、URL 编码、双写和大小写绕过过滤", "读取 flag"],
+    "tools": ["curl", "burp"],
+    "produces_artifact": false
+  },
+  "solver": {
+    "reusable": false,
+    "module_name": "php_waf_bypass_notes",
+    "code": "",
+    "input": "场景 URL 和源码/过滤规则。",
+    "output": "可用绕过 payload。"
+  },
+  "verification": {
+    "flag": "",
+    "how": "启动 Bugku 场景后根据源码确认过滤逻辑并提交 payload。"
+  }
+}
