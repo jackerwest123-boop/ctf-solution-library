@@ -1,0 +1,28 @@
+{
+  "title": "3-hafuhafu",
+  "source_id": "[网鼎杯-2018] Bugku-246",
+  "category": "crypto",
+  "attachment_type": "txt",
+  "detection": {
+    "keywords": ["RSA", "factor n", "FactorDB", "65537", "modular inverse", "long_to_bytes", "RSA分解", "模数分解", "模逆", "整数转字节"],
+    "attachment_features": "已知RSA的n、e和密文，n可被分解；密文可能先经过Base64包装",
+    "condition": "当RSA题给出n/e/c且模数可分解时，恢复p/q后按标准私钥公式解密"
+  },
+  "method": {
+    "principle": "分解RSA模数得到素因子，重建phi和私钥指数d，再做模幂解密并稳健地从明文字节中提取flag。",
+    "steps": ["按题目编码先恢复密文c", "尝试FactorDB/费马/弱素数等方式分解n", "计算phi=(p-1)(q-1)", "求d=pow(e,-1,phi)", "计算m=pow(c,d,n)", "把m转为大端字节并搜索flag格式，不因非UTF-8前缀丢弃结果"],
+    "tools": ["python3", "PyCryptodome", "FactorDB(可选)"],
+    "produces_artifact": false
+  },
+  "solver": {
+    "reusable": true,
+    "module_name": "rsa_pq_decrypt",
+    "code": "import sys,re\nif len(sys.argv)!=5:\n print('usage: rsa_pq_decrypt.py c e p q'); raise SystemExit(1)\nc,e,p,q=map(lambda x:int(x,0),sys.argv[1:])\nn=p*q; phi=(p-1)*(q-1); d=pow(e,-1,phi); m=pow(c,d,n); b=m.to_bytes((m.bit_length()+7)//8,'big')\nprint(b)\nfor x in re.findall(rb'(?i)(?:flag|ctf)\\{[^}]+\\}',b): print(x.decode('ascii','replace'))\n",
+    "input": "c e p q（十进制或0x十六进制）",
+    "output": "RSA明文字节及其中的常见flag字符串"
+  },
+  "verification": {
+    "flag": "flag{D0nT_uS3_Th3_kN0w_n}",
+    "how": "Bugku题目评论明确给出：Base64恢复密文后分解n，按RSA私钥公式解密，得到flag{D0nT_uS3_Th3_kN0w_n}"
+  }
+}
