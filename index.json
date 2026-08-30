@@ -1,6 +1,17 @@
 {
   "platform": "Bugku",
   "competition_url": "https://ctf.bugku.com/challenges/index/gid/2.html",
-  "entries": [],
-  "note": "Challenges 1-10 were solved in chat before GitHub output was enabled; their detailed writeups/cards can be backfilled later. New batches should be committed directly to this repository."
+  "entries": [
+    {"id":11,"title":"robots","category":"reverse","status":"pending_attachment_validation","writeup":"bugku/011_robots/README.md","card":"bugku/011_robots/card.json","solver":null},
+    {"id":12,"title":"nuaactf","category":"reverse","status":"solved_verified","writeup":"bugku/012_nuaactf/README.md","card":"bugku/012_nuaactf/card.json","solver":null},
+    {"id":13,"title":"b1nary","category":"reverse","status":"pending_attachment_validation","writeup":"bugku/013_b1nary/README.md","card":"bugku/013_b1nary/card.json","solver":null},
+    {"id":14,"title":"traffic","category":"traffic","status":"pending_attachment_validation","writeup":"bugku/014_traffic/README.md","card":"bugku/014_traffic/card.json","solver":null},
+    {"id":15,"title":"recover","category":"forensics","status":"method_identified_flag_pending","writeup":"bugku/015_recover/README.md","card":"bugku/015_recover/card.json","solver":"solvers/forensics/printable_flag_scan.py"},
+    {"id":16,"title":"-++--","category":"misc","status":"solved_verified","writeup":"bugku/016_minus_plus_plus_minus_minus/README.md","card":"bugku/016_minus_plus_plus_minus_minus/card.json","solver":"solvers/misc/brainfuck_interpreter.py"},
+    {"id":17,"title":"3-最好的语言","category":"reverse","status":"solved_verified","writeup":"bugku/017_3_best_language/README.md","card":"bugku/017_3_best_language/card.json","solver":"solvers/reverse/repeating_xor_known_plaintext.py"},
+    {"id":18,"title":"3-SimpleSMC","category":"reverse","status":"solved_verified","writeup":"bugku/018_3_simplesmc/README.md","card":"bugku/018_3_simplesmc/card.json","solver":"solvers/reverse/recursive_prefix_xor_reverse.py"},
+    {"id":19,"title":"3-hafuhafu","category":"crypto","status":"solved_verified","writeup":"bugku/019_3_hafuhafu/README.md","card":"bugku/019_3_hafuhafu/card.json","solver":"solvers/crypto/rsa_pq_decrypt.py"},
+    {"id":20,"title":"3-Unpleasant_music","category":"misc","status":"pending_attachment_validation","writeup":"bugku/020_3_unpleasant_music/README.md","card":"bugku/020_3_unpleasant_music/card.json","solver":null}
+  ],
+  "note": "Challenges 1-10 were solved in chat before GitHub output was enabled and can be backfilled later. Entries with pending status intentionally have no guessed verification flag."
 }
