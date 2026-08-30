@@ -1,0 +1,40 @@
+{
+  "batch": "Bugku 第41-80题逐题补flag",
+  "status": "refill",
+  "solved_count": 7,
+  "candidate_conflict_count": 2,
+  "analyzed_no_flag_count": 10,
+  "blocked_no_flag_count": 21,
+  "items": [
+    {
+      "title": "第41题：superezpop",
+      "source_id": "[Bugku] 第41题",
+      "category": "web",
+      "attachment_type": "无/未知",
+      "refill_status": "analyzed-no-flag",
+      "detection": {
+        "keywords": ["superezpop", "Bugku", "WEB"],
+        "attachment_features": "在线 WEB 场景，附件未知。",
+        "condition": "Bugku 第41题 superezpop 或同类 WEB 题。"
+      },
+      "method": {
+        "principle": "PHP 反序列化 POP 链；公开页面只有 /flag.php/POP 链线索，未找到可核验 flag 文本。",
+        "steps": ["核对题面和评论", "启动场景验证 /flag.php 或 POP 链", "验证成功后回填 flag"],
+        "tools": ["browser", "curl", "Burp Suite", "python3"],
+        "produces_artifact": false
+      },
+      "solver": {"reusable": false, "module_name": "bugku_superezpop", "code": "", "input": "目标 URL", "output": "flag 或待验证状态"},
+      "verification": {"flag": "", "how": "待动态场景复现"}
+    },
+    {"title":"第42题：？？？？","source_id":"[Bugku] 第42题","category":"web","attachment_type":"无/未知","refill_status":"solved-carded","detection":{"keywords":["fl4g_is_here.php","linux","Bugku","WEB"],"attachment_features":"在线 WEB 场景。","condition":"页面提示 flag is in fl4g_is_here.php。"},"method":{"principle":"按提示访问隐藏 PHP 文件并读取 flag。","steps":["查看页面提示","访问 fl4g_is_here.php","记录返回 flag"],"tools":["browser","curl"],"produces_artifact":false},"solver":{"reusable":false,"module_name":"bugku_hidden_php_flag","code":"","input":"目标 URL","output":"flag"},"verification":{"flag":"0xGame{L1nux_i5_S0_gO0D_I_th1nK}","how":"公开 Bugku writeup 给出该 flag"}},
+    {"title":"第43题：broken motto","source_id":"[Bugku] 第43题","category":"web","attachment_type":"无/未知","refill_status":"analyzed-no-flag","detection":{"keywords":["session","serialize","broken motto"],"attachment_features":"在线 WEB 场景。","condition":"PHP session 序列化处理异常。"},"method":{"principle":"利用 PHP session 序列化器差异触发注入/对象解析。","steps":["分析 session 序列化方式","构造可控字段","动态环境中验证 flag"],"tools":["browser","Burp Suite"],"produces_artifact":false},"solver":{"reusable":false,"module_name":"bugku_broken_motto","code":"","input":"目标 URL","output":"待验证"},"verification":{"flag":"","how":"公开 writeup 未提供可抄录 flag 文本"}},
+    {"title":"第44题：cookies","source_id":"[Bugku] 第44题","category":"web","attachment_type":"无/未知","refill_status":"candidate-conflict","detection":{"keywords":["cookies","base64","pickle"],"attachment_features":"在线 WEB 场景。","condition":"Cookie 可解码/反序列化。"},"method":{"principle":"解码并篡改 Cookie 中身份字段；因公开候选冲突，需提交验证。","steps":["抓取 Cookie","解码/反序列化","改身份字段","提交验证"],"tools":["browser","python3","Burp Suite"],"produces_artifact":false},"solver":{"reusable":false,"module_name":"bugku_cookies_refill","code":"","input":"Cookie","output":"候选 flag"},"verification":{"flag":"","candidate":"0xGame{b3c48a2f54bb49c60a0d085a305e80ee} / 0xGame{b3c48a2f54bb49c60a0d08b76bdc87db}","how":"公开候选存在冲突，未写入最终 flag"}},
+    {"title":"第46题：edr","source_id":"[Bugku] 第46题","category":"web","attachment_type":"无/未知","refill_status":"solved-carded","detection":{"keywords":["edr","RCE","Sangfor"],"attachment_features":"在线 WEB 场景。","condition":"edr 题目可通过命令执行/规则绕过读取 flag。"},"method":{"principle":"根据公开 writeup 的 EDR/RCE 绕过链读取 flag。","steps":["复现公开 payload","读取 flag","记录结果"],"tools":["browser","Burp Suite","curl"],"produces_artifact":false},"solver":{"reusable":false,"module_name":"bugku_edr_refill","code":"","input":"目标 URL","output":"flag"},"verification":{"flag":"0xGame{S4n9f0r_3dR_c4N_Rce_reC3n7_D4y}","how":"MiaoTony writeup 给出该 flag"}},
+    {"title":"第48题：intval","source_id":"[Bugku] 第48题","category":"web","attachment_type":"无/未知","refill_status":"candidate-conflict","detection":{"keywords":["intval","PHP","weak type"],"attachment_features":"在线 WEB 场景。","condition":"PHP intval/弱类型绕过。"},"method":{"principle":"利用 intval 与正则/弱比较差异绕过；公开候选冲突，需动态验证。","steps":["构造 1024.1/换行等输入","读取候选 flag","提交验证"],"tools":["curl","Burp Suite"],"produces_artifact":false},"solver":{"reusable":false,"module_name":"bugku_intval_refill","code":"","input":"目标 URL","output":"候选 flag"},"verification":{"flag":"","candidate":"0xGame{947eae96fe415cbc6eab17d99261dead} / 0xGame{947eae96fe415cbc6eab176f15dd98b1}","how":"公开候选冲突，未写入最终 flag"}},
+    {"title":"第53题：robots","source_id":"[Bugku] 第53题","category":"web","attachment_type":"无/未知","refill_status":"solved-carded","detection":{"keywords":["robots.txt","Disallow","Bugku"],"attachment_features":"在线 WEB 场景。","condition":"题名或提示指向 robots.txt。"},"method":{"principle":"访问 robots.txt 并跟踪 Disallow 中隐藏路径。","steps":["访问 /robots.txt","访问隐藏路径","记录 flag"],"tools":["browser","curl"],"produces_artifact":false},"solver":{"reusable":false,"module_name":"bugku_robots_refill","code":"","input":"目标 URL","output":"flag"},"verification":{"flag":"0xGame{now_you_k0nw_robots_Protocol}","how":"Bugku 评论区给出该 flag"}},
+    {"title":"第54题：switch","source_id":"[Bugku] 第54题","category":"web","attachment_type":"无/未知","refill_status":"solved-carded","detection":{"keywords":["switch","php://filter","base64"],"attachment_features":"在线 WEB 场景。","condition":"PHP switch/case 弱类型和 include 参数。"},"method":{"principle":"利用 switch 弱类型进入 case 2，并以 php://filter 读取 flag.php。","steps":["POST id 为 2 开头字符串","使用大小写绕过 filter/base64 检测","Base64 解码 flag.php"],"tools":["curl","Burp Suite","base64"],"produces_artifact":false},"solver":{"reusable":false,"module_name":"bugku_switch_refill","code":"","input":"目标 URL","output":"flag"},"verification":{"flag":"0xGame{S0me_pHp_tR1cKs_u_G3t_1t}","how":"MiaoTony writeup 给出 decoded flag"}},
+    {"title":"第59题：command","source_id":"[Bugku] 第59题","category":"web","attachment_type":"无/未知","refill_status":"solved-carded","detection":{"keywords":["command","ping","cat flag"],"attachment_features":"在线 WEB 场景。","condition":"ping/command 参数可拼接。"},"method":{"principle":"通过命令拼接读取上级目录 flag。","steps":["启用可点击 ping","抓包追加命令分隔符","读取 flag"],"tools":["browser","Burp Suite","curl"],"produces_artifact":false},"solver":{"reusable":false,"module_name":"bugku_command_refill","code":"","input":"目标 URL","output":"flag"},"verification":{"flag":"0xGame{L1nux_cmd_1s_3a5y_t0_you!!!}","how":"Bugku 评论区给出该 flag"}},
+    {"title":"第61题：upload","source_id":"[Bugku] 第61题","category":"web","attachment_type":"无/未知","refill_status":"solved-carded","detection":{"keywords":["upload","file include","phpinfo","printenv"],"attachment_features":"在线 WEB 场景。","condition":"上传文件后可通过文件包含执行或读取环境。"},"method":{"principle":"上传绕过过滤后结合文件包含，最终从环境变量或 phpinfo 中读取 flag。","steps":["上传绕过过滤的文件","用包含点加载上传文件","读取环境变量/phpinfo flag"],"tools":["browser","Burp Suite","curl"],"produces_artifact":false},"solver":{"reusable":false,"module_name":"bugku_upload_refill","code":"","input":"目标 URL/上传文件","output":"flag"},"verification":{"flag":"0xGame{upl0ad_f1le_causes_danger!!!}","how":"Anyyy writeup 给出该 flag"}},
+    {"title":"第64题：robot","source_id":"[Bugku] 第64题","category":"web","attachment_type":"无/未知","refill_status":"solved-carded","detection":{"keywords":["robot","robots.txt","4ll.html"],"attachment_features":"在线 WEB 场景。","condition":"robots.txt 指向隐藏页面。"},"method":{"principle":"访问 robots.txt，注意 4ll.html 与 411.html 字形差异，查看隐藏页源码得到 flag。","steps":["访问 robots.txt","访问 4ll.html","查看源码提取 flag"],"tools":["browser","curl"],"produces_artifact":false},"solver":{"reusable":false,"module_name":"bugku_robot_refill","code":"","input":"目标 URL","output":"flag"},"verification":{"flag":"0xGame{Rob0t_le4ks_seCr3t}","how":"Bugku 评论区和 0xGame2021 writeup 均给出该 flag"}}
+  ]
+}
