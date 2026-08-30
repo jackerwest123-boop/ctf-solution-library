@@ -1,0 +1,130 @@
+{
+  "batch": "Bugku 第131-180题逐题补flag",
+  "status": "refill",
+  "solved_count": 12,
+  "analyzed_no_flag_count": 9,
+  "blocked_no_flag_count": 29,
+  "items": [
+    {
+      "title": "第136题：Apollo Guidance Computer",
+      "source_id": "[Bugku] 第136题 / Space Heroes CTF-2023",
+      "category": "web",
+      "attachment_type": "源码/在线Web",
+      "refill_status": "solved-carded",
+      "verification": {"flag": "shctf{I_reP3aT_h0UstOn_w3_H4vE_L1Ft0Ff}", "how": "读取 Space Heroes CTF 2023 官方源码仓库 web/apollo-guidance-computer/src/flag.txt。"},
+      "method": {"principle": "源码公开的 Flask 题，检查源码中读取的 flag 文件或模板注释。", "steps": ["查看源码仓库目录", "定位 app.py 中 flag.txt 读取逻辑", "读取 flag.txt 并记录 flag"], "tools": ["GitHub", "curl"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_source_flag_file", "code": "", "input": "源码仓库", "output": "flag"}
+    },
+    {
+      "title": "第137题：attack-strategies",
+      "source_id": "[Bugku] 第137题 / Space Heroes CTF-2023",
+      "category": "web",
+      "attachment_type": "源码/在线Web",
+      "refill_status": "solved-carded",
+      "verification": {"flag": "shctf{get_zerg_rushed_nb}", "how": "读取 Space Heroes CTF 2023 官方源码仓库 web/attack-strategies/docker/strategies/flag.txt。"},
+      "method": {"principle": "目录隐藏类题，通过 Cookie show_hidden=true 或源码目录发现隐藏 txt 文件。", "steps": ["审计 Flask app.py", "发现 show_hidden Cookie 控制 txt 文件显示", "读取 strategies/flag.txt"], "tools": ["GitHub", "curl", "Burp Suite"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_hidden_txt_cookie", "code": "", "input": "目标 URL/源码", "output": "flag"}
+    },
+    {
+      "title": "第138题：robot-best-friend",
+      "source_id": "[Bugku] 第138题 / Space Heroes CTF-2023",
+      "category": "web",
+      "attachment_type": "源码/在线Web",
+      "refill_status": "solved-carded",
+      "verification": {"flag": "shctf{I_don't_want_to_play_with_you_ever_again}", "how": "读取 Space Heroes CTF 2023 官方源码仓库 Chall.py 中 system prompt。"},
+      "method": {"principle": "AI Bot/Prompt 题，flag 可能在 system prompt 或服务端提示词中。", "steps": ["审计服务端 bot 源码", "定位 system prompt", "提取其中 flag"], "tools": ["GitHub", "browser"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_bot_prompt_leak", "code": "", "input": "服务端源码", "output": "flag"}
+    },
+    {
+      "title": "第139题：Sanity Check In Space",
+      "source_id": "[Bugku] 第139题 / Space Heroes CTF-2023",
+      "category": "web",
+      "attachment_type": "源码/在线Web",
+      "refill_status": "solved-carded",
+      "verification": {"flag": "shctf{exp01ting_w3bs1tes_1N_SP@C3}", "how": "读取 Space Heroes CTF 2023 官方源码仓库 web/Sanity Check In Space/docker/flag.txt。"},
+      "method": {"principle": "签到/源码类题，直接检查源码仓库中的 flag.txt 或页面提示。", "steps": ["查看源码仓库", "定位 flag.txt", "记录 flag"], "tools": ["GitHub", "curl"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_sanity_source_flag", "code": "", "input": "源码仓库", "output": "flag"}
+    },
+    {
+      "title": "第140题：Bank of Knowhere",
+      "source_id": "[Bugku] 第140题 / Space Heroes CTF-2023",
+      "category": "web",
+      "attachment_type": "源码/在线Web",
+      "refill_status": "solved-carded",
+      "verification": {"flag": "shctf{7h3_c0sm0s_1s_w17h1n_u5}", "how": "读取 Space Heroes CTF 2023 官方源码仓库 web/Knowhere_Bank/docker/admin.php。"},
+      "method": {"principle": "业务逻辑题，通过修改余额/session 条件访问 admin.php，源码中可见 flag。", "steps": ["审计 index/admin 源码", "发现 session 余额条件", "访问或读取 admin.php 中 flag"], "tools": ["GitHub", "Burp Suite"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_bank_session_logic", "code": "", "input": "目标 URL/源码", "output": "flag"}
+    },
+    {
+      "title": "第144题：hi",
+      "source_id": "[Bugku] 第144题 / TJCTF-2023",
+      "category": "web",
+      "attachment_type": "在线Web",
+      "refill_status": "solved-carded",
+      "verification": {"flag": "tjctf{pretty_canvas_577f7045}", "how": "按 TJCTF 2023 公开 writeup 查看页面/canvas/源码提示。"},
+      "method": {"principle": "签到/前端源码题，查看页面源码和前端资源中的 flag。", "steps": ["打开页面", "查看源码/Canvas/静态资源", "提取 flag"], "tools": ["browser devtools"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_frontend_checkin", "code": "", "input": "目标 URL", "output": "flag"}
+    },
+    {
+      "title": "第148题：pay-to-win",
+      "source_id": "[Bugku] 第148题 / TJCTF-2023",
+      "category": "web",
+      "attachment_type": "在线Web",
+      "refill_status": "solved-carded",
+      "verification": {"flag": "tjctf{not_random_enough_64831eff}", "how": "按公开 writeup 分析随机/支付逻辑。"},
+      "method": {"principle": "业务逻辑题，检查随机数、支付状态或价格字段可预测/可篡改。", "steps": ["审计支付逻辑", "定位随机数或状态参数", "构造满足购买条件的请求"], "tools": ["browser devtools", "Burp Suite"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_pay_logic_rng", "code": "", "input": "目标 URL", "output": "flag"}
+    },
+    {
+      "title": "第158题：fruit-store",
+      "source_id": "[Bugku] 第158题 / TJCTF-2022",
+      "category": "web",
+      "attachment_type": "在线Web",
+      "refill_status": "solved-carded",
+      "verification": {"flag": "tjctf{h4v3_y0u_ev3r_tri3d_gr4s5_j3l1y_d4ebd9}", "how": "按公开 writeup 利用 prototype pollution/商店逻辑。"},
+      "method": {"principle": "商店题检查对象合并、原型污染、价格和库存逻辑。", "steps": ["抓取购物接口", "审计对象参数", "利用逻辑漏洞获取 flag"], "tools": ["Burp Suite", "browser devtools"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_store_prototype_pollution", "code": "", "input": "目标 URL", "output": "flag"}
+    },
+    {
+      "title": "第159题：game-leaderboard",
+      "source_id": "[Bugku] 第159题 / TJCTF-2022",
+      "category": "web",
+      "attachment_type": "在线Web",
+      "refill_status": "solved-carded",
+      "verification": {"flag": "tjctf{h3llo_w1nn3r_0r_4re_y0u?}", "how": "按公开 writeup 使用 SQLi/排行榜逻辑。"},
+      "method": {"principle": "排行榜题检查分数提交和后端查询的 SQL 注入/排序逻辑。", "steps": ["定位提交接口", "测试注入或高分提交", "读取获胜页面 flag"], "tools": ["Burp Suite", "sqlmap", "curl"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_leaderboard_sqli", "code": "", "input": "目标 URL", "output": "flag"}
+    },
+    {
+      "title": "第160题：lamb-sauce",
+      "source_id": "[Bugku] 第160题 / TJCTF-2022",
+      "category": "web",
+      "attachment_type": "在线Web",
+      "refill_status": "solved-carded",
+      "verification": {"flag": "tjctf{idk_man_but_here's_a_flag_462c964f0a177541}", "how": "按公开 writeup 查看页面源码。"},
+      "method": {"principle": "源码泄露/页面注释题，查看 HTML 源码即可。", "steps": ["打开页面", "查看源代码", "提取注释或隐藏文本中的 flag"], "tools": ["browser devtools", "curl"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_html_source_flag", "code": "", "input": "目标 URL", "output": "flag"}
+    },
+    {
+      "title": "第163题：portalstrology",
+      "source_id": "[Bugku] 第163题 / TJCTF-2022",
+      "category": "web",
+      "attachment_type": "在线Web",
+      "refill_status": "solved-carded",
+      "verification": {"flag": "tjctf{c01l3ges_plz_st0p_th3_l34k5}", "how": "按公开 writeup 处理 JWT/泄露逻辑。"},
+      "method": {"principle": "门户类题检查 JWT、配置泄露和用户状态。", "steps": ["抓取登录/状态接口", "解析 token", "利用泄露或签名弱点获得 flag"], "tools": ["Burp Suite", "jwt_tool", "python3"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_portal_jwt_leak", "code": "", "input": "目标 URL/token", "output": "flag"}
+    },
+    {
+      "title": "第164题：viewy",
+      "source_id": "[Bugku] 第164题 / TJCTF-2022",
+      "category": "web",
+      "attachment_type": "在线Web",
+      "refill_status": "solved-carded",
+      "verification": {"flag": "tjctf{4l1_th3_v1eW5_wh3333e333}", "how": "按公开 writeup 利用模板注入/视图参数。"},
+      "method": {"principle": "视图渲染题检查模板参数和 SSTI/路径读取。", "steps": ["定位 view 参数", "测试模板表达式", "读取 flag"], "tools": ["Burp Suite", "curl"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_view_template_injection", "code": "", "input": "目标 URL", "output": "flag"}
+    }
+  ],
+  "notes": "其余第131-135、141-143、145-147、149-157、161-162、165-180题未找到可核验公开 Bugku flag，状态见 worklogs/bugku/forward/第131-180题_flag_refill.md。"
+}
