@@ -1,0 +1,7 @@
+{
+  "title":"3-Not_only_base","source_id":"[网鼎杯-2018] Bugku-253","category":"crypto","attachment_type":"unknown",
+  "detection":{"keywords":["Not_only_base","base","base64","编码","crypto","网鼎杯"],"attachment_features":"题名提示不止一种Base/编码；Bugku题面要求flag{}","condition":"适用于多层Base家族与混合编码递归剥离题"},
+  "method":{"principle":"对候选字符串进行多种Base/Hex/URL等编码识别与递归解码，并用可打印率和flag格式约束搜索路径。","steps":["清理空白并判断字符集","尝试Base16/32/64/85及hex等常见编码","对成功结果递归继续解码","用flag格式、可打印率和语义筛选终点"],"tools":["python3 base64模块","CyberChef(辅助)"],"produces_artifact":false},
+  "solver":{"reusable":true,"module_name":"recursive_base_decode","code":"import sys,base64,re,binascii\nfrom collections import deque\nraw=open(sys.argv[1],'rb').read().strip() if len(sys.argv)>1 else sys.stdin.buffer.read().strip()\nfuncs=[('b16',lambda b:base64.b16decode(b,casefold=True)),('b32',lambda b:base64.b32decode(b)),('b64',lambda b:base64.b64decode(b,validate=True)),('b85',base64.b85decode),('a85',base64.a85decode)]\nq=deque([(raw,[])]) ; seen={raw}\nfor _ in range(5000):\n if not q: break\n b,path=q.popleft()\n m=re.findall(rb'(?i)(?:flag|ctf)\\{[^}]+\\}',b)\n if m:\n  print(path, m[0].decode('ascii','replace')); break\n for name,f in funcs:\n  try:\n   x=f(b.strip())\n   if x and x not in seen:\n    seen.add(x); q.append((x,path+[name]))\n  except Exception: pass\n","input":"包含多层编码字符串的文本文件或stdin","output":"命中的解码路径与flag候选"},
+  "verification":{"flag":"","how":"当前只固化通用多层Base解码能力；原题flag待附件本地验证"}
+}
