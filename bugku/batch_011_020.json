@@ -1,0 +1,22 @@
+{
+  "range": [11, 20],
+  "source": "https://ctf.bugku.com/challenges/index/gid/2.html",
+  "summary": {
+    "solved_verified": 5,
+    "method_identified_flag_pending": 1,
+    "pending_attachment_validation": 4
+  },
+  "entries": [
+    {"id": 11, "title": "robots", "status": "pending_attachment_validation"},
+    {"id": 12, "title": "nuaactf", "status": "solved_verified", "flag": "flag{bY73c0D3_W17h_C0D3}"},
+    {"id": 13, "title": "b1nary", "status": "pending_attachment_validation"},
+    {"id": 14, "title": "traffic", "status": "pending_attachment_validation"},
+    {"id": 15, "title": "recover", "status": "method_identified_flag_pending"},
+    {"id": 16, "title": "-++--", "status": "solved_verified", "flag": "nuaactf{br41nfuck_p1us}"},
+    {"id": 17, "title": "3-最好的语言", "status": "solved_verified", "flag": "flag{PyC_1s_613u21i_N0t_Hard}"},
+    {"id": 18, "title": "3-SimpleSMC", "status": "solved_verified", "flag": "flag{d0_y0u_Kn*w_5mC_F1@gCheCk?}"},
+    {"id": 19, "title": "3-hafuhafu", "status": "solved_verified", "flag": "flag{D0nT_uS3_Th3_kN0w_n}"},
+    {"id": 20, "title": "3-Unpleasant_music", "status": "pending_attachment_validation"}
+  ],
+  "note": "Pending entries are intentionally not assigned guessed flags. Obtain original attachments and reproduce before promoting their cards to validated."
+}
