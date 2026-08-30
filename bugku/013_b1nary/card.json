@@ -1,0 +1,28 @@
+{
+  "title": "b1nary",
+  "source_id": "[NUAACTF-2017] Bugku-240",
+  "category": "reverse",
+  "attachment_type": "binary(待确认)",
+  "detection": {
+    "keywords": ["reverse", "binary", "input validation", "control flow", "逆向", "二进制", "输入校验", "控制流"],
+    "attachment_features": "NUAACTF 2017逆向附件；公开资料不足以确认具体保护与算法",
+    "condition": "当可执行文件通过自定义变换/比较校验输入，且需要静态和动态结合恢复逻辑时适用"
+  },
+  "method": {
+    "principle": "围绕输入到最终比较的data-flow进行切片，逐层去除混淆并复现校验。",
+    "steps": ["文件与保护识别", "字符串和交叉引用初筛", "定位输入读取与最终比较", "对中间数据流做逆向切片", "必要时动态跟踪/内存dump", "Python复现并回程序验证"],
+    "tools": ["file", "strings", "checksec", "IDA", "Ghidra", "gdb/x64dbg", "python3"],
+    "produces_artifact": false
+  },
+  "solver": {
+    "reusable": false,
+    "module_name": "binary_dataflow_reverse",
+    "code": "",
+    "input": "原始可执行附件",
+    "output": "恢复的输入校验算法和flag"
+  },
+  "verification": {
+    "flag": "",
+    "how": "待取得原附件后完成可重复验证"
+  }
+}
