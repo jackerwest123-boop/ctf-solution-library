@@ -1,0 +1,28 @@
+{
+  "title": "-++--",
+  "source_id": "[NUAACTF-2017] Bugku-243",
+  "category": "misc",
+  "attachment_type": "txt",
+  "detection": {
+    "keywords": ["brainfuck", "esoteric language", "token substitution", "emoticon", "颜文字", "Brainfuck", "替换表", "非常规语言"],
+    "attachment_features": "文本由少量重复颜文字token组成，结构可映射到Brainfuck七类指令",
+    "condition": "当题目用颜文字/单词/符号替代Brainfuck指令，需要先建映射再执行时适用"
+  },
+  "method": {
+    "principle": "识别有限重复token与Brainfuck控制结构的同构关系，完成token替换后用标准解释器执行。",
+    "steps": ["统计重复token并观察嵌套结构", "利用成对结构识别[和]", "利用高频增减/移动模式推断+ - < >", "利用输出位置推断.", "按最长token优先替换避免子串冲突", "对得到的Brainfuck程序做括号配对并执行"],
+    "tools": ["python3", "Brainfuck interpreter"],
+    "produces_artifact": false
+  },
+  "solver": {
+    "reusable": true,
+    "module_name": "brainfuck_interpreter",
+    "code": "import sys\ncode=''.join(c for c in open(sys.argv[1],encoding='utf-8').read() if c in '><+-.,[]') if len(sys.argv)>1 else ''.join(c for c in sys.stdin.read() if c in '><+-.,[]')\njump={}; st=[]\nfor i,c in enumerate(code):\n    if c=='[': st.append(i)\n    elif c==']':\n        j=st.pop(); jump[i]=j; jump[j]=i\nif st: raise SystemExit('unmatched [')\nt=[0]*30000; p=ip=0; out=[]\nwhile ip<len(code):\n    c=code[ip]\n    if c=='>': p+=1\n    elif c=='<': p-=1\n    elif c=='+': t[p]=(t[p]+1)&255\n    elif c=='-': t[p]=(t[p]-1)&255\n    elif c=='.': out.append(chr(t[p]))\n    elif c=='[' and t[p]==0: ip=jump[ip]\n    elif c==']' and t[p]!=0: ip=jump[ip]\n    ip+=1\nprint(''.join(out))\n",
+    "input": "已经替换成标准Brainfuck指令的文本文件或stdin",
+    "output": "Brainfuck程序输出文本"
+  },
+  "verification": {
+    "flag": "nuaactf{br41nfuck_p1us}",
+    "how": "将公开writeup中的颜文字替换为Brainfuck后，用解释器执行公开程序，得到nuaactf{br41nfuck_p1us}"
+  }
+}
