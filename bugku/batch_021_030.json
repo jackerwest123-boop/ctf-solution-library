@@ -1,0 +1,17 @@
+{
+  "range":[21,30],
+  "entries":[
+    {"id":21,"title":"3-track_hacker","category":"crypto","status":"pending_attachment_validation"},
+    {"id":22,"title":"3-dewas","category":"misc","status":"pending_attachment_validation"},
+    {"id":23,"title":"3-mirror","category":"misc","status":"pending_attachment_validation"},
+    {"id":24,"title":"3-I_like_pack","category":"reverse","status":"method_identified_flag_pending"},
+    {"id":25,"title":"3-babyre","category":"reverse","status":"method_identified_flag_pending"},
+    {"id":26,"title":"3-Not_only_base","category":"crypto","status":"method_identified_flag_pending"},
+    {"id":27,"title":"easy_fs","category":"reverse","status":"solved_public_flag_pending_local_validation"},
+    {"id":28,"title":"baby_N1ES","category":"crypto","status":"method_identified_flag_pending"},
+    {"id":29,"title":"Lipstick","category":"misc","status":"method_identified_flag_pending"},
+    {"id":30,"title":"APFS","category":"forensics","status":"pending_attachment_validation"}
+  ],
+  "counts":{"solved_verified":0,"solved_public_flag_pending_local_validation":1,"method_identified_flag_pending":5,"pending_attachment_validation":4},
+  "note":"No flag is marked verified unless reproduced locally. Public writeup/comment evidence is retained only as a lead until attachment-based validation."
+}
