@@ -1,0 +1,7 @@
+{
+  "title":"3-babyre","source_id":"[网鼎杯-2018] Bugku","category":"reverse","attachment_type":"elf",
+  "detection":{"keywords":["babyre","reverse","逆向","网鼎杯","校验逻辑"],"attachment_features":"网鼎杯2018 day3逆向题","condition":"适用于从程序校验函数中还原输入约束的基础逆向题"},
+  "method":{"principle":"定位输入处理和比较函数，将逐字节变换、查表或算术约束逆向恢复为原输入。","steps":["strings与交叉引用定位输入/成功提示","反编译主校验函数","把逐字节变换改写为Python逆运算","生成候选flag并回程序验证"],"tools":["Ghidra/IDA","gdb","python3","strings"],"produces_artifact":false},
+  "solver":{"reusable":false,"module_name":"","code":"","input":"可执行文件","output":"恢复的候选输入"},
+  "verification":{"flag":"","how":"公开资料确认题目属于网鼎杯2018 day3逆向；缺附件时不猜flag，待本地复现"}
+}
