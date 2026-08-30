@@ -1,0 +1,28 @@
+{
+  "title": "nuaactf",
+  "source_id": "[NUAACTF-2017] Bugku-239",
+  "category": "reverse",
+  "attachment_type": "jar",
+  "detection": {
+    "keywords": ["jar", "java", "classloader", "AES-CBC", "PKCS5", "password brute force", "JAR反编译", "动态类加载", "AES解密", "短口令爆破"],
+    "attachment_features": "JAR入口验证短口令，并用派生密钥解密内嵌class后动态加载",
+    "condition": "当Java/JAR题把真实校验类加密保存，并由短口令派生AES密钥动态解密加载时适用"
+  },
+  "method": {
+    "principle": "先恢复加密class的解密密钥和参数，再对恢复后的字节码进行第二阶段逆向。",
+    "steps": ["用JD-GUI/CFR反编译JAR入口", "识别短口令摘要校验并对有限字符集爆破", "复现程序KDF得到AES密钥并确认IV/模式/padding", "批量解密内嵌class并保存为标准class文件", "二次反编译解密类并追踪最终校验", "将按索引XOR等字节变换逆向还原"],
+    "tools": ["JD-GUI", "CFR", "javap", "python3", "pycryptodome"],
+    "produces_artifact": false
+  },
+  "solver": {
+    "reusable": false,
+    "module_name": "jar_encrypted_class_recovery",
+    "code": "",
+    "input": "JAR及其中的加密class资源",
+    "output": "解密class、逆向后的校验字符串"
+  },
+  "verification": {
+    "flag": "flag{bY73c0D3_W17h_C0D3}",
+    "how": "按公开writeup复现：爆破口令mdzz，MD5派生AES key，IV为16个*，解密class后逆两轮索引XOR；Bugku提交flag{bY73c0D3_W17h_C0D3}成功"
+  }
+}
