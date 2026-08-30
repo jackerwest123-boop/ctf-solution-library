@@ -1,0 +1,7 @@
+{
+  "title":"3-I_like_pack","source_id":"[网鼎杯-2018] Bugku","category":"reverse","attachment_type":"elf",
+  "detection":{"keywords":["I_like_pack","pack","packer","脱壳","逆向","网鼎杯"],"attachment_features":"网鼎杯2018 day3逆向题，公开writeup确认题名但缺少可复现附件细节","condition":"遇到加壳/自解包或运行时展开代码的逆向题"},
+  "method":{"principle":"先识别壳与自解包行为，定位OEP或解密后的代码，再对校验逻辑做静态/动态逆向。","steps":["检查ELF/PE与节区异常","识别常见壳或自修改逻辑","动态跟踪解包跳转并dump内存","修复后分析flag校验逻辑"],"tools":["file","strings","Ghidra/IDA","gdb","upx(如适用)"],"produces_artifact":false},
+  "solver":{"reusable":false,"module_name":"","code":"","input":"可执行文件","output":"解包后的程序或校验逻辑"},
+  "verification":{"flag":"","how":"公开writeup确认该题属于day3逆向，但现阶段缺少附件与完整可复现flag，待本地验证"}
+}
