@@ -1,0 +1,7 @@
+{
+  "title":"3-dewas","source_id":"[网鼎杯-2018] Bugku","category":"misc","attachment_type":"unknown",
+  "detection":{"keywords":["3-dewas","misc","网鼎杯","取证","隐写"],"attachment_features":"需附件确认具体文件类型与隐藏载荷","condition":"遇到网鼎杯2018 3-dewas原题或同构附件时适用"},
+  "method":{"principle":"对杂项附件先做文件识别、元数据与嵌入数据枚举，再按实际载荷类型提取。","steps":["file/strings初筛","检查元数据与文件尾","binwalk或格式专用工具分析","提取隐藏内容并验证flag"],"tools":["file","strings","exiftool","binwalk","python3"],"produces_artifact":true},
+  "solver":{"reusable":false,"module_name":"","code":"","input":"题目附件","output":"提取后的隐藏数据或可视化文件"},
+  "verification":{"flag":"","how":"当前无可靠公开明文flag，待附件本地验证"}
+}
