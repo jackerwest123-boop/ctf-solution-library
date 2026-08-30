@@ -1,0 +1,35 @@
+{
+  "title": "ezlogin",
+  "source_id": "[Bugku] 第39题",
+  "capability_id": "",
+  "category": "web",
+  "attachment_type": "无",
+  "detection": {
+    "keywords": ["bugku", "web", "ezlogin", "CTF", "比赛真题", "网页", "login", "登录", "md5", "文件包含", "php://filter"],
+    "attachment_features": "无附件；动态 Web 场景题",
+    "condition": "题面或评论出现登录、数组 MD5 相等、file 参数或 php://filter 文件包含线索时适用。"
+  },
+  "method": {
+    "principle": "通过 PHP 数组 MD5 弱比较绕过登录，再用 php://filter 文件包含读取源码和 flag。",
+    "steps": [
+      "测试登录参数是否存在 md5 弱比较",
+      "用数组参数让 md5(array) 结果异常或同为 NULL",
+      "通过 file 参数和 php://filter 读取当前页源码",
+      "继续读取 hint.php 或题目提示文件",
+      "读取最终 flag 路径并 base64 解码"
+    ],
+    "tools": ["curl", "burp", "base64"],
+    "produces_artifact": false
+  },
+  "solver": {
+    "reusable": false,
+    "module_name": "php_md5_lfi_notes",
+    "code": "",
+    "input": "动态场景 URL 和可控 file 参数名。",
+    "output": "可读取源码或 flag 的 php://filter payload。"
+  },
+  "verification": {
+    "flag": "",
+    "how": "启动场景后读取 /answer/flagggg，并将返回内容 base64 解码。"
+  }
+}
