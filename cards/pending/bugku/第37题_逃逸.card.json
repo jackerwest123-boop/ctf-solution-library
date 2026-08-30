@@ -1,0 +1,29 @@
+{
+  "title": "逃逸",
+  "source_id": "[Bugku] 第37题",
+  "capability_id": "",
+  "category": "web",
+  "attachment_type": "无",
+  "detection": {
+    "keywords": ["bugku", "web", "escape", "逃逸", "ssti", "sandbox", "模板", "字符串逃逸"],
+    "attachment_features": "无附件；动态 Web 场景题",
+    "condition": "题名或题面出现逃逸、escape、sandbox、SSTI、模板等关键词时适用。"
+  },
+  "method": {
+    "principle": "先识别逃逸类型，再根据模板、沙箱、字符串过滤或反序列化上下文构造逃逸 payload。",
+    "steps": ["抓取源码和响应特征", "判断逃逸类型", "枚举过滤前后差异或模板对象链", "构造可执行/可读取文件的 payload", "读取 flag"],
+    "tools": ["curl", "burp", "tplmap"],
+    "produces_artifact": false
+  },
+  "solver": {
+    "reusable": false,
+    "module_name": "web_escape_probe_notes",
+    "code": "",
+    "input": "场景 URL、源码和过滤规则。",
+    "output": "可触发逃逸的 payload。"
+  },
+  "verification": {
+    "flag": "",
+    "how": "启动 Bugku 场景后确认逃逸类型并提交 payload。"
+  }
+}
