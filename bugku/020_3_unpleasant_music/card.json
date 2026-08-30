@@ -1,0 +1,28 @@
+{
+  "title": "3-Unpleasant_music",
+  "source_id": "[网鼎杯-2018] Bugku-247",
+  "category": "misc",
+  "attachment_type": "audio(待确认)",
+  "detection": {
+    "keywords": ["audio forensics", "spectrogram", "wav", "RIFF", "DTMF", "Morse", "audio steganography", "音频取证", "频谱图", "声谱图", "音频隐写"],
+    "attachment_features": "题名暗示音乐/音频，但公开资料不足，具体格式和隐写方式必须由原附件确认",
+    "condition": "当MISC附件确认为音频且需要从元数据、容器结构、声谱或信号编码中恢复数据时使用通用音频取证流程"
+  },
+  "method": {
+    "principle": "对音频先做格式/容器取证，再逐步检查波形、频谱、通道、LSB和常见信号编码，避免只凭题名猜单一隐写方式。",
+    "steps": ["用file/ffprobe/exiftool识别真实格式和参数", "strings/binwalk检查附加和嵌入数据", "检查RIFF chunk与文件尾数据", "查看波形和声谱图并检查左右声道差分", "按证据检查Morse/DTMF/FSK/LSB等编码", "对提取结果继续解码并在原附件上验证flag"],
+    "tools": ["file", "ffprobe", "exiftool", "strings", "binwalk", "Audacity", "Sonic Visualiser"],
+    "produces_artifact": true
+  },
+  "solver": {
+    "reusable": false,
+    "module_name": "audio_forensics_triage",
+    "code": "",
+    "input": "原始音频/音乐附件",
+    "output": "音频结构、频谱/声谱和候选隐藏数据"
+  },
+  "verification": {
+    "flag": "",
+    "how": "待取得原附件后确定真实音频格式和隐写方法，再补全验证"
+  }
+}
