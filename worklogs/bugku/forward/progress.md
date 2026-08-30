@@ -11,9 +11,10 @@
 | 批次 | 范围 | 输出 | 状态 |
 |---|---:|---|---|
 | 第一批 | 31—40 | 单题 Markdown + 单题 JSON 卡 | 第33、36题 solved-carded；其余 blocked-carded |
-| 第二批 | 41—80 | `worklogs/bugku/forward/第41-80题_batch.md`；`cards/pending/bugku/第41-80题_batch.cards.json` | 原为批量 blocked-carded，已开始返工补 flag |
+| 第二批 | 41—80 | `worklogs/bugku/forward/第41-80题_batch.md`；`cards/pending/bugku/第41-80题_batch.cards.json` | 原为批量 blocked-carded，已返工补 flag |
 | 第二批补充 | 41—80 | `worklogs/bugku/forward/第41-80题_flag_refill.md`；`cards/pending/bugku/第41-80题_flag_refill.cards.json` | 已确认 7 题 solved-carded；2 题 candidate-conflict；其余待动态验证 |
-| 第三批 | 81—130 | `worklogs/bugku/forward/第81-130题_batch.md`；`cards/pending/bugku/第81-130题_batch.cards.json` | blocked-carded，待逐题补 flag |
+| 第三批 | 81—130 | `worklogs/bugku/forward/第81-130题_batch.md`；`cards/pending/bugku/第81-130题_batch.cards.json` | 原为批量 blocked-carded，已返工补 flag |
+| 第三批补充 | 81—130 | `worklogs/bugku/forward/第81-130题_flag_refill.md`；`cards/pending/bugku/第81-130题_flag_refill.cards.json` | 已确认 5 题 solved-carded；2 题 candidate-format-anomaly；其余待动态验证 |
 | 第四批 | 131—180 | `worklogs/bugku/forward/第131-180题_batch.md`；`cards/pending/bugku/第131-180题_batch.cards.json` | blocked-carded，待逐题补 flag |
 
 ## 第41—80题补 flag 摘要
@@ -24,6 +25,15 @@
 | candidate-conflict | 2 | 44、48 |
 | analyzed-no-flag | 10 | 41、43、47、49、50、55、62、65、66、67 |
 | blocked-no-flag | 21 | 45、51、52、56、57、58、60、63、68—80 |
+
+## 第81—130题补 flag 摘要
+
+| 类别 | 数量 | 题号 |
+|---|---:|---|
+| solved-carded | 5 | 87、89、92、93、94 |
+| candidate-format-anomaly | 2 | 88、103 |
+| analyzed-no-flag | 11 | 90、91、95、96、97、100、101、102、104、105、106 |
+| blocked-no-flag | 32 | 81—86、98、99、107—130 |
 
 ## 已确认 flag
 
@@ -36,12 +46,17 @@
 | 59 | command | `0xGame{L1nux_cmd_1s_3a5y_t0_you!!!}` |
 | 61 | upload | `0xGame{upl0ad_f1le_causes_danger!!!}` |
 | 64 | robot | `0xGame{Rob0t_le4ks_seCr3t}` |
+| 87 | 2048 | `moectf{2048_1s_intere5t1ng!}` |
+| 89 | Do you know HTTP | `moectf{HTTPHeaders_1s_s0_ea5y!}` |
+| 92 | Web安全入门指北—GET | `moectf{We1c0me_t0_CTF_Web!}` |
+| 93 | Web安全入门指北—POST | `moectf{POST_1s_an_1mp0rtant_m3th0d!}` |
+| 94 | Web安全入门指北—小饼干 | `moectf{C00kie_1s_sw33t!}` |
 
 ## 处理原则
 - 能直接从公开题面、评论或公开 writeup 确认 flag 的写入 solved-carded。
-- 候选冲突或有“flag error/不正确”等提示的题目，不写入最终 verification.flag。
+- 候选冲突、格式异常或有“提交不上/不正确”等提示的题目，不写入最终 verification.flag。
+- NSSCTF 等复现平台中的动态 `NSSCTF{uuid}` 不作为 Bugku flag。
 - 需要启动 Bugku 动态容器验证的题目，不编造 flag，统一保留为 analyzed-no-flag 或 blocked-no-flag。
-- 后续应优先对 41—80 中未确认 flag 的题目继续查公开 writeup 与动态复现。
 
 ## 下一步
-继续返工第41—80题未确认项，或按用户要求进入第81—130题逐题补 flag。
+继续返工第81—130题未确认项，或按用户要求进入第131—180题逐题补 flag。
