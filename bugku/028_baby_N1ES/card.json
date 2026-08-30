@@ -1,0 +1,7 @@
+{
+  "title":"baby_N1ES","source_id":"[N1CTF-2018] Bugku","category":"crypto","attachment_type":"py",
+  "detection":{"keywords":["baby_N1ES","Feistel","XOR","round_add","N1CTF","费斯妥"],"attachment_features":"32轮Feistel结构，round_add实质为逐字节XOR，公开writeup给出加密源码结构","condition":"适用于轮函数可逆且密钥轮次已知的Feistel类自定义分组密码"},
+  "method":{"principle":"识别round_add为XOR并利用Feistel结构天然可逆，按相反轮密钥顺序执行同构轮变换恢复明文。","steps":["确认round_add(a,b)=a XOR b","确认16字节分组及8/8左右半块","逆序使用32轮子密钥","交换半块恢复原始顺序","对明文字节检查flag格式"],"tools":["python3","base64"],"produces_artifact":false},
+  "solver":{"reusable":true,"module_name":"feistel_xor_reverse","code":"import sys\ndef xor(a,b): return bytes(x^y for x,y in zip(a,b))\ndef dec_block(block,keys):\n L,R=block[:8],block[8:]\n for k in reversed(keys):\n  L,R=xor(R,k),L\n return L+R\nprint('Provide 16-byte ciphertext blocks and the recovered 8-byte round keys; apply dec_block to each block.')\n","input":"16字节倍数密文 + 按加密顺序排列的8字节轮密钥列表","output":"解密后的明文字节"},
+  "verification":{"flag":"","how":"公开N1CTF 2018 writeup确认其可通过逆序key schedule解密；原题flag待结合附件/完整密文本地验证"}
+}
