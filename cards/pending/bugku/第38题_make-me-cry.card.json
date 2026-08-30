@@ -1,0 +1,29 @@
+{
+  "title": "Make Me Cry",
+  "source_id": "[Bugku] 第38题",
+  "capability_id": "",
+  "category": "web",
+  "attachment_type": "无",
+  "detection": {
+    "keywords": ["bugku", "web", "Make Me Cry", "源码", "目录枚举", "动态场景"],
+    "attachment_features": "无附件；动态 Web 场景题",
+    "condition": "只取得题名但尚未取得完整题面时，先按 Web 基础探测流程适用。"
+  },
+  "method": {
+    "principle": "先枚举题面、源码、静态资源和请求参数，再根据泄露线索复现 Web 漏洞。",
+    "steps": ["抓取首页源码和响应头", "枚举静态资源和备份文件", "识别登录、上传、包含、注入、模板等入口", "构造 payload 并读取 flag"],
+    "tools": ["curl", "feroxbuster", "burp"],
+    "produces_artifact": false
+  },
+  "solver": {
+    "reusable": false,
+    "module_name": "web_basic_probe_template",
+    "code": "",
+    "input": "动态场景 URL。",
+    "output": "题面、源码线索和后续漏洞类型判断。"
+  },
+  "verification": {
+    "flag": "",
+    "how": "启动 Bugku 场景后完成基础探测并补全复现步骤。"
+  }
+}
