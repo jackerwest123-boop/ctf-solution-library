@@ -1,9 +1,16 @@
 {
   "platform": "Bugku",
   "competition_url": "https://ctf.bugku.com/challenges/index/gid/2.html",
-  "total_processed": 10,
-  "last_processed": 10,
-  "next_start": 11,
+  "total_processed": 20,
+  "last_processed": 20,
+  "next_start": 21,
   "batch_size": 10,
-  "status": "in_progress"
+  "status": "in_progress",
+  "latest_batch": {
+    "range": [11, 20],
+    "solved_verified": 5,
+    "method_identified_flag_pending": 1,
+    "pending_attachment_validation": 4,
+    "summary_file": "bugku/batch_011_020.json"
+  }
 }
