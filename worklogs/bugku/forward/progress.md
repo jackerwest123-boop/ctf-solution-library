@@ -4,7 +4,7 @@
 - 目标：处理 Bugku WEB 题库正序任务。
 - 目标题库：https://ctf.bugku.com/challenges/index/gid/2/tid/1/status/-1.html
 - 正序方向：从第31题继续向后处理。
-- 说明：第1题至第30题已完成；当前已推进到第180题；正在返工补 flag。
+- 说明：第1题至第30题已完成；当前已推进到第180题；第41—180题已进入逐题补 flag 阶段。
 
 ## 已完成批次
 
@@ -15,7 +15,8 @@
 | 第二批补充 | 41—80 | `worklogs/bugku/forward/第41-80题_flag_refill.md`；`cards/pending/bugku/第41-80题_flag_refill.cards.json` | 已确认 7 题 solved-carded；2 题 candidate-conflict；其余待动态验证 |
 | 第三批 | 81—130 | `worklogs/bugku/forward/第81-130题_batch.md`；`cards/pending/bugku/第81-130题_batch.cards.json` | 原为批量 blocked-carded，已返工补 flag |
 | 第三批补充 | 81—130 | `worklogs/bugku/forward/第81-130题_flag_refill.md`；`cards/pending/bugku/第81-130题_flag_refill.cards.json` | 已确认 5 题 solved-carded；2 题 candidate-format-anomaly；其余待动态验证 |
-| 第四批 | 131—180 | `worklogs/bugku/forward/第131-180题_batch.md`；`cards/pending/bugku/第131-180题_batch.cards.json` | blocked-carded，待逐题补 flag |
+| 第四批 | 131—180 | `worklogs/bugku/forward/第131-180题_batch.md`；`cards/pending/bugku/第131-180题_batch.cards.json` | 原为批量 blocked-carded，已返工补 flag |
+| 第四批补充 | 131—180 | `worklogs/bugku/forward/第131-180题_flag_refill.md`；`cards/pending/bugku/第131-180题_flag_refill.cards.json` | 已确认 12 题 solved-carded；其余待动态验证 |
 
 ## 第41—80题补 flag 摘要
 
@@ -35,6 +36,14 @@
 | analyzed-no-flag | 11 | 90、91、95、96、97、100、101、102、104、105、106 |
 | blocked-no-flag | 32 | 81—86、98、99、107—130 |
 
+## 第131—180题补 flag 摘要
+
+| 类别 | 数量 | 题号 |
+|---|---:|---|
+| solved-carded | 12 | 136、137、138、139、140、144、148、158、159、160、163、164 |
+| analyzed-no-flag | 9 | 141、143、145、147、149、150、151、152、153 |
+| blocked-no-flag | 29 | 131—135、142、146、154—157、161—162、165—180 |
+
 ## 已确认 flag
 
 | 题号 | 题名 | flag |
@@ -51,12 +60,24 @@
 | 92 | Web安全入门指北—GET | `moectf{We1c0me_t0_CTF_Web!}` |
 | 93 | Web安全入门指北—POST | `moectf{POST_1s_an_1mp0rtant_m3th0d!}` |
 | 94 | Web安全入门指北—小饼干 | `moectf{C00kie_1s_sw33t!}` |
+| 136 | Apollo Guidance Computer | `shctf{I_reP3aT_h0UstOn_w3_H4vE_L1Ft0Ff}` |
+| 137 | attack-strategies | `shctf{get_zerg_rushed_nb}` |
+| 138 | robot-best-friend | `shctf{I_don't_want_to_play_with_you_ever_again}` |
+| 139 | Sanity Check In Space | `shctf{exp01ting_w3bs1tes_1N_SP@C3}` |
+| 140 | Bank of Knowhere | `shctf{7h3_c0sm0s_1s_w17h1n_u5}` |
+| 144 | hi | `tjctf{pretty_canvas_577f7045}` |
+| 148 | pay-to-win | `tjctf{not_random_enough_64831eff}` |
+| 158 | fruit-store | `tjctf{h4v3_y0u_ev3r_tri3d_gr4s5_j3l1y_d4ebd9}` |
+| 159 | game-leaderboard | `tjctf{h3llo_w1nn3r_0r_4re_y0u?}` |
+| 160 | lamb-sauce | `tjctf{idk_man_but_here's_a_flag_462c964f0a177541}` |
+| 163 | portalstrology | `tjctf{c01l3ges_plz_st0p_th3_l34k5}` |
+| 164 | viewy | `tjctf{4l1_th3_v1eW5_wh3333e333}` |
 
 ## 处理原则
-- 能直接从公开题面、评论或公开 writeup 确认 flag 的写入 solved-carded。
+- 能直接从公开题面、评论、公开 writeup 或官方公开源码仓库确认 flag 的写入 solved-carded。
 - 候选冲突、格式异常或有“提交不上/不正确”等提示的题目，不写入最终 verification.flag。
 - NSSCTF 等复现平台中的动态 `NSSCTF{uuid}` 不作为 Bugku flag。
 - 需要启动 Bugku 动态容器验证的题目，不编造 flag，统一保留为 analyzed-no-flag 或 blocked-no-flag。
 
 ## 下一步
-继续返工第81—130题未确认项，或按用户要求进入第131—180题逐题补 flag。
+继续第181—230题逐题补 flag，仍按“可核验 flag 才写入 verification.flag”的标准执行。
