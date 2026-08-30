@@ -1,0 +1,34 @@
+{
+  "title": "easy-pop",
+  "source_id": "[Bugku] 第35题",
+  "capability_id": "",
+  "category": "web",
+  "attachment_type": "无",
+  "detection": {
+    "keywords": ["bugku", "web", "easy-pop", "CTF", "比赛真题", "网页", "php", "unserialize", "POP", "反序列化"],
+    "attachment_features": "无附件；动态 Web 场景题",
+    "condition": "题面或列表出现 easy-pop，且为 PHP 反序列化/POP 链动态场景题时适用。"
+  },
+  "method": {
+    "principle": "读取 PHP 类定义后构造可触发魔术方法的反序列化对象链。",
+    "steps": [
+      "读取/观察源码中的类和魔术方法",
+      "构造对象链触发 __destruct/__wakeup/__toString 等方法",
+      "对 private/protected 属性名做 NUL 字节编码",
+      "URL 编码或 base64 编码后通过参数传入"
+    ],
+    "tools": ["php", "python3", "burp"],
+    "produces_artifact": false
+  },
+  "solver": {
+    "reusable": false,
+    "module_name": "php_pop_payload_notes",
+    "code": "",
+    "input": "动态场景源码和类定义。",
+    "output": "可提交的序列化 payload。"
+  },
+  "verification": {
+    "flag": "",
+    "how": "启动 Bugku 场景后读取源码，构造 lemon/evil 对象链并提交 payload。"
+  }
+}
