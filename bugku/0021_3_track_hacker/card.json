@@ -1,0 +1,14 @@
+{
+  "title": "3-track_hacker",
+  "source_id": "[网鼎杯-2018] 3-track_hacker",
+  "source_url": "https://ctf.bugku.com/challenges/detail/id/248.html",
+  "capability_id": "cg_crypto_track_hacker",
+  "category": "crypto",
+  "attachment_type": "unknown",
+  "attachment": {"path": "", "sha256": "", "size": 0},
+  "detection": {"keywords": ["3-track_hacker", "Crypto", "Bugku", "网鼎杯-2018"], "attachment_features": "未取得原始附件；需识别编码、密钥材料或密码结构。", "condition": "遇到同名题或相同附件时适用。"},
+  "method": {"principle": "先识别附件中的编码、密钥材料和密码结构，再按实际原语恢复明文。", "steps": ["检查文件类型与可打印字符串", "识别Base64/hex/大整数/密钥参数", "根据原语建立解密脚本", "验证flag格式并复现"], "tools": ["file", "strings", "xxd", "python3"], "produces_artifact": false},
+  "solver": {"reusable": false, "module_name": "", "entrypoint": "solve(attachment_path, **kwargs) -> {'flag': str|None, 'artifacts': [str], 'evidence': str}", "code": "", "dependencies": [], "self_test": {"mock_input": "", "expected_output": "", "note": "本轮未提供可执行solver；补附件后再启用self-test。"}},
+  "verification": {"flag": "", "how": "未用原始附件真实执行。", "executed": false, "executed_output": ""},
+  "status": "method_only"
+}
