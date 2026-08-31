@@ -6,10 +6,10 @@
   "page_count_planned": 130,
   "page_size": 20,
   "numbering_rule": "global_no = (page - 1) * 20 + page_index",
-  "current_phase": "round_003_B_completed_next_round_004_A",
-  "last_enumerated_round": 3,
-  "last_enumerated_page": 3,
-  "last_enumerated_global_no": 60,
+  "current_phase": "round_004_A_completed_next_round_004_B",
+  "last_enumerated_round": 4,
+  "last_enumerated_page": 4,
+  "last_enumerated_global_no": 80,
   "next_round": 4,
   "next_page_url": "https://ctf.bugku.com/challenges/index/gid/2.html?page=4",
   "round_001": {
@@ -34,8 +34,15 @@
     "worklog_enumeration": "worklogs/bugku/rounds/round_003_page_003.md",
     "worklog_contract": "worklogs/bugku/rounds/round_003_page_003_contract_0041_0060.md",
     "contract_files_created": [41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60],
-    "stats_current": {"solved_verified": 0, "solved_unverified": 0, "method_only": 19, "blocked": 1},
-    "notes": "第003轮-A和第003轮-B已完成；0041—0060均已有canonical README/card。未新增solved_verified；0055因测试题且detail URL未复核保持blocked。"
+    "stats_current": {"solved_verified": 0, "solved_unverified": 0, "method_only": 19, "blocked": 1}
   },
-  "next_action_full_prompt": "进入第004轮-A：对 https://ctf.bugku.com/challenges/index/gid/2.html?page=4 的第0061—0080题做清单建档。具体任务：逐题记录全局题号、page_index、题名、赛事、类型、detail URL、已解决人数或页面状态、初始仓库状态；写入或追加更新 data/bugku_gid2_manifest.json，并创建 worklogs/bugku/rounds/round_004_page_004.md。本阶段只做 page=4 的清单建档，不做解题，不创建题目 README/card；完成后把 progress.json 的下一步提示改为第004轮-B，对第0061—0080题逐题生成或升级 canonical README/card。"
+  "round_004": {
+    "page": 4,
+    "range": [61, 80],
+    "status": "A_completed_B_pending",
+    "worklog_enumeration": "worklogs/bugku/rounds/round_004_page_004.md",
+    "manifest": "data/bugku_gid2_manifest.json",
+    "notes": "第004轮-A已完成清单建档；未解题、未创建README/card。0066、0067、0071、0073—0080 detail URL需第004轮-B继续复核。"
+  },
+  "next_action_full_prompt": "进入第004轮-B：对 https://ctf.bugku.com/challenges/index/gid/2.html?page=4 的第0061—0080题逐题生成或升级 canonical 路径 bugku/<四位编号_题名>/README.md、bugku/<四位编号_题名>/card.json。具体任务：优先复核 0066、0067、0071、0073—0080 的 detail URL；能通过原始附件或真实授权题目环境和 solver 真实执行的才允许写 verification.executed=true 并标 solved_verified；不能执行的保持 solved_unverified、method_only 或 blocked；不得伪造 flag 或执行输出。完成后更新 data/bugku_gid2_manifest.json 和 progress.json；若0061—0080完成，再把下一步提示改为第005轮-A，对 https://ctf.bugku.com/challenges/index/gid/2.html?page=5 的第0081—0100题做清单建档。"
 }
