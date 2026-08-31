@@ -1,0 +1,14 @@
+{
+  "title": "Caesar cipher",
+  "source_id": "[SusCTF-2017] Bugku-0001 Caesar cipher",
+  "source_url": "https://ctf.bugku.com/challenges/detail/id/205.html",
+  "capability_id": "cg_crypto_caesar_rot13",
+  "category": "crypto",
+  "attachment_type": "unknown",
+  "attachment": {"path": "attachments/[SusCTF-2017] Bugku-0001 Caesar cipher/", "sha256": "", "size": 0},
+  "detection": {"keywords": ["Caesar", "ROT13", "SusCTF"], "attachment_features": "疑似凯撒/ROT13文本；附件尚未入库。", "condition": "题名或题面提示Caesar cipher，且需要枚举位移得到Susctf{}格式。"},
+  "method": {"principle": "枚举凯撒位移/ROT13，选择符合Susctf{}格式的结果。", "steps": ["取得密文", "枚举0-25位移或ROT13", "筛选Susctf{}格式"], "tools": ["python3"], "produces_artifact": false},
+  "solver": {"reusable": false, "module_name": "", "entrypoint": "", "code": "", "dependencies": [], "self_test": null},
+  "verification": {"flag": "Susctf{3e811e068f5ce27eb4bc1c37723d7ee2}", "how": "公开评论给出；未用仓库附件执行。", "executed": false, "executed_output": ""},
+  "status": "solved_unverified"
+}
