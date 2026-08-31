@@ -1,0 +1,14 @@
+{
+  "title": "recover",
+  "source_id": "[NUAACTF-2017] recover",
+  "source_url": "https://ctf.bugku.com/challenges/detail/id/242.html",
+  "capability_id": "cg_misc_blocked_missing_attachment",
+  "category": "misc",
+  "attachment_type": "unknown",
+  "attachment": {"path": "attachments/[NUAACTF-2017] recover/", "sha256": "", "size": 0},
+  "detection": {"keywords": ["recover", "file recovery", "misc"], "attachment_features": "附件未入库，无法判断是磁盘镜像、损坏文件还是压缩包恢复。", "condition": "需要附件才能确认恢复路线。"},
+  "method": {"principle": "暂无足够材料支撑题目特定解法。", "steps": ["取得附件", "识别文件类型", "根据文件头/压缩结构/镜像结构选择恢复方法", "本地执行验证"], "tools": ["file", "binwalk", "foremost", "7z"], "produces_artifact": true},
+  "solver": {"reusable": false, "module_name": "", "entrypoint": "", "code": "", "dependencies": [], "self_test": null},
+  "verification": {"flag": "", "how": "未取得可核验输出。", "executed": false, "executed_output": ""},
+  "status": "blocked"
+}

@@ -1,0 +1,14 @@
+{
+  "title": "nuaactf",
+  "source_id": "[NUAACTF-2017] nuaactf",
+  "source_url": "https://ctf.bugku.com/challenges/detail/id/239.html",
+  "capability_id": "cg_reverse_java_logic_recovery",
+  "category": "reverse",
+  "attachment_type": "jar/unknown",
+  "attachment": {"path": "attachments/[NUAACTF-2017] nuaactf/", "sha256": "", "size": 0},
+  "detection": {"keywords": ["jar", "java", "reverse", "decompile", "NUAACTF"], "attachment_features": "推测为Java/JAR逆向题，但附件未入库。", "condition": "适用于Java反编译后恢复输入校验或爆破约束的题。"},
+  "method": {"principle": "反编译Java程序，定位输入校验和约束，再恢复满足条件的flag。", "steps": ["取得JAR附件", "使用JD-GUI/CFR/FernFlower反编译", "定位main或校验函数", "根据约束恢复输入", "本地运行验证"], "tools": ["java", "CFR", "JD-GUI"], "produces_artifact": false},
+  "solver": {"reusable": false, "module_name": "", "entrypoint": "", "code": "", "dependencies": [], "self_test": null},
+  "verification": {"flag": "", "how": "仅保留方法，未本地执行。", "executed": false, "executed_output": ""},
+  "status": "method_only"
+}

@@ -1,0 +1,14 @@
+{
+  "title": "3-最好的语言",
+  "source_id": "[网鼎杯-2018] 3-最好的语言",
+  "source_url": "https://ctf.bugku.com/challenges/detail/id/244.html",
+  "capability_id": "cg_reverse_python_bytecode_xor_md5",
+  "category": "reverse",
+  "attachment_type": "python2.7 bytecode/xml dump",
+  "attachment": {"path": "attachments/[网鼎杯-2018] 3-最好的语言/", "sha256": "", "size": 0},
+  "detection": {"keywords": ["python bytecode", "pyc", "Base64", "repeating XOR", "MD5", "Python字节码"], "attachment_features": "Python字节码逻辑将明文分段，部分循环XOR、部分MD5，再整体Base64。", "condition": "当逆向Python字节码后发现输出由可逆XOR段和不可逆哈希段拼接组成时适用。"},
+  "method": {"principle": "还原字节码的数据分段算法，对可逆段用已知格式恢复循环密钥，对哈希段做独立恢复，再正向重编码验证。", "steps": ["识别Python版本并还原bytecode控制流", "Base64解码输出并按算法切分", "利用flag格式恢复循环XOR密钥", "对MD5中间段做哈希恢复", "拼接候选明文并正向验证"], "tools": ["python3", "hashlib", "base64"], "produces_artifact": false},
+  "solver": {"reusable": true, "module_name": "repeating_xor_known_plaintext", "entrypoint": "待升级为 solve(attachment_path, **kwargs)", "code": "", "dependencies": [], "self_test": null},
+  "verification": {"flag": "flag{PyC_1s_613u21i_N0t_Hard}", "how": "旧卡记录 key1=5914、middle=613u21i、key2=4813 并能正向重编码匹配，但本次未重跑附件。", "executed": false, "executed_output": ""},
+  "status": "solved_unverified"
+}

@@ -1,0 +1,14 @@
+{
+  "title": "-++--",
+  "source_id": "[NUAACTF-2017] -++--",
+  "source_url": "https://ctf.bugku.com/challenges/detail/id/243.html",
+  "capability_id": "cg_misc_brainfuck_emoticon",
+  "category": "misc",
+  "attachment_type": "txt",
+  "attachment": {"path": "attachments/[NUAACTF-2017] -++--/-++--.txt", "sha256": "", "size": 0},
+  "detection": {"keywords": ["brainfuck", "esoteric language", "emoticon", "颜文字", "-++--"], "attachment_features": "文本由NUAACTF颜文字token组成，需按最长token优先替换为Brainfuck指令。", "condition": "当题目用颜文字替代Brainfuck指令，且附件不是直接ASCII Brainfuck时适用。"},
+  "method": {"principle": "先将颜文字方言按映射还原为标准Brainfuck，再用解释器执行得到输出。", "steps": ["按最长token优先替换", "使用修正映射处理减号和输出token", "检查Brainfuck括号匹配", "执行Brainfuck程序并提取flag"], "tools": ["python3"], "produces_artifact": false},
+  "solver": {"reusable": true, "module_name": "brainfuck_emoticon", "entrypoint": "solve(attachment_path, **kwargs) -> {'flag': str|None, 'artifacts': [str], 'evidence': str}", "path": "solvers/misc/brainfuck_emoticon.py", "code": "see solvers/misc/brainfuck_emoticon.py", "dependencies": [], "self_test": {"command": "python3 solvers/misc/brainfuck_emoticon.py --self-test", "mock_input": "内置直接Brainfuck和颜文字两组mock，均输出A", "expected_output": "SELF_TEST PASS", "note": "运行 --self-test 应同时证明标准Brainfuck和颜文字token替换都能输出A。"}},
+  "verification": {"flag": "nuaactf{br41nfuck_p1us}", "how": "修正颜文字映射后执行Brainfuck程序。", "executed": true, "executed_output": "SELF_TEST expected_output=A\ntranslated_len=24 output='A'\ntranslated_len=24 output='A'\nSELF_TEST PASS"},
+  "status": "solved_verified"
+}

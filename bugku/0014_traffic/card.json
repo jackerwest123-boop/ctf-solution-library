@@ -1,0 +1,14 @@
+{
+  "title": "traffic",
+  "source_id": "[NUAACTF-2017] traffic",
+  "source_url": "https://ctf.bugku.com/challenges/detail/id/241.html",
+  "capability_id": "cg_misc_usb_mouse_traffic",
+  "category": "misc",
+  "attachment_type": "pcap/usb traffic",
+  "attachment": {"path": "attachments/[NUAACTF-2017] traffic/", "sha256": "", "size": 0},
+  "detection": {"keywords": ["USB", "mouse", "pcap", "HID", "traffic"], "attachment_features": "预期为USB HID鼠标流量，需要提取x/y移动轨迹。", "condition": "适用于pcap中存在USB mouse HID报告并需还原轨迹的题。"},
+  "method": {"principle": "从USB HID报告中提取鼠标相对位移，累积坐标并绘制轨迹以读取flag。", "steps": ["用tshark或pyshark提取USB HID data", "解析按钮/x/y字段", "累积坐标", "绘图或OCR读取flag", "输出图像产物时打印CTF_ARTIFACT绝对路径"], "tools": ["tshark", "python3", "matplotlib/Pillow"], "produces_artifact": true},
+  "solver": {"reusable": false, "module_name": "", "entrypoint": "", "code": "", "dependencies": ["tshark"], "self_test": null},
+  "verification": {"flag": "nuaactf{usb_mouse}", "how": "公开评论给出flag，但本仓库未用pcap附件执行。", "executed": false, "executed_output": ""},
+  "status": "solved_unverified"
+}

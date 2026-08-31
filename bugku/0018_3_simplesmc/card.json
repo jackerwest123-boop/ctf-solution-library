@@ -1,0 +1,14 @@
+{
+  "title": "3-SimpleSMC",
+  "source_id": "[网鼎杯-2018] 3-SimpleSMC",
+  "source_url": "https://ctf.bugku.com/challenges/detail/id/245.html",
+  "capability_id": "cg_reverse_blocked_missing_validation",
+  "category": "reverse",
+  "attachment_type": "unknown/binary",
+  "attachment": {"path": "attachments/[网鼎杯-2018] 3-SimpleSMC/", "sha256": "", "size": 0},
+  "detection": {"keywords": ["SMC", "self modifying code", "reverse"], "attachment_features": "题名提示自修改代码，但附件未入库。", "condition": "需要附件后确认SMC解密流程。"},
+  "method": {"principle": "暂无足够材料支撑题目特定解法。", "steps": ["获取原始二进制", "静态定位解密/写代码段逻辑", "动态调试dump解密后代码", "恢复校验逻辑并验证flag"], "tools": ["IDA/Ghidra", "gdb/x64dbg"], "produces_artifact": false},
+  "solver": {"reusable": false, "module_name": "", "entrypoint": "", "code": "", "dependencies": [], "self_test": null},
+  "verification": {"flag": "", "how": "未取得附件和真实输出。", "executed": false, "executed_output": ""},
+  "status": "blocked"
+}

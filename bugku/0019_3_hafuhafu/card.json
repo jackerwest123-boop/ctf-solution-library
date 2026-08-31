@@ -1,0 +1,14 @@
+{
+  "title": "3-hafuhafu",
+  "source_id": "[网鼎杯-2018] 3-hafuhafu",
+  "source_url": "https://ctf.bugku.com/challenges/detail/id/246.html",
+  "capability_id": "cg_crypto_rsa_known_pq_decrypt",
+  "category": "crypto",
+  "attachment_type": "txt",
+  "attachment": {"path": "attachments/[网鼎杯-2018] 3-hafuhafu/", "sha256": "", "size": 0},
+  "detection": {"keywords": ["RSA", "factor n", "65537", "modular inverse", "long_to_bytes"], "attachment_features": "已知RSA的n、e和密文，n可被分解；密文可能先经过Base64包装。", "condition": "给出n/e/c且模数可分解时适用。"},
+  "method": {"principle": "分解RSA模数得到素因子，重建phi和私钥指数d，再做模幂解密并提取flag。", "steps": ["恢复密文c", "分解n得到p/q", "计算phi=(p-1)(q-1)", "求d=pow(e,-1,phi)", "计算m=pow(c,d,n)", "转字节并搜索flag"], "tools": ["python3", "PyCryptodome", "FactorDB"], "produces_artifact": false},
+  "solver": {"reusable": true, "module_name": "rsa_pq_decrypt", "entrypoint": "待升级为 solve(attachment_path, **kwargs)", "code": "", "dependencies": [], "self_test": null},
+  "verification": {"flag": "flag{D0nT_uS3_Th3_kN0w_n}", "how": "旧卡记录RSA分解后得到该flag，但本次未用附件执行。", "executed": false, "executed_output": ""},
+  "status": "solved_unverified"
+}

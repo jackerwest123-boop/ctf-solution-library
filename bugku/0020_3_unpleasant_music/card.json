@@ -1,0 +1,14 @@
+{
+  "title": "3-Unpleasant_music",
+  "source_id": "[网鼎杯-2018] 3-Unpleasant_music",
+  "source_url": "https://ctf.bugku.com/challenges/detail/id/247.html",
+  "capability_id": "cg_misc_blocked_missing_attachment",
+  "category": "misc",
+  "attachment_type": "unknown/audio?",
+  "attachment": {"path": "attachments/[网鼎杯-2018] 3-Unpleasant_music/", "sha256": "", "size": 0},
+  "detection": {"keywords": ["audio", "music", "spectrogram", "MISC"], "attachment_features": "题名提示可能为音频隐写，但附件未入库，不能确认。", "condition": "需要附件后判断是否为频谱、LSB、Morse或其他音频隐写。"},
+  "method": {"principle": "暂无足够材料支撑题目特定解法。", "steps": ["取得音频/压缩附件", "识别文件格式", "检查频谱/波形/元数据/LSB", "根据结果提取flag并记录输出"], "tools": ["file", "Audacity", "sonic-visualiser", "python3"], "produces_artifact": true},
+  "solver": {"reusable": false, "module_name": "", "entrypoint": "", "code": "", "dependencies": [], "self_test": null},
+  "verification": {"flag": "", "how": "未取得附件和真实输出。", "executed": false, "executed_output": ""},
+  "status": "blocked"
+}

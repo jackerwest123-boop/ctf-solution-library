@@ -1,0 +1,14 @@
+{
+  "title": "robots",
+  "source_id": "[NUAACTF-2017] robots",
+  "source_url": "https://ctf.bugku.com/challenges/detail/id/238.html",
+  "capability_id": "cg_reverse_blocked_missing_attachment",
+  "category": "reverse",
+  "attachment_type": "unknown",
+  "attachment": {"path": "attachments/[NUAACTF-2017] robots/", "sha256": "", "size": 0},
+  "detection": {"keywords": ["reverse", "robots", "NUAACTF"], "attachment_features": "原始附件未入库；旧目录存在但未契约化验证。", "condition": "需要附件后才能确认逆向入口和flag来源。"},
+  "method": {"principle": "暂无足够材料支撑题目特定解法。", "steps": ["获取原始附件", "识别文件格式", "再补充逆向步骤与验证输出"], "tools": [], "produces_artifact": false},
+  "solver": {"reusable": false, "module_name": "", "entrypoint": "", "code": "", "dependencies": [], "self_test": null},
+  "verification": {"flag": "", "how": "未取得可执行附件和可核验输出。", "executed": false, "executed_output": ""},
+  "status": "blocked"
+}

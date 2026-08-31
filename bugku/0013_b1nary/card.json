@@ -1,0 +1,14 @@
+{
+  "title": "b1nary",
+  "source_id": "[NUAACTF-2017] b1nary",
+  "source_url": "https://ctf.bugku.com/challenges/detail/id/240.html",
+  "capability_id": "cg_reverse_blocked_missing_attachment",
+  "category": "reverse",
+  "attachment_type": "unknown/binary",
+  "attachment": {"path": "attachments/[NUAACTF-2017] b1nary/", "sha256": "", "size": 0},
+  "detection": {"keywords": ["binary", "reverse", "NUAACTF"], "attachment_features": "附件未入库，不能确认平台、架构或壳。", "condition": "等待附件后再进行静态/动态逆向。"},
+  "method": {"principle": "暂无足够材料支撑题目特定解法。", "steps": ["取得原始二进制", "file/checksec/strings", "IDA/Ghidra分析", "本地执行验证"], "tools": ["file", "strings", "IDA/Ghidra"], "produces_artifact": false},
+  "solver": {"reusable": false, "module_name": "", "entrypoint": "", "code": "", "dependencies": [], "self_test": null},
+  "verification": {"flag": "", "how": "没有附件和真实输出。", "executed": false, "executed_output": ""},
+  "status": "blocked"
+}
