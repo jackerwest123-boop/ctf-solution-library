@@ -4,21 +4,19 @@
 - 目标：处理 Bugku WEB 题库正序任务。
 - 目标题库：https://ctf.bugku.com/challenges/index/gid/2/tid/1/status/-1.html
 - 正序方向：从第31题继续向后处理。
-- 说明：第1题至第30题已完成；当前第41—180题已进入逐题补 flag 阶段；第181—230题已开始 Pass 1/Pass 2 补 flag 与范围校准。
+- 说明：第1题至第30题已完成；当前重点是逐题补 flag，并纠正此前全站 WEB 分页与 `gid=2/tid=1` 目标分页混用导致的题号偏差。
 
 ## 已完成批次
 
 | 批次 | 范围 | 输出 | 状态 |
 |---|---:|---|---|
 | 第一批 | 31—40 | 单题 Markdown + 单题 JSON 卡 | 第33、36题 solved-carded；其余 blocked-carded |
-| 第二批 | 41—80 | `worklogs/bugku/forward/第41-80题_batch.md`；`cards/pending/bugku/第41-80题_batch.cards.json` | 原为批量 blocked-carded，已返工补 flag |
 | 第二批补充 | 41—80 | `worklogs/bugku/forward/第41-80题_flag_refill.md`；`cards/pending/bugku/第41-80题_flag_refill.cards.json` | 已确认 7 题 solved-carded；2 题 candidate-conflict；其余待动态验证 |
-| 第三批 | 81—130 | `worklogs/bugku/forward/第81-130题_batch.md`；`cards/pending/bugku/第81-130题_batch.cards.json` | 原为批量 blocked-carded，已返工补 flag |
 | 第三批补充 | 81—130 | `worklogs/bugku/forward/第81-130题_flag_refill.md`；`cards/pending/bugku/第81-130题_flag_refill.cards.json` | 已确认 5 题 solved-carded；2 题 candidate-format-anomaly；其余待动态验证 |
-| 第四批 | 131—180 | `worklogs/bugku/forward/第131-180题_batch.md`；`cards/pending/bugku/第131-180题_batch.cards.json` | 原为批量 blocked-carded，已返工补 flag |
-| 第四批补充 | 131—180 | `worklogs/bugku/forward/第131-180题_flag_refill.md`；`cards/pending/bugku/第131-180题_flag_refill.cards.json` | 已确认 12 题 solved-carded；其余待动态验证 |
-| 第五批补充 Pass 1 | 181—230 | `worklogs/bugku/forward/第181-230题_flag_refill_pass1.md`；`cards/pending/bugku/第181-230题_flag_refill_pass1.cards.json` | 已确认第181题；候选后续题中确认2个 flag，但全局题号待第16—18页列表复核 |
-| 第五批补充 Pass 2 | 181—230 | `worklogs/bugku/forward/第181-230题_flag_refill_pass2_scope_fix.md`；`cards/pending/bugku/第181-230题_flag_refill_pass2_scope_fix.cards.json` | 已发现全站 WEB 分页与 `gid=2/tid=1` 分页存在偏差；新增2个后续候选 flag，并保留需重新绑定全局题号的题目清单 |
+| 第四批补充 | 131—180 | `worklogs/bugku/forward/第131-180题_flag_refill.md`；`cards/pending/bugku/第131-180题_flag_refill.cards.json` | 原映射中确认 12 题 solved-carded，现需按目标分页复核题号 |
+| 第五批补充 Pass 1 | 181—230 | `worklogs/bugku/forward/第181-230题_flag_refill_pass1.md`；`cards/pending/bugku/第181-230题_flag_refill_pass1.cards.json` | 已记录候选后续题，但发现题号来源混入全站 WEB 分页 |
+| 第五批补充 Pass 2 | 181—230 | `worklogs/bugku/forward/第181-230题_flag_refill_pass2_scope_fix.md`；`cards/pending/bugku/第181-230题_flag_refill_pass2_scope_fix.cards.json` | 已完成范围校准，明确不再强行绑定错号 |
+| 第五批补充 Pass 3 | 181—230 | `worklogs/bugku/forward/第181-230题_flag_refill_pass3_renumber.md`；`cards/pending/bugku/第181-230题_flag_refill_pass3_renumber.cards.json` | 已回填 7 个较可靠题号，另保留 2 个待复核题号 flag |
 
 ## 第41—80题补 flag 摘要
 
@@ -38,22 +36,13 @@
 | analyzed-no-flag | 11 | 90、91、95、96、97、100、101、102、104、105、106 |
 | blocked-no-flag | 32 | 81—86、98、99、107—130 |
 
-## 第131—180题补 flag 摘要
-
-| 类别 | 数量 | 题号 |
-|---|---:|---|
-| solved-carded | 12 | 136、137、138、139、140、144、148、158、159、160、163、164 |
-| analyzed-no-flag | 9 | 141、143、145、147、149、150、151、152、153 |
-| blocked-no-flag | 29 | 131—135、142、146、154—157、161—162、165—180 |
-
-## 第181—230题补 flag Pass 1/2 摘要
+## 第181—230题 Pass 3 回填摘要
 
 | 类别 | 数量 | 题号/题名 |
 |---|---:|---|
-| confirmed-number | 1 | 第181题 `We Love The Environment` |
-| solved-carded-candidate-number | 2 | `Robots`、`Secret Group`，均为 n00bzCTF-2023 WEB，待准确分页复核全局题号 |
-| needs-renumbering | 12 | `Apollo Guidance Computer`、`attack-strategies`、`robot-best-friend`、`Sanity Check In Space`、`Bank of Knowhere`、`hi`、`pay-to-win`、`fruit-store`、`game-leaderboard`、`lamb-sauce`、`portalstrology`、`viewy` |
-| analyzed-no-flag | 8 | `We Love The Environment`、`CaaS`、`CaaS2`、`Conditions`、`shero`、`Hello GreyCat beta`、`t00 f4st`、`Resume` |
+| solved-carded（题号已回填） | 7 | 182 Apollo Guidance Computer；183 attack-strategies；184 robot-best-friend；185 Sanity Check In Space；186 Bank of Knowhere；190 hi；194 pay-to-win |
+| solved-carded-candidate-number | 2 | Robots；Secret Group，均待 `gid=2/tid=1` 后续页完整列表复核题号 |
+| analyzed-no-flag | 多项 | b4bycoffee、The DEW、profile viewer、back-to-the-past、ez-sql、notes、outdated、swill-squill、CaaS/CaaS2/Conditions、We Love The Environment 等 |
 
 ## 已确认 flag
 
@@ -71,27 +60,22 @@
 | 92 | Web安全入门指北—GET | `moectf{We1c0me_t0_CTF_Web!}` |
 | 93 | Web安全入门指北—POST | `moectf{POST_1s_an_1mp0rtant_m3th0d!}` |
 | 94 | Web安全入门指北—小饼干 | `moectf{C00kie_1s_sw33t!}` |
-| 136 | Apollo Guidance Computer | `shctf{I_reP3aT_h0UstOn_w3_H4vE_L1Ft0Ff}` |
-| 137 | attack-strategies | `shctf{get_zerg_rushed_nb}` |
-| 138 | robot-best-friend | `shctf{I_don't_want_to_play_with_you_ever_again}` |
-| 139 | Sanity Check In Space | `shctf{exp01ting_w3bs1tes_1N_SP@C3}` |
-| 140 | Bank of Knowhere | `shctf{7h3_c0sm0s_1s_w17h1n_u5}` |
-| 144 | hi | `tjctf{pretty_canvas_577f7045}` |
-| 148 | pay-to-win | `tjctf{not_random_enough_64831eff}` |
-| 158 | fruit-store | `tjctf{h4v3_y0u_ev3r_tri3d_gr4s5_j3l1y_d4ebd9}` |
-| 159 | game-leaderboard | `tjctf{h3llo_w1nn3r_0r_4re_y0u?}` |
-| 160 | lamb-sauce | `tjctf{idk_man_but_here's_a_flag_462c964f0a177541}` |
-| 163 | portalstrology | `tjctf{c01l3ges_plz_st0p_th3_l34k5}` |
-| 164 | viewy | `tjctf{4l1_th3_v1eW5_wh3333e333}` |
+| 182 | Apollo Guidance Computer | `shctf{I_reP3aT_h0UstOn_w3_H4vE_L1Ft0Ff}` |
+| 183 | attack-strategies | `shctf{get_zerg_rushed_nb}` |
+| 184 | robot-best-friend | `shctf{I_don't_want_to_play_with_you_ever_again}` |
+| 185 | Sanity Check In Space | `shctf{exp01ting_w3bs1tes_1N_SP@C3}` |
+| 186 | Bank of Knowhere | `shctf{7h3_c0sm0s_1s_w17h1n_u5}` |
+| 190 | hi | `tjctf{pretty_canvas_577f7045}` |
+| 194 | pay-to-win | `tjctf{not_random_enough_64831eff}` |
 | 待复核全局题号 | Robots / n00bzCTF-2023 | `n00bz{1_f0und_7h3_r0b0ts!}` |
 | 待复核全局题号 | Secret Group / n00bzCTF-2023 | `n00bz{y0u_4r3_n0w_4_v4l1d_m3mb3r_0f_th3_s3cr3t_gr0up!}` |
 
 ## 处理原则
 - 能直接从公开题面、评论、公开 writeup 或官方公开源码仓库确认 flag 的写入 solved-carded。
 - 候选冲突、格式异常或有“提交不上/不正确”等提示的题目，不写入最终 verification.flag。
-- 未复核全局题号的后续 WEB 题，即便已找到 flag，也先标记为 `solved-carded-candidate-number`，不强行归入第182—230的具体题号。
+- 未复核全局题号的后续 WEB 题，即便已找到 flag，也先标记为 `solved-carded-candidate-number`，不强行归入具体题号。
 - NSSCTF 等复现平台中的动态 `NSSCTF{uuid}` 不作为 Bugku flag。
 - 需要启动 Bugku 动态容器验证的题目，不编造 flag，统一保留为 analyzed-no-flag 或 blocked-no-flag。
 
 ## 下一步
-继续复核 `gid=2/tid=1` 第10—12页题名；题号确认后，将 `Robots`、`Secret Group` 和已确认的 Space Heroes/TJCTF 题重新绑定到准确全局题号。
+继续复核 `gid=2/tid=1` 第10—12页题名；优先补全第181—230题完整题名表，并继续对第181、187—189、191—193、195—230等未解题补 flag。
