@@ -4,7 +4,7 @@
 - 目标：处理 Bugku WEB 题库正序任务。
 - 目标题库：https://ctf.bugku.com/challenges/index/gid/2/tid/1/status/-1.html
 - 正序方向：从第31题继续向后处理。
-- 说明：第41—230题已进入逐题补 flag 和题号纠偏阶段；第181—230题已完成 Pass 1、Pass 2、Pass 3、Pass 4。
+- 说明：第41—230题已进入逐题补 flag 和题号纠偏阶段；第181—230题已完成 Pass 1—Pass 5。
 
 ## 已完成批次
 
@@ -18,6 +18,7 @@
 | 第五批补充 Pass 2 | 181—230 | `worklogs/bugku/forward/第181-230题_flag_refill_pass2_scope_fix.md`；`cards/pending/bugku/第181-230题_flag_refill_pass2_scope_fix.cards.json` | 已完成范围校准，明确不再强行绑定错号 |
 | 第五批补充 Pass 3 | 181—230 | `worklogs/bugku/forward/第181-230题_flag_refill_pass3_renumber.md`；`cards/pending/bugku/第181-230题_flag_refill_pass3_renumber.cards.json` | 初步回填部分题号，后续发现仍需以 page=11 校准 |
 | 第五批补充 Pass 4 | 181—230 | `worklogs/bugku/forward/第181-230题_flag_refill_pass4_number_fix.md`；`cards/pending/bugku/第181-230题_flag_refill_pass4_number_fix.cards.json` | 以 `gid=2/tid=1&page=11` 为锚点重新校准第181—220题；确认 13 个带准确题号的 flag |
+| 第五批补充 Pass 5 | 221—230 | `worklogs/bugku/forward/第221-230题_flag_refill.md`；`cards/pending/bugku/第221-230题_flag_refill.cards.json` | 已校准第221—230题；新增确认第226、227题 solved-carded |
 
 ## 第181—220题 Pass 4 已确认 flag
 
@@ -37,8 +38,23 @@
 | 214 | portalstrology | `tjctf{c01l3ges_plz_st0p_th3_l34k5}` |
 | 215 | viewy | `tjctf{4l1_th3_v1eW5_wh3333e333}` |
 
-## 仍需继续
+## 第221—230题 Pass 5 结果
 
-- 第221—230题：继续确认 `gid=2/tid=1&page=12` 的稳定题名列表。
+| 题号 | 题名 | 状态 | flag |
+|---:|---|---|---|
+| 221 | LoGiC | blocked-no-flag |  |
+| 222 | Request Basics 1 | blocked-no-flag |  |
+| 223 | Request Basics 2 | blocked-no-flag |  |
+| 224 | Request Basics 3 | blocked-no-flag |  |
+| 225 | Tunisia | blocked-no-flag |  |
+| 226 | baby_sqli | solved-carded | `greyhats{B4by_5qL1_1s_e4sy_4nd_fUn}` |
+| 227 | inspector | solved-carded | `greyhats{1_4m_4n_insp3t0r_n0w}` |
+| 228 | RCE won't help | analyzed-no-flag |  |
+| 229 | flasky | blocked-no-flag |  |
+| 230 | toddlersqli | analyzed-no-flag |  |
+
+## 待继续
+
+- 第231题候选：`SS Xperience`，公开 writeup 已确认 `greyhats{b4by_x55_scr1pt1ng_92488c0f2286e33bc1eda97a2beb1a2b}`，下一批进入第231—240题时写入。
 - 待复核全局题号的后续 flag：`Robots` = `n00bz{1_f0und_7h3_r0b0ts!}`；`Secret Group` = `n00bz{y0u_4r3_n0w_4_v4l1d_m3mb3r_0f_th3_s3cr3t_gr0up!}`。
 - 不写入动态平台 UUID flag；只有公开题面、评论、公开 writeup 或官方源码能核验的 flag 才计入 solved-carded。
