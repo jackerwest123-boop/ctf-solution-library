@@ -1,0 +1,14 @@
+{
+  "title": "checkin",
+  "source_id": "bugku-gid2-page5-0089",
+  "source_url": "https://ctf.bugku.com/challenges/detail/id/543.html",
+  "capability_id": "web-checkin-enumeration",
+  "category": "WEB",
+  "attachment_type": "dynamic_web",
+  "attachment": {"path": "", "sha256": "", "size": 0},
+  "detection": "Checkin web challenge; likely information-disclosure/enumeration based.",
+  "method": "Inspect source, headers, cookies, hidden routes, static assets and robots/sitemap within the challenge environment.",
+  "solver": {"reusable": false, "module_name": "", "entrypoint": "", "code": "", "dependencies": [], "self_test": {"mock_input": "", "expected_output": "", "note": "Requires live page."}},
+  "verification": {"flag": "", "how": "Not executed.", "executed": false, "executed_output": ""},
+  "status": "method_only"
+}

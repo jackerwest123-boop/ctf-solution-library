@@ -1,0 +1,14 @@
+{
+  "title": "superezpop",
+  "source_id": "bugku-gid2-page5-0097",
+  "source_url": "https://ctf.bugku.com/challenges/detail/id/579.html",
+  "capability_id": "web-php-deserialization-pop",
+  "category": "WEB",
+  "attachment_type": "dynamic_web",
+  "attachment": {"path": "", "sha256": "", "size": 0},
+  "detection": "PHP POP/deserialization challenge by title.",
+  "method": "Obtain class/source evidence, identify magic-method chain and sink, then build a serialized object payload only for the authorized challenge instance.",
+  "solver": {"reusable": false, "module_name": "", "entrypoint": "", "code": "", "dependencies": [], "self_test": {"mock_input": "", "expected_output": "", "note": "Needs class definitions and live validation."}},
+  "verification": {"flag": "", "how": "Not executed; no class source in repo.", "executed": false, "executed_output": ""},
+  "status": "method_only"
+}

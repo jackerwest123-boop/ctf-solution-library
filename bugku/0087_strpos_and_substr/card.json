@@ -1,0 +1,14 @@
+{
+  "title": "strpos and substr",
+  "source_id": "bugku-gid2-page5-0087",
+  "source_url": "https://ctf.bugku.com/challenges/detail/id/521.html",
+  "capability_id": "web-php-string-filter-bypass",
+  "category": "WEB",
+  "attachment_type": "dynamic_web",
+  "attachment": {"path": "", "sha256": "", "size": 0},
+  "detection": "PHP string function filter-bypass challenge suggested by title.",
+  "method": "Check strpos weak comparison, substring truncation, URL encoding, array input, multibyte characters and normalization differences in a challenge-scoped request set.",
+  "solver": {"reusable": false, "module_name": "", "entrypoint": "", "code": "", "dependencies": [], "self_test": {"mock_input": "", "expected_output": "", "note": "No static input; dynamic PHP web behavior required."}},
+  "verification": {"flag": "", "how": "Not executed.", "executed": false, "executed_output": ""},
+  "status": "method_only"
+}

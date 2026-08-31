@@ -1,0 +1,14 @@
+{
+  "title": "从零开始的勇士之路",
+  "source_id": "bugku-gid2-page5-0098",
+  "source_url": "https://ctf.bugku.com/challenges/detail/id/580.html",
+  "capability_id": "crypto-affine-bruteforce",
+  "category": "Crypto",
+  "attachment_type": "download",
+  "attachment": {"path": "", "sha256": "", "size": 0},
+  "detection": "Bugku detail page indicates NUAACTF 2022 Crypto with download; public comment suggests affine cipher brute force.",
+  "method": "After obtaining the attachment, enumerate affine cipher parameters over the observed alphabet/modulus and filter decoded candidates by NUAACTF{} format and readable plaintext.",
+  "solver": {"reusable": false, "module_name": "", "entrypoint": "", "code": "", "dependencies": [], "self_test": {"mock_input": "", "expected_output": "", "note": "Attachment not present; affine brute-force solver can be added after ciphertext is available."}},
+  "verification": {"flag": "", "how": "Not executed; attachment not present.", "executed": false, "executed_output": ""},
+  "status": "method_only"
+}

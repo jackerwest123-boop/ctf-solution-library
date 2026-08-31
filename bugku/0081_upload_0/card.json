@@ -1,0 +1,21 @@
+{
+  "title": "Upload 0",
+  "source_id": "bugku-gid2-page5-0081",
+  "source_url": "https://ctf.bugku.com/challenges/detail/id/465.html",
+  "capability_id": "web-file-upload-basic",
+  "category": "WEB",
+  "attachment_type": "dynamic_web",
+  "attachment": {"path": "", "sha256": "", "size": 0},
+  "detection": "File upload challenge; detail URL retained from list/cache, not executed.",
+  "method": "Identify upload endpoint and server-side checks; test extension/MIME/content validation, saved path exposure, parser quirks and simple upload bypasses only inside the authorized challenge environment.",
+  "solver": {
+    "reusable": false,
+    "module_name": "",
+    "entrypoint": "",
+    "code": "",
+    "dependencies": [],
+    "self_test": {"mock_input": "", "expected_output": "", "note": "Dynamic web challenge; no reusable offline self-test without the real environment."}
+  },
+  "verification": {"flag": "", "how": "Not executed; no authorized live instance output.", "executed": false, "executed_output": ""},
+  "status": "method_only"
+}

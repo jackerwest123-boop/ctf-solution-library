@@ -1,0 +1,14 @@
+{
+  "title": "easy-pop",
+  "source_id": "bugku-gid2-page5-0091",
+  "source_url": "https://ctf.bugku.com/challenges/detail/id/545.html",
+  "capability_id": "web-php-pop-chain",
+  "category": "WEB",
+  "attachment_type": "dynamic_web",
+  "attachment": {"path": "", "sha256": "", "size": 0},
+  "detection": "Possible PHP POP-chain/deserialization challenge based on title.",
+  "method": "Collect source/classes, locate deserialization sink, build object chain through magic methods and validate only in the authorized challenge environment.",
+  "solver": {"reusable": false, "module_name": "", "entrypoint": "", "code": "", "dependencies": [], "self_test": {"mock_input": "", "expected_output": "", "note": "Needs concrete class definitions."}},
+  "verification": {"flag": "", "how": "Not executed; class/source missing.", "executed": false, "executed_output": ""},
+  "status": "method_only"
+}

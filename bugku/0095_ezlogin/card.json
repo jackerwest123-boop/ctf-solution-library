@@ -1,0 +1,14 @@
+{
+  "title": "ezlogin",
+  "source_id": "bugku-gid2-page5-0095",
+  "source_url": "https://ctf.bugku.com/challenges/detail/id/577.html",
+  "capability_id": "web-login-auth-bypass",
+  "category": "WEB",
+  "attachment_type": "dynamic_web",
+  "attachment": {"path": "", "sha256": "", "size": 0},
+  "detection": "Login/authentication web challenge.",
+  "method": "Analyze login request, error behavior, session/cookie/JWT, parameter type handling, injection surface and reset/verification logic inside the authorized challenge.",
+  "solver": {"reusable": false, "module_name": "", "entrypoint": "", "code": "", "dependencies": [], "self_test": {"mock_input": "", "expected_output": "", "note": "Dynamic login challenge."}},
+  "verification": {"flag": "", "how": "Not executed.", "executed": false, "executed_output": ""},
+  "status": "method_only"
+}

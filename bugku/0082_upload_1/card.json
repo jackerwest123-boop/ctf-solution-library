@@ -1,0 +1,14 @@
+{
+  "title": "Upload 1",
+  "source_id": "bugku-gid2-page5-0082",
+  "source_url": "https://ctf.bugku.com/challenges/detail/id/466.html",
+  "capability_id": "web-file-upload-bypass",
+  "category": "WEB",
+  "attachment_type": "dynamic_web",
+  "attachment": {"path": "", "sha256": "", "size": 0},
+  "detection": "File upload bypass challenge; no local attachment.",
+  "method": "Use an intercepting proxy to enumerate server upload checks and attempt safe challenge-scoped bypasses such as content-type mismatch, extension normalization, double extension, magic-byte image payload and upload path probing.",
+  "solver": {"reusable": false, "module_name": "", "entrypoint": "", "code": "", "dependencies": [], "self_test": {"mock_input": "", "expected_output": "", "note": "Dynamic web instance required."}},
+  "verification": {"flag": "", "how": "Not executed against a live authorized challenge instance.", "executed": false, "executed_output": ""},
+  "status": "method_only"
+}

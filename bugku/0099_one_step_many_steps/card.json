@@ -1,0 +1,14 @@
+{
+  "title": "走一步，再走亿步",
+  "source_id": "bugku-gid2-page5-0099",
+  "source_url": "",
+  "capability_id": "crypto-iteration-fast-forward",
+  "category": "Crypto",
+  "attachment_type": "download",
+  "attachment": {"path": "", "sha256": "", "size": 0},
+  "detection": "NUAACTF-2022 Crypto item from Bugku tag/index cache; detail URL not yet verified.",
+  "method": "After obtaining the challenge file, identify iterative state transition or recurrence; use cycle finding, matrix exponentiation, modular arithmetic or inverse transition to avoid direct huge-step simulation.",
+  "solver": {"reusable": false, "module_name": "", "entrypoint": "", "code": "", "dependencies": [], "self_test": {"mock_input": "", "expected_output": "", "note": "No attachment or verified detail URL yet."}},
+  "verification": {"flag": "", "how": "Not executed; detail URL and attachment pending.", "executed": false, "executed_output": ""},
+  "status": "method_only"
+}

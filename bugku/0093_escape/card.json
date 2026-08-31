@@ -1,0 +1,14 @@
+{
+  "title": "逃逸",
+  "source_id": "bugku-gid2-page5-0093",
+  "source_url": "https://ctf.bugku.com/challenges/detail/id/547.html",
+  "capability_id": "web-filter-or-sandbox-escape",
+  "category": "WEB",
+  "attachment_type": "dynamic_web",
+  "attachment": {"path": "", "sha256": "", "size": 0},
+  "detection": "Escape-themed web challenge; exact context unverified.",
+  "method": "Identify whether the escape target is template, sandbox, path, string filter, SQL or command context; then craft challenge-scoped bypass payloads based on observed restrictions.",
+  "solver": {"reusable": false, "module_name": "", "entrypoint": "", "code": "", "dependencies": [], "self_test": {"mock_input": "", "expected_output": "", "note": "Context-specific dynamic challenge."}},
+  "verification": {"flag": "", "how": "Not executed.", "executed": false, "executed_output": ""},
+  "status": "method_only"
+}

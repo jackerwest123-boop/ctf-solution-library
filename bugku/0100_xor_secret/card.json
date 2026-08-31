@@ -1,0 +1,14 @@
+{
+  "title": "异或的密件",
+  "source_id": "bugku-gid2-page5-0100",
+  "source_url": "",
+  "capability_id": "crypto-xor-known-prefix",
+  "category": "Crypto",
+  "attachment_type": "download",
+  "attachment": {"path": "", "sha256": "", "size": 0},
+  "detection": "NUAACTF-2022 Crypto item; title indicates XOR but detail URL/attachment not verified in this run.",
+  "method": "After obtaining ciphertext, test single-byte XOR, repeating-key XOR and known-prefix recovery using NUAACTF{; validate candidate key by full plaintext readability and flag format.",
+  "solver": {"reusable": false, "module_name": "", "entrypoint": "", "code": "", "dependencies": [], "self_test": {"mock_input": "", "expected_output": "", "note": "No ciphertext attachment yet."}},
+  "verification": {"flag": "", "how": "Not executed; detail URL and attachment pending.", "executed": false, "executed_output": ""},
+  "status": "method_only"
+}

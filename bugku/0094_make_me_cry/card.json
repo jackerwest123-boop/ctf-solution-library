@@ -1,0 +1,14 @@
+{
+  "title": "Make Me Cry",
+  "source_id": "bugku-gid2-page5-0094",
+  "source_url": "https://ctf.bugku.com/challenges/detail/id/568.html",
+  "capability_id": "web-generic-analysis",
+  "category": "WEB",
+  "attachment_type": "dynamic_web",
+  "attachment": {"path": "", "sha256": "", "size": 0},
+  "detection": "Generic web challenge; vulnerability not identified from title/list alone.",
+  "method": "Enumerate source, endpoints, cookies, headers, routes and parameters in the authorized instance, then derive a vulnerability-specific path from observed evidence.",
+  "solver": {"reusable": false, "module_name": "", "entrypoint": "", "code": "", "dependencies": [], "self_test": {"mock_input": "", "expected_output": "", "note": "Requires challenge environment."}},
+  "verification": {"flag": "", "how": "Not executed.", "executed": false, "executed_output": ""},
+  "status": "method_only"
+}

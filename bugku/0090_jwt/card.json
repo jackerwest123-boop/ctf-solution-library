@@ -1,0 +1,14 @@
+{
+  "title": "jwt",
+  "source_id": "bugku-gid2-page5-0090",
+  "source_url": "https://ctf.bugku.com/challenges/detail/id/544.html",
+  "capability_id": "web-jwt-auth-bypass",
+  "category": "WEB",
+  "attachment_type": "dynamic_web",
+  "attachment": {"path": "", "sha256": "", "size": 0},
+  "detection": "JWT authentication challenge.",
+  "method": "Decode token header/payload; in the authorized instance test alg none, HS/RS confusion, weak secret cracking, kid handling, claim manipulation and time/role validation.",
+  "solver": {"reusable": false, "module_name": "", "entrypoint": "", "code": "", "dependencies": [], "self_test": {"mock_input": "", "expected_output": "", "note": "Requires challenge JWT and server validation."}},
+  "verification": {"flag": "", "how": "Not executed.", "executed": false, "executed_output": ""},
+  "status": "method_only"
+}

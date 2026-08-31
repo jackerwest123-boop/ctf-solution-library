@@ -1,0 +1,14 @@
+{
+  "title": "Upload 2",
+  "source_id": "bugku-gid2-page5-0083",
+  "source_url": "https://ctf.bugku.com/challenges/detail/id/467.html",
+  "capability_id": "web-file-upload-advanced",
+  "category": "WEB",
+  "attachment_type": "dynamic_web",
+  "attachment": {"path": "", "sha256": "", "size": 0},
+  "detection": "Advanced upload challenge; requires live challenge interaction.",
+  "method": "Map the upload pipeline, identify file name/content normalization, preserve a benign proof payload in the challenge scope, and use only the challenge-provided environment to validate any bypass.",
+  "solver": {"reusable": false, "module_name": "", "entrypoint": "", "code": "", "dependencies": [], "self_test": {"mock_input": "", "expected_output": "", "note": "No offline self-test for dynamic upload target."}},
+  "verification": {"flag": "", "how": "Not executed.", "executed": false, "executed_output": ""},
+  "status": "method_only"
+}

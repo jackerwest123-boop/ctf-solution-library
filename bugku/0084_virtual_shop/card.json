@@ -1,0 +1,14 @@
+{
+  "title": "Virtual Shop",
+  "source_id": "bugku-gid2-page5-0084",
+  "source_url": "https://ctf.bugku.com/challenges/detail/id/471.html",
+  "capability_id": "web-business-logic-shop",
+  "category": "WEB",
+  "attachment_type": "dynamic_web",
+  "attachment": {"path": "", "sha256": "", "size": 0},
+  "detection": "Virtual shop business-logic web challenge.",
+  "method": "Model the purchase workflow and test challenge-scoped logic flaws: client-controlled price, negative quantity, integer overflow, coupon reuse, order state mismatch, payment callback trust and race conditions.",
+  "solver": {"reusable": false, "module_name": "", "entrypoint": "", "code": "", "dependencies": [], "self_test": {"mock_input": "", "expected_output": "", "note": "Requires live web state."}},
+  "verification": {"flag": "", "how": "Not executed in the challenge environment.", "executed": false, "executed_output": ""},
+  "status": "method_only"
+}
