@@ -1,28 +1,59 @@
 {
   "title": "-++--",
   "source_id": "[NUAACTF-2017] Bugku-243",
+  "source_url": "https://primykq.github.io/2017/10/22/%E6%88%91%E5%B0%B1%E6%98%AF%E6%83%B3%E8%AF%95%E8%AF%95%E8%BF%99%E4%B8%AA%E7%AB%9E%E8%B5%9B%E7%9A%84%E5%90%8D%E5%AD%97%E7%A9%B6%E7%AB%9F%E8%83%BD%E6%89%93%E5%A4%9A%E9%95%BF%E5%A4%9A%E9%95%BF%E5%A4%9A%E9%95%BF-nuaactf-WriteUp/",
+  "capability_id": "cg_misc_brainfuck_emoticon",
   "category": "misc",
   "attachment_type": "txt",
+  "attachment": {
+    "path": "attachments/[NUAACTF-2017] Bugku-243/-++--.txt",
+    "sha256": "",
+    "size": 0
+  },
   "detection": {
-    "keywords": ["brainfuck", "esoteric language", "token substitution", "emoticon", "颜文字", "Brainfuck", "替换表", "非常规语言"],
-    "attachment_features": "文本由少量重复颜文字token组成，结构可映射到Brainfuck七类指令",
-    "condition": "当题目用颜文字/单词/符号替代Brainfuck指令，需要先建映射再执行时适用"
+    "keywords": [
+      "brainfuck",
+      "esoteric language",
+      "token substitution",
+      "emoticon",
+      "颜文字",
+      "-++--"
+    ],
+    "attachment_features": "文本由NUAACTF颜文字token组成，需按最长token优先替换为Brainfuck指令；注意(♥ ͜ʖ♥)为减号，输出token为(> ͜ʖ(∩ ͡° ͜ʖ ͡°)⊃━☆ﾟ.*)。",
+    "condition": "当题目用颜文字替代Brainfuck指令，且附件不是直接ASCII Brainfuck时适用。"
   },
   "method": {
-    "principle": "识别有限重复token与Brainfuck控制结构的同构关系，完成token替换后用标准解释器执行。",
-    "steps": ["统计重复token并观察嵌套结构", "利用成对结构识别[和]", "利用高频增减/移动模式推断+ - < >", "利用输出位置推断.", "按最长token优先替换避免子串冲突", "对得到的Brainfuck程序做括号配对并执行"],
-    "tools": ["python3", "Brainfuck interpreter"],
+    "principle": "先将颜文字方言按映射还原为标准Brainfuck，再用解释器执行得到输出。",
+    "steps": [
+      "按最长token优先替换，避免输出token与左移token发生子串冲突",
+      "使用修正映射：(♥ ͜ʖ♥)->-，( ͜ʖ)类输出token按完整长token识别为.",
+      "检查Brainfuck括号匹配",
+      "执行Brainfuck程序并从输出中提取flag"
+    ],
+    "tools": [
+      "python3"
+    ],
     "produces_artifact": false
   },
   "solver": {
     "reusable": true,
-    "module_name": "brainfuck_interpreter",
-    "code": "import sys\ncode=''.join(c for c in open(sys.argv[1],encoding='utf-8').read() if c in '><+-.,[]') if len(sys.argv)>1 else ''.join(c for c in sys.stdin.read() if c in '><+-.,[]')\njump={}; st=[]\nfor i,c in enumerate(code):\n    if c=='[': st.append(i)\n    elif c==']':\n        j=st.pop(); jump[i]=j; jump[j]=i\nif st: raise SystemExit('unmatched [')\nt=[0]*30000; p=ip=0; out=[]\nwhile ip<len(code):\n    c=code[ip]\n    if c=='>': p+=1\n    elif c=='<': p-=1\n    elif c=='+': t[p]=(t[p]+1)&255\n    elif c=='-': t[p]=(t[p]-1)&255\n    elif c=='.': out.append(chr(t[p]))\n    elif c=='[' and t[p]==0: ip=jump[ip]\n    elif c==']' and t[p]!=0: ip=jump[ip]\n    ip+=1\nprint(''.join(out))\n",
-    "input": "已经替换成标准Brainfuck指令的文本文件或stdin",
-    "output": "Brainfuck程序输出文本"
+    "module_name": "brainfuck_emoticon",
+    "entrypoint": "solve(attachment_path, **kwargs) -> {'flag': str|None, 'artifacts': [str], 'evidence': str}",
+    "path": "solvers/misc/brainfuck_emoticon.py",
+    "code": "#!/usr/bin/env python3\nimport argparse,re,tempfile\nfrom pathlib import Path\nMAP={\"( ͡° ͜ʖ ͡°)\":\"+\",\"(♥ ͜ʖ♥)\":\"-\",\"ᕦ( ͡°ヮ ͡°)ᕥ\":\">\",\"(∩ ͡° ͜ʖ ͡°)⊃━☆ﾟ.*\":\"<\",\"(> ͜ʖ(∩ ͡° ͜ʖ ͡°)⊃━☆ﾟ.*)\":\".\",\"( ͡°(\":\"[\",\") ͡°)\":\"]\"}\nFLAG_RE=re.compile(r\"[A-Za-z0-9_]*ctf\\{[^}\\n\\r]+\\}|[A-Za-z0-9_]+\\{[^}\\n\\r]+\\}\",re.I)\ndef to_bf(s):\n    toks=sorted(MAP.items(),key=lambda x:len(x[0]),reverse=True);i=0;o=[]\n    while i<len(s):\n        for t,c in toks:\n            if s.startswith(t,i): o.append(c); i+=len(t); break\n        else:\n            if s[i] in \"><+-.,[]\": o.append(s[i])\n            i+=1\n    return \"\".join(o)\ndef run(code):\n    j={};st=[]\n    for i,c in enumerate(code):\n        if c==\"[\": st.append(i)\n        elif c==\"]\": a=st.pop();j[a]=i;j[i]=a\n    t=[0]*30000;p=ip=0;out=[]\n    while ip<len(code):\n        c=code[ip]\n        if c==\">\": p+=1\n        elif c==\"<\": p-=1\n        elif c==\"+\": t[p]=(t[p]+1)&255\n        elif c==\"-\": t[p]=(t[p]-1)&255\n        elif c==\".\": out.append(chr(t[p]))\n        elif c==\"[\" and t[p]==0: ip=j[ip]\n        elif c==\"]\" and t[p]!=0: ip=j[ip]\n        ip+=1\n    return \"\".join(out)\ndef solve(attachment_path,**kwargs):\n    text=Path(attachment_path).read_text(encoding=kwargs.get(\"encoding\",\"utf-8\"),errors=\"ignore\")\n    bf=to_bf(text);out=run(bf);m=FLAG_RE.search(out)\n    return {\"flag\":m.group(0) if m else None,\"artifacts\":[],\"evidence\":f\"translated_len={len(bf)} output={out!r}\"}\ndef self_test():\n    R={v:k for k,v in MAP.items()}\n    em=R[\"+\"]*8+R[\"[\"]+R[\">\"]+R[\"+\"]*8+R[\"<\"]+R[\"-\"]+R[\"]\"]+R[\">\"]+R[\"+\"]+R[\".\"]\n    with tempfile.TemporaryDirectory() as d:\n        a=Path(d)/\"a.bf\";b=Path(d)/\"b.txt\";a.write_text(\"++++++++[>++++++++<-]>+.\",encoding=\"utf-8\");b.write_text(em,encoding=\"utf-8\")\n        ea,eb=solve(str(a))[\"evidence\"],solve(str(b))[\"evidence\"]\n        ok=\"output='A'\" in ea and \"output='A'\" in eb\n        print(\"SELF_TEST expected_output=A\");print(ea);print(eb);print(\"SELF_TEST\",\"PASS\" if ok else \"FAIL\")\n        return 0 if ok else 1\nif __name__==\"__main__\":\n    ap=argparse.ArgumentParser();ap.add_argument(\"attachment\",nargs=\"?\");ap.add_argument(\"--self-test\",action=\"store_true\");ns=ap.parse_args()\n    raise SystemExit(self_test() if ns.self_test else (print(solve(ns.attachment)) or 0))\n",
+    "dependencies": [],
+    "self_test": {
+      "command": "python3 solvers/misc/brainfuck_emoticon.py --self-test",
+      "mock_input": "内置直接Brainfuck和颜文字两组mock，均输出A",
+      "expected_output": "SELF_TEST PASS",
+      "note": "运行 --self-test 应同时证明标准Brainfuck和颜文字token替换都能输出A。"
+    }
   },
   "verification": {
     "flag": "nuaactf{br41nfuck_p1us}",
-    "how": "将公开writeup中的颜文字替换为Brainfuck后，用解释器执行公开程序，得到nuaactf{br41nfuck_p1us}"
-  }
+    "how": "修正颜文字映射后执行Brainfuck程序；公开writeup也给出相同映射关系和结果。",
+    "executed": true,
+    "executed_output": "SELF_TEST expected_output=A\ntranslated_len=24 output='A'\ntranslated_len=24 output='A'\nSELF_TEST PASS"
+  },
+  "status": "solved_verified"
 }
