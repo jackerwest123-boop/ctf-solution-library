@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "allowed_status": [
+    "solved_verified",
+    "solved_unverified",
+    "method_only",
+    "blocked"
+  ],
+  "legacy_status_map": {
+    "solved-carded": "solved_unverified",
+    "analyzed-carded": "method_only",
+    "blocked-carded": "blocked",
+    "analyzed-no-flag": "method_only",
+    "blocked-no-flag": "blocked",
+    "candidate-conflict": "blocked",
+    "candidate-format-anomaly": "blocked",
+    "solved_public_flag_pending_local_validation": "solved_unverified",
+    "method_identified_flag_pending": "method_only",
+    "pending_attachment_validation": "blocked",
+    "solved": "solved_unverified"
+  },
+  "complete_definition": {
+    "solved_verified": "verification.flag is non-empty AND verification.executed is true AND solver.self_test exists for reusable solver.",
+    "solved_unverified": "flag text is known from public source but not locally executed under this repo's solver interface.",
+    "method_only": "method is useful and specific, but no verified flag.",
+    "blocked": "missing attachment, dynamic container, exact target page, or conflicting public evidence."
+  }
+}
