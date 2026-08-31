@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "generated_by": "manual_contract_bootstrap",
+  "status_schema": "data/status_schema.json",
+  "capabilities": [
+    {
+      "capability_id": "cg_misc_brainfuck_emoticon",
+      "category": "misc",
+      "title": "Brainfuck emoticon dialect translation and execution",
+      "status": "solved_verified",
+      "solver_module": "solvers.misc.brainfuck_emoticon",
+      "solver_path": "solvers/misc/brainfuck_emoticon.py",
+      "entrypoint": "solve(attachment_path, **kwargs)",
+      "self_test": "python3 solvers/misc/brainfuck_emoticon.py --self-test",
+      "cards": [
+        "bugku/016_minus_plus_plus_minus_minus/card.json"
+      ]
+    },
+    {
+      "capability_id": "cg_web_html_source_comment_flag",
+      "category": "web",
+      "title": "HTML/CSS/JS source comment flag extraction",
+      "status": "solved_unverified",
+      "solver_module": null,
+      "entrypoint": null,
+      "cards": [
+        "bugku/033_checkin/card.json",
+        "bugku/227_inspector/card.json"
+      ]
+    },
+    {
+      "capability_id": "cg_web_sql_login_bypass_basic",
+      "category": "web",
+      "title": "Basic SQL injection login bypass",
+      "status": "solved_unverified",
+      "solver_module": null,
+      "entrypoint": null,
+      "cards": [
+        "bugku/226_baby_sqli/card.json"
+      ]
+    }
+  ]
+}
