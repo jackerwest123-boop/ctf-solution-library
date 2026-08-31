@@ -1,17 +1,24 @@
 {
+  "schema_version": 2,
   "platform": "Bugku",
-  "competition_url": "https://ctf.bugku.com/challenges/index/gid/2.html",
-  "total_processed": 80,
-  "last_processed": 80,
-  "next_start": 81,
-  "batch_size": 50,
-  "status": "in_progress",
-  "latest_batch": {
-    "range": [31, 80],
-    "solved_verified": 0,
-    "solved_public_flag_pending_local_validation": 6,
-    "method_identified_flag_pending": 21,
-    "pending_attachment_validation": 23,
-    "summary_file": "bugku/batch_031_080.json"
+  "target": "比赛真题全题库",
+  "base_url": "https://ctf.bugku.com/challenges/index/gid/2.html",
+  "page_count_planned": 130,
+  "page_size": 20,
+  "numbering_rule": "global_no = (page - 1) * 20 + page_index",
+  "current_phase": "manifest_first_then_contract_solving",
+  "last_enumerated_round": 1,
+  "last_enumerated_page": 1,
+  "last_enumerated_global_no": 20,
+  "next_round": 2,
+  "next_page_url": "https://ctf.bugku.com/challenges/index/gid/2.html?page=2",
+  "round_001": {
+    "page": 1,
+    "range": [1, 20],
+    "worklog": "worklogs/bugku/rounds/round_001_page_001.md",
+    "manifest": "data/bugku_gid2_manifest.json",
+    "status": "enumerated",
+    "new_solved_verified": 0,
+    "notes": "本轮先完成全题库page=1清单梳理；第016题为此前已契约修复的solved_verified。"
   }
 }
