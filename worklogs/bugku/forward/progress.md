@@ -4,7 +4,7 @@
 - 目标：处理 Bugku WEB 题库正序任务。
 - 目标题库：https://ctf.bugku.com/challenges/index/gid/2/tid/1/status/-1.html
 - 正序方向：从第31题继续向后处理。
-- 说明：第1题至第30题已完成；当前已推进到第180题；第41—180题已进入逐题补 flag 阶段；第181—230题已开始 Pass 1 补 flag。
+- 说明：第1题至第30题已完成；当前第41—180题已进入逐题补 flag 阶段；第181—230题已开始 Pass 1/Pass 2 补 flag 与范围校准。
 
 ## 已完成批次
 
@@ -18,6 +18,7 @@
 | 第四批 | 131—180 | `worklogs/bugku/forward/第131-180题_batch.md`；`cards/pending/bugku/第131-180题_batch.cards.json` | 原为批量 blocked-carded，已返工补 flag |
 | 第四批补充 | 131—180 | `worklogs/bugku/forward/第131-180题_flag_refill.md`；`cards/pending/bugku/第131-180题_flag_refill.cards.json` | 已确认 12 题 solved-carded；其余待动态验证 |
 | 第五批补充 Pass 1 | 181—230 | `worklogs/bugku/forward/第181-230题_flag_refill_pass1.md`；`cards/pending/bugku/第181-230题_flag_refill_pass1.cards.json` | 已确认第181题；候选后续题中确认2个 flag，但全局题号待第16—18页列表复核 |
+| 第五批补充 Pass 2 | 181—230 | `worklogs/bugku/forward/第181-230题_flag_refill_pass2_scope_fix.md`；`cards/pending/bugku/第181-230题_flag_refill_pass2_scope_fix.cards.json` | 已发现全站 WEB 分页与 `gid=2/tid=1` 分页存在偏差；新增2个后续候选 flag，并保留需重新绑定全局题号的题目清单 |
 
 ## 第41—80题补 flag 摘要
 
@@ -45,14 +46,14 @@
 | analyzed-no-flag | 9 | 141、143、145、147、149、150、151、152、153 |
 | blocked-no-flag | 29 | 131—135、142、146、154—157、161—162、165—180 |
 
-## 第181—230题补 flag Pass 1 摘要
+## 第181—230题补 flag Pass 1/2 摘要
 
 | 类别 | 数量 | 题号/题名 |
 |---|---:|---|
 | confirmed-number | 1 | 第181题 `We Love The Environment` |
-| solved-carded-candidate-number | 2 | `Robots`、`Secret Group`，均为 n00bzCTF-2023 WEB，待第16—18页列表复核全局题号 |
-| analyzed-no-flag | 8 | `We Love The Environment`、`shero`、`Hello GreyCat beta`、`t00 f4st`、`Resume`、`Curl as a Service`、`CaaS`、`CaaS2`、`Conditions` 中未确认 flag 的部分 |
-| blocked-enumeration | 49 | 第182—230题准确全局题号仍需 Bugku 第16—18页列表或缓存支持 |
+| solved-carded-candidate-number | 2 | `Robots`、`Secret Group`，均为 n00bzCTF-2023 WEB，待准确分页复核全局题号 |
+| needs-renumbering | 12 | `Apollo Guidance Computer`、`attack-strategies`、`robot-best-friend`、`Sanity Check In Space`、`Bank of Knowhere`、`hi`、`pay-to-win`、`fruit-store`、`game-leaderboard`、`lamb-sauce`、`portalstrology`、`viewy` |
+| analyzed-no-flag | 8 | `We Love The Environment`、`CaaS`、`CaaS2`、`Conditions`、`shero`、`Hello GreyCat beta`、`t00 f4st`、`Resume` |
 
 ## 已确认 flag
 
@@ -93,4 +94,4 @@
 - 需要启动 Bugku 动态容器验证的题目，不编造 flag，统一保留为 analyzed-no-flag 或 blocked-no-flag。
 
 ## 下一步
-继续检索 Bugku 第16—18页列表缓存，补齐第182—230题题名；题号确认后，将 `Robots` 和 `Secret Group` 的 flag 写入对应全局题号，并继续补 `CaaS/CaaS2/Conditions/Resume/Curl as a Service` 等题。
+继续复核 `gid=2/tid=1` 第10—12页题名；题号确认后，将 `Robots`、`Secret Group` 和已确认的 Space Heroes/TJCTF 题重新绑定到准确全局题号。
