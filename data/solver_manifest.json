@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "solvers": [
+    {
+      "module_name": "brainfuck_emoticon",
+      "path": "solvers/misc/brainfuck_emoticon.py",
+      "category": "misc",
+      "entrypoint": "solve(attachment_path, **kwargs)",
+      "dependencies": [],
+      "self_test": "python3 solvers/misc/brainfuck_emoticon.py --self-test",
+      "status": "active"
+    }
+  ]
+}
