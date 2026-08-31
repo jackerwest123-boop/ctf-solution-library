@@ -1,0 +1,104 @@
+{
+  "batch": "Bugku 第181-230题逐题补flag Pass3",
+  "status": "renumber-refill",
+  "note": "纠正此前全站 WEB 分页与 gid=2/tid=1 目标分页混用造成的偏差。本卡只写入题名和 flag 已有公开支撑的项目；题号仍需最终复核的项目保留 candidate-number。",
+  "items": [
+    {
+      "title": "第182题：Apollo Guidance Computer",
+      "source_id": "[Bugku] 比赛真题 WEB / Space Heroes CTF-2023",
+      "category": "web",
+      "attachment_type": "源码/在线环境",
+      "refill_status": "solved-carded",
+      "detection": {"keywords": ["Apollo Guidance Computer", "Space Heroes", "flag.txt", "Flask"], "condition": "Space Heroes CTF 2023 Apollo Guidance Computer WEB题"},
+      "method": {"principle": "官方公开源码仓库含 flag.txt；题目源码中读取 flag.txt 但前端不直接渲染。", "steps": ["定位官方源码仓库", "读取 web/apollo-guidance-computer/src/flag.txt", "记录 flag"], "tools": ["GitHub", "browser"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_source_flagtxt_lookup", "code": "", "input": "官方源码仓库路径", "output": "flag"},
+      "verification": {"flag": "shctf{I_reP3aT_h0UstOn_w3_H4vE_L1Ft0Ff}", "how": "公开源码仓库 flag.txt 明文确认。"}
+    },
+    {
+      "title": "第183题：attack-strategies",
+      "source_id": "[Bugku] 比赛真题 WEB / Space Heroes CTF-2023",
+      "category": "web",
+      "attachment_type": "源码/在线环境",
+      "refill_status": "solved-carded",
+      "detection": {"keywords": ["attack-strategies", "show_hidden", "strategies", "flag.txt"], "condition": "Space Heroes CTF 2023 attack-strategies WEB题"},
+      "method": {"principle": "Cookie show_hidden 控制隐藏文件显示；官方源码 strategies/flag.txt 明文保存 flag。", "steps": ["查看 app.py", "确认 show_hidden=true 可列出 .txt", "读取 strategies/flag.txt"], "tools": ["GitHub", "curl", "browser"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_hidden_file_cookie", "code": "", "input": "目标 URL 或源码", "output": "flag"},
+      "verification": {"flag": "shctf{get_zerg_rushed_nb}", "how": "公开源码仓库 strategies/flag.txt 明文确认。"}
+    },
+    {
+      "title": "第184题：robot-best-friend",
+      "source_id": "[Bugku] 比赛真题 WEB / Space Heroes CTF-2023",
+      "category": "web",
+      "attachment_type": "源码/在线环境",
+      "refill_status": "solved-carded",
+      "detection": {"keywords": ["robot-best-friend", "prompt", "LLM", "system prompt"], "condition": "聊天机器人/提示注入题"},
+      "method": {"principle": "flag 被写入系统提示，题目解法是提示注入诱导机器人泄露；公开源码可直接确认 flag。", "steps": ["定位 Chall.py", "读取 histories 初始化 system prompt", "记录 flag"], "tools": ["GitHub", "browser"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_prompt_injection_flag", "code": "", "input": "目标 URL 或源码", "output": "flag"},
+      "verification": {"flag": "shctf{I_don't_want_to_play_with_you_ever_again}", "how": "公开源码 Chall.py 的 system prompt 明文确认。"}
+    },
+    {
+      "title": "第185题：Sanity Check In Space",
+      "source_id": "[Bugku] 比赛真题 WEB / Space Heroes CTF-2023",
+      "category": "web",
+      "attachment_type": "源码/在线环境",
+      "refill_status": "solved-carded",
+      "detection": {"keywords": ["Sanity Check In Space", "flag.txt", "Flask"], "condition": "Space Heroes CTF 2023 Sanity Check In Space WEB题"},
+      "method": {"principle": "官方源码仓库包含 flag.txt。", "steps": ["定位官方源码目录", "读取 docker/flag.txt", "记录 flag"], "tools": ["GitHub"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_flagtxt_static", "code": "", "input": "源码路径", "output": "flag"},
+      "verification": {"flag": "shctf{exp01ting_w3bs1tes_1N_SP@C3}", "how": "公开源码仓库 docker/flag.txt 明文确认。"}
+    },
+    {
+      "title": "第186题：Bank of Knowhere",
+      "source_id": "[Bugku] 比赛真题 WEB / Space Heroes CTF-2023",
+      "category": "web",
+      "attachment_type": "源码/在线环境",
+      "refill_status": "solved-carded",
+      "detection": {"keywords": ["Bank of Knowhere", "session", "balance", "admin.php"], "condition": "余额/业务逻辑题"},
+      "method": {"principle": "会话中 Groot 余额超过阈值后 admin.php 输出 flag；公开源码中有明文 flag。", "steps": ["查看 admin.php", "确认余额条件", "记录 echo 中的 flag"], "tools": ["GitHub", "browser"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_session_balance_logic", "code": "", "input": "目标 URL 或源码", "output": "flag"},
+      "verification": {"flag": "shctf{7h3_c0sm0s_1s_w17h1n_u5}", "how": "公开源码 admin.php 明文确认。"}
+    },
+    {
+      "title": "第190题：hi",
+      "source_id": "[Bugku] 比赛真题 WEB / TJCTF-2023",
+      "category": "web",
+      "attachment_type": "在线环境",
+      "refill_status": "solved-carded",
+      "detection": {"keywords": ["hi", "TJCTF", "canvas"], "condition": "TJCTF 2023 hi WEB题"},
+      "method": {"principle": "公开 writeup 给出最终 flag。", "steps": ["核对公开 writeup", "记录 flag"], "tools": ["browser"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_writeup_static_flag", "code": "", "input": "writeup", "output": "flag"},
+      "verification": {"flag": "tjctf{pretty_canvas_577f7045}", "how": "TJCTF 2023 公开 writeup 确认。"}
+    },
+    {
+      "title": "第194题：pay-to-win",
+      "source_id": "[Bugku] 比赛真题 WEB / TJCTF-2023",
+      "category": "web",
+      "attachment_type": "在线环境",
+      "refill_status": "solved-carded",
+      "detection": {"keywords": ["pay-to-win", "TJCTF", "random"], "condition": "TJCTF 2023 pay-to-win WEB题"},
+      "method": {"principle": "公开 writeup 给出最终 flag。", "steps": ["核对公开 writeup", "记录 flag"], "tools": ["browser"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_writeup_static_flag", "code": "", "input": "writeup", "output": "flag"},
+      "verification": {"flag": "tjctf{not_random_enough_64831eff}", "how": "TJCTF 2023 公开 writeup 确认。"}
+    },
+    {
+      "title": "待复核题号：Robots",
+      "source_id": "[Bugku] 后续 WEB / n00bzCTF-2023",
+      "category": "web",
+      "attachment_type": "在线环境",
+      "refill_status": "solved-carded-candidate-number",
+      "verification": {"flag": "n00bz{1_f0und_7h3_r0b0ts!}", "how": "公开 writeup 确认；待 gid=2/tid=1 后续页完整列表绑定全局题号。"},
+      "method": {"principle": "访问 robots.txt 跟踪隐藏路径。", "steps": ["访问 /robots.txt", "跟踪 Disallow 路径", "读取 flag"], "tools": ["curl", "browser"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_robots_hidden_path", "code": "", "input": "目标 URL", "output": "flag"}
+    },
+    {
+      "title": "待复核题号：Secret Group",
+      "source_id": "[Bugku] 后续 WEB / n00bzCTF-2023",
+      "category": "web",
+      "attachment_type": "在线环境",
+      "refill_status": "solved-carded-candidate-number",
+      "verification": {"flag": "n00bz{y0u_4r3_n0w_4_v4l1d_m3mb3r_0f_th3_s3cr3t_gr0up!}", "how": "公开 writeup 确认；待 gid=2/tid=1 后续页完整列表绑定全局题号。"},
+      "method": {"principle": "服务端根据请求头判断是否为指定管理员/组成员。", "steps": ["检查题面提示", "修改请求头身份字段", "读取 flag"], "tools": ["curl", "Burp Suite"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_header_identity_bypass", "code": "", "input": "目标 URL", "output": "flag"}
+    }
+  ]
+}
