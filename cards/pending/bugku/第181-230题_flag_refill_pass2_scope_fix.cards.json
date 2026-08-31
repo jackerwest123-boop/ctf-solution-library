@@ -1,0 +1,77 @@
+{
+  "batch": "Bugku 第181-230题逐题补flag Pass 2 / 范围校准",
+  "status": "scope-fix-refill",
+  "note": "继续处理时发现此前 Pass 1 主要使用全站 WEB 分页缓存；本文件按最初目标 gid=2/tid=1 重新校准，不把未复核全局题号的题强行绑定为第XX题。",
+  "confirmed_candidate_flags": [
+    {
+      "title": "Robots",
+      "source_id": "[Bugku] n00bzCTF-2023 / WEB / 全局题号待复核",
+      "category": "web",
+      "refill_status": "solved-carded-candidate-number",
+      "verification": {
+        "flag": "n00bz{1_f0und_7h3_r0b0ts!}",
+        "how": "公开 writeup 显示访问 robots.txt 并跟踪隐藏路径获得 flag；需复核 Bugku gid=2/tid=1 全局题号后再拆分入单题卡。"
+      },
+      "method": {
+        "principle": "robots.txt 信息泄露暴露隐藏路径。",
+        "steps": ["访问 /robots.txt", "读取 Disallow 或隐藏路径", "访问隐藏路径取得 flag"],
+        "tools": ["browser", "curl"],
+        "produces_artifact": false
+      },
+      "solver": {
+        "reusable": true,
+        "module_name": "web_robots_path_follow",
+        "code": "",
+        "input": "目标 URL",
+        "output": "flag 或隐藏路径"
+      }
+    },
+    {
+      "title": "Secret Group",
+      "source_id": "[Bugku] n00bzCTF-2023 / WEB / 全局题号待复核",
+      "category": "web",
+      "refill_status": "solved-carded-candidate-number",
+      "verification": {
+        "flag": "n00bz{y0u_4r3_n0w_4_v4l1d_m3mb3r_0f_th3_s3cr3t_gr0up!}",
+        "how": "公开 writeup 显示通过修改请求头为指定管理员身份获得 flag；需复核 Bugku gid=2/tid=1 全局题号后再拆分入单题卡。"
+      },
+      "method": {
+        "principle": "服务端信任特定 HTTP Header 中的身份或 User-Agent。",
+        "steps": ["抓取初始响应和请求头提示", "将身份相关 Header 修改为 n00bz-4dm1n 等指定值", "重放请求取得 flag"],
+        "tools": ["Burp Suite", "curl", "browser devtools"],
+        "produces_artifact": false
+      },
+      "solver": {
+        "reusable": true,
+        "module_name": "web_header_identity_bypass",
+        "code": "",
+        "input": "目标 URL 与 Header 候选",
+        "output": "flag 或响应差异"
+      }
+    }
+  ],
+  "needs_renumbering": [
+    "Apollo Guidance Computer",
+    "attack-strategies",
+    "robot-best-friend",
+    "Sanity Check In Space",
+    "Bank of Knowhere",
+    "hi",
+    "pay-to-win",
+    "fruit-store",
+    "game-leaderboard",
+    "lamb-sauce",
+    "portalstrology",
+    "viewy"
+  ],
+  "blocked_or_analyzed": [
+    "We Love The Environment",
+    "CaaS",
+    "CaaS2",
+    "Conditions",
+    "shero",
+    "Hello GreyCat beta",
+    "t00 f4st",
+    "Resume"
+  ]
+}
