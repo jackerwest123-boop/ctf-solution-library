@@ -1,0 +1,106 @@
+{
+  "batch": "Bugku 第181-230题逐题补flag Pass 1",
+  "status": "partial-refill-enumeration-blocked",
+  "note": "当前只能可靠确认第181题 We Love The Environment；第182-230题需 Bugku 第16-18页列表复核。候选后续题中 Robots 与 Secret Group 已有可核验 flag，但全局题号待复核。",
+  "confirmed_range_items": [
+    {
+      "title": "第181题：We Love The Environment",
+      "source_id": "[Bugku] 第181题 / Welcome CTF-2023",
+      "category": "web",
+      "attachment_type": "zip/在线环境",
+      "refill_status": "analyzed-no-flag",
+      "detection": {
+        "keywords": ["environment", "putenv", "TAR_OPTIONS", "readflag", "PHP", "web"],
+        "attachment_features": "PHP 在线 WEB 场景，可设置环境变量并执行程序。",
+        "condition": "当题目允许设置环境变量并执行被 escapeshellarg 包裹的程序时适用。"
+      },
+      "method": {
+        "principle": "利用环境变量影响目标程序行为，例如通过 TAR_OPTIONS 让 tar 执行 --to-command，从而间接传参执行 readflag。",
+        "steps": [
+          "阅读源码确认 prog/var/val 三个输入点",
+          "用 var=TAR_OPTIONS 设置 tar 运行参数",
+          "令 prog=tar 并让 val 包含 --to-command '/readflag GIVEFLAGPLS' -x -f 可用 tar 文件",
+          "启动动态环境后读取响应并回填 flag"
+        ],
+        "tools": ["curl", "Burp Suite", "browser"],
+        "produces_artifact": false
+      },
+      "solver": {
+        "reusable": false,
+        "module_name": "php_env_tar_options_readflag",
+        "code": "",
+        "input": "目标 URL",
+        "output": "响应中的 flag"
+      },
+      "verification": {
+        "flag": "",
+        "how": "公开 writeup 给出利用方法，但未给出可核验静态 flag；需启动 Bugku 环境验证。"
+      }
+    }
+  ],
+  "candidate_later_web_items": [
+    {
+      "title": "Robots",
+      "source_id": "[Bugku] 后续 WEB 题 / n00bzCTF-2023，具体全局题号待复核",
+      "category": "web",
+      "attachment_type": "在线环境",
+      "refill_status": "solved-carded-candidate-number",
+      "detection": {
+        "keywords": ["robots", "robots.txt", "n00bzCTF", "web"],
+        "attachment_features": "在线 WEB 场景，题名直接指向 robots.txt。",
+        "condition": "题名为 Robots 或提示寻找机器人规则文件。"
+      },
+      "method": {
+        "principle": "访问 /robots.txt 读取隐藏内容或 flag。",
+        "steps": ["访问目标 /robots.txt", "读取返回内容", "提交 flag"],
+        "tools": ["curl", "browser"],
+        "produces_artifact": false
+      },
+      "solver": {
+        "reusable": false,
+        "module_name": "web_robots_txt_basic",
+        "code": "",
+        "input": "目标 URL",
+        "output": "robots.txt 中的 flag"
+      },
+      "verification": {
+        "flag": "n00bz{1_f0und_7h3_r0b0ts!}",
+        "how": "公开 n00bzCTF-2023 writeup 给出访问 /robots.txt 后得到该 flag；Bugku 全局题号待第16-18页列表复核。"
+      }
+    },
+    {
+      "title": "Secret Group",
+      "source_id": "[Bugku] 后续 WEB 题 / n00bzCTF-2023，具体全局题号待复核",
+      "category": "web",
+      "attachment_type": "在线环境",
+      "refill_status": "solved-carded-candidate-number",
+      "detection": {
+        "keywords": ["Secret Group", "headers", "User-Agent", "Referer", "Give-Flag", "web"],
+        "attachment_features": "在线 WEB 场景，通过多组 HTTP 请求头判断身份。",
+        "condition": "题目要求成为 secret group 成员并逐步提示修改 HTTP 头。"
+      },
+      "method": {
+        "principle": "服务端根据信任的请求头组合判断是否授权，按提示逐步补齐 User-Agent/Accept/Connection/Referer/Give-Flag。",
+        "steps": [
+          "抓取页面提示",
+          "设置 User-Agent 为 n00bz-4dm1n",
+          "设置 Accept 为 fl4g，Connection 为 s3cur3，Referer 为 s3cr3t.n00bz-4dm1n.xyz",
+          "添加 Give-Flag: 7ru3 后读取 flag"
+        ],
+        "tools": ["curl", "Burp Suite", "ModHeader"],
+        "produces_artifact": false
+      },
+      "solver": {
+        "reusable": false,
+        "module_name": "web_header_secret_group",
+        "code": "",
+        "input": "目标 URL",
+        "output": "响应中的 flag"
+      },
+      "verification": {
+        "flag": "n00bz{y0u_4r3_n0w_4_v4l1d_m3mb3r_0f_th3_s3cr3t_gr0up!}",
+        "how": "公开 n00bzCTF-2023 writeup 给出请求头组合和该 flag；Bugku 全局题号待第16-18页列表复核。"
+      }
+    }
+  ]
+}
