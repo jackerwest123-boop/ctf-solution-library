@@ -6,12 +6,12 @@
   "page_count_planned": 130,
   "page_size": 20,
   "numbering_rule": "global_no = (page - 1) * 20 + page_index",
-  "current_phase": "round_002_A_completed_next_round_002_B",
+  "current_phase": "round_002_B_completed_next_round_003_A",
   "last_enumerated_round": 2,
   "last_enumerated_page": 2,
   "last_enumerated_global_no": 40,
-  "next_round": 2,
-  "next_page_url": "https://ctf.bugku.com/challenges/index/gid/2.html?page=2",
+  "next_round": 3,
+  "next_page_url": "https://ctf.bugku.com/challenges/index/gid/2.html?page=3",
   "round_001": {
     "page": 1,
     "range": [1, 20],
@@ -25,10 +25,13 @@
   "round_002": {
     "page": 2,
     "range": [21, 40],
-    "status": "A_completed_B_pending",
+    "status": "B_completed",
     "worklog_enumeration": "worklogs/bugku/rounds/round_002_page_002.md",
+    "worklog_contract": "worklogs/bugku/rounds/round_002_page_002_contract_0021_0040.md",
     "manifest": "data/bugku_gid2_manifest.json",
-    "notes": "第002轮-A已完成清单建档；未解题、未创建README/card。page=2 direct open cache miss，detail URL在第002轮-B继续复核。"
+    "contract_files_created": [21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40],
+    "stats_current": {"solved_verified": 0, "solved_unverified": 1, "method_only": 14, "blocked": 5},
+    "notes": "第002轮-A和第002轮-B已完成；0021—0040均已有canonical README/card。未新增solved_verified。"
   },
-  "next_action_full_prompt": "进入第002轮-B：对 https://ctf.bugku.com/challenges/index/gid/2.html?page=2 的第0021—0040题逐题生成或升级 canonical 路径 bugku/<四位编号_题名>/README.md、bugku/<四位编号_题名>/card.json。具体任务：0021—0030先迁移或升级已有旧卡，0031—0040新建 README/card；能通过原始附件和 solver 真实执行的才允许写 verification.executed=true 并标 solved_verified；不能执行的保持 solved_unverified、method_only 或 blocked；不得伪造 flag 或执行输出。完成后更新 data/bugku_gid2_manifest.json 和 progress.json；若0021—0040完成，再把下一步提示改为第003轮-A，对 https://ctf.bugku.com/challenges/index/gid/2.html?page=3 的第0041—0060题做清单建档。"
+  "next_action_full_prompt": "进入第003轮-A：对 https://ctf.bugku.com/challenges/index/gid/2.html?page=3 的第0041—0060题做清单建档。具体任务：逐题记录全局题号、page_index、题名、赛事、类型、detail URL、已解决人数或页面状态、初始仓库状态；写入或追加更新 data/bugku_gid2_manifest.json，并创建 worklogs/bugku/rounds/round_003_page_003.md。本阶段只做 page=3 的清单建档，不做解题，不创建题目 README/card；完成后把 progress.json 的下一步提示改为第003轮-B，对第0041—0060题逐题生成或升级 canonical README/card。"
 }
