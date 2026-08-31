@@ -6,7 +6,7 @@
   "page_count_planned": 130,
   "page_size": 20,
   "numbering_rule": "global_no = (page - 1) * 20 + page_index",
-  "current_phase": "round_001_A_completed_B_in_progress",
+  "current_phase": "round_001_B_part1_done_part2_pending",
   "last_enumerated_round": 1,
   "last_enumerated_page": 1,
   "last_enumerated_global_no": 20,
@@ -17,15 +17,18 @@
     "range": [1, 20],
     "worklog_enumeration": "worklogs/bugku/rounds/round_001_page_001.md",
     "worklog_contract_status": "worklogs/bugku/rounds/round_001_page_001_contract.md",
+    "worklog_contract_part1": "worklogs/bugku/rounds/round_001_page_001_contract_part1_0001_0010.md",
     "manifest": "data/bugku_gid2_manifest.json",
-    "status": "A_completed_B_in_progress",
-    "stats": {
+    "status": "B_part1_done_part2_pending",
+    "contract_files_created": [1,2,3,4,5,6,7,8,9,10],
+    "contract_files_pending": [11,12,13,14,15,16,17,18,19,20],
+    "stats_current": {
       "solved_verified": 1,
       "solved_unverified": 10,
       "method_only": 2,
       "blocked": 7
     },
-    "notes": "第一轮-A已补齐page=1的detail URL与状态归一；第一轮-B已启动但未完成逐题README/card/solver升级。继续时仍处理page=1，不进入page=2。"
+    "notes": "第一轮-A已完成；第一轮-B已为0001—0010创建canonical README/card。继续时仍处理page=1的0011—0020，不进入page=2。"
   },
-  "next_action_full_prompt": "继续第一轮-B，不进入page=2。对 https://ctf.bugku.com/challenges/index/gid/2.html?page=1 的第0001—0020题逐题生成或升级 bugku/<编号_题名>/README.md、bugku/<编号_题名>/card.json；能本地执行的补 solver.solve()、--self-test、verification.executed=true 和真实输出；不能执行的保持 solved_unverified、method_only 或 blocked，不得伪造 solved_verified。"
+  "next_action_full_prompt": "继续第一轮-B第二阶段，不进入 page=2。具体任务：对 https://ctf.bugku.com/challenges/index/gid/2.html?page=1 的第0011—0020题逐题生成或升级 canonical 路径 bugku/<四位编号_题名>/README.md、bugku/<四位编号_题名>/card.json；第0016题可以复用已修复的 solvers/misc/brainfuck_emoticon.py 并保持 solved_verified；其余题如果不能用原始附件真实执行，就只能保持 solved_unverified、method_only 或 blocked，不得伪造 solved_verified。完成后更新 data/bugku_gid2_manifest.json 与 progress.json；若0011—0020也完成，再把下一步提示改为进入 page=2，即 https://ctf.bugku.com/challenges/index/gid/2.html?page=2 的第0021—0040题清单建档。"
 }
