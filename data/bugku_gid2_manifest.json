@@ -7,7 +7,7 @@
   "page_size": 20,
   "numbering_rule": "global_no = (page - 1) * 20 + page_index",
   "manifest_status": "partial",
-  "last_enumerated_page": 1,
+  "last_enumerated_page": 2,
   "next_page": 2,
   "rounds": {
     "1": {
@@ -17,6 +17,13 @@
       "worklog_enumeration": "worklogs/bugku/rounds/round_001_page_001.md",
       "worklog_contract_part1": "worklogs/bugku/rounds/round_001_page_001_contract_part1_0001_0010.md",
       "worklog_contract_part2": "worklogs/bugku/rounds/round_001_page_001_contract_part2_0011_0020.md"
+    },
+    "2": {
+      "status": "A_completed_B_pending",
+      "range": [21, 40],
+      "source_url": "https://ctf.bugku.com/challenges/index/gid/2.html?page=2",
+      "worklog_enumeration": "worklogs/bugku/rounds/round_002_page_002.md",
+      "note": "page=2 direct open cache miss; enumeration derived from public index cache and existing repo index, detail URLs to verify in round 002-B."
     }
   },
   "items": [
@@ -39,6 +46,26 @@
     {"global_no":17,"round":1,"page":1,"page_index":17,"title":"3-最好的语言","event":"网鼎杯-2018","category":"Reverse","bugku_url":"https://ctf.bugku.com/challenges/detail/id/244.html","repo_status":"solved_unverified","canonical_path":"bugku/0017_3_best_language","flag_known":true,"verification_flag":"","note":"旧卡已确认算法和flag，但尚未升级为契约solver/self-test。"},
     {"global_no":18,"round":1,"page":1,"page_index":18,"title":"3-SimpleSMC","event":"网鼎杯-2018","category":"Reverse","bugku_url":"https://ctf.bugku.com/challenges/detail/id/245.html","repo_status":"blocked","canonical_path":"bugku/0018_3_simplesmc","flag_known":false,"verification_flag":"","note":"旧目录存在，已新建canonical README/card；仍缺附件和验证。"},
     {"global_no":19,"round":1,"page":1,"page_index":19,"title":"3-hafuhafu","event":"网鼎杯-2018","category":"Crypto","bugku_url":"https://ctf.bugku.com/challenges/detail/id/246.html","repo_status":"solved_unverified","canonical_path":"bugku/0019_3_hafuhafu","flag_known":true,"verification_flag":"","note":"旧卡有RSA分解解法和flag，但尚未契约化执行。"},
-    {"global_no":20,"round":1,"page":1,"page_index":20,"title":"3-Unpleasant_music","event":"网鼎杯-2018","category":"MISC","bugku_url":"https://ctf.bugku.com/challenges/detail/id/247.html","repo_status":"blocked","canonical_path":"bugku/0020_3_unpleasant_music","flag_known":false,"verification_flag":"","note":"旧目录存在，已新建canonical README/card；仍缺附件和验证。"}
+    {"global_no":20,"round":1,"page":1,"page_index":20,"title":"3-Unpleasant_music","event":"网鼎杯-2018","category":"MISC","bugku_url":"https://ctf.bugku.com/challenges/detail/id/247.html","repo_status":"blocked","canonical_path":"bugku/0020_3_unpleasant_music","flag_known":false,"verification_flag":"","note":"旧目录存在，已新建canonical README/card；仍缺附件和验证。"},
+    {"global_no":21,"round":2,"page":2,"page_index":1,"title":"3-track_hacker","event":"网鼎杯-2018","category":"Crypto","bugku_url":"https://ctf.bugku.com/challenges/detail/id/248.html","repo_status":"legacy-card-exists","canonical_path":"","flag_known":false,"verification_flag":"","note":"已在旧index中存在卡片；detail URL按连续ID推断，round 002-B复核。"},
+    {"global_no":22,"round":2,"page":2,"page_index":2,"title":"3-dewas","event":"网鼎杯-2018","category":"MISC","bugku_url":"https://ctf.bugku.com/challenges/detail/id/249.html","repo_status":"legacy-card-exists","canonical_path":"","flag_known":false,"verification_flag":"","note":"已在旧index中存在卡片；detail URL按连续ID推断，round 002-B复核。"},
+    {"global_no":23,"round":2,"page":2,"page_index":3,"title":"3-mirror","event":"网鼎杯-2018","category":"MISC","bugku_url":"https://ctf.bugku.com/challenges/detail/id/250.html","repo_status":"legacy-card-exists","canonical_path":"","flag_known":false,"verification_flag":"","note":"已在旧index中存在卡片；detail URL按连续ID推断，round 002-B复核。"},
+    {"global_no":24,"round":2,"page":2,"page_index":4,"title":"3-I_like_pack","event":"网鼎杯-2018","category":"Reverse","bugku_url":"https://ctf.bugku.com/challenges/detail/id/251.html","repo_status":"legacy-card-exists","canonical_path":"","flag_known":false,"verification_flag":"","note":"已在旧index中存在卡片；detail URL按连续ID推断，round 002-B复核。"},
+    {"global_no":25,"round":2,"page":2,"page_index":5,"title":"3-babyre","event":"网鼎杯-2018","category":"Reverse","bugku_url":"https://ctf.bugku.com/challenges/detail/id/252.html","repo_status":"legacy-card-exists","canonical_path":"","flag_known":false,"verification_flag":"","note":"已在旧index中存在卡片；detail URL按连续ID推断，round 002-B复核。"},
+    {"global_no":26,"round":2,"page":2,"page_index":6,"title":"3-Not_only_base","event":"网鼎杯-2018","category":"Crypto","bugku_url":"https://ctf.bugku.com/challenges/detail/id/253.html","repo_status":"legacy-card-exists","canonical_path":"","flag_known":false,"verification_flag":"","note":"已在旧index中存在卡片；detail URL按连续ID推断，round 002-B复核。"},
+    {"global_no":27,"round":2,"page":2,"page_index":7,"title":"easy_fs","event":"N1CTF-2018","category":"Reverse","bugku_url":"https://ctf.bugku.com/challenges/detail/id/254.html","repo_status":"legacy-card-exists","canonical_path":"","flag_known":false,"verification_flag":"","note":"已在旧index中存在卡片；detail URL按连续ID推断，round 002-B复核。"},
+    {"global_no":28,"round":2,"page":2,"page_index":8,"title":"baby_N1ES","event":"N1CTF-2018","category":"Crypto","bugku_url":"https://ctf.bugku.com/challenges/detail/id/255.html","repo_status":"legacy-card-exists","canonical_path":"","flag_known":false,"verification_flag":"","note":"已在旧index中存在卡片；detail URL按连续ID推断，round 002-B复核。"},
+    {"global_no":29,"round":2,"page":2,"page_index":9,"title":"Lipstick","event":"N1CTF-2018","category":"MISC","bugku_url":"https://ctf.bugku.com/challenges/detail/id/256.html","repo_status":"legacy-card-exists","canonical_path":"","flag_known":false,"verification_flag":"","note":"已在旧index中存在卡片；detail URL按连续ID推断，round 002-B复核。"},
+    {"global_no":30,"round":2,"page":2,"page_index":10,"title":"APFS","event":"N1CTF-2018","category":"MISC","bugku_url":"https://ctf.bugku.com/challenges/detail/id/257.html","repo_status":"legacy-card-exists","canonical_path":"","flag_known":false,"verification_flag":"","note":"已在旧index中存在卡片；detail URL按连续ID推断，round 002-B复核。"},
+    {"global_no":31,"round":2,"page":2,"page_index":11,"title":"patience","event":"N1CTF-2018","category":"Reverse","bugku_url":"https://ctf.bugku.com/challenges/detail/id/258.html","repo_status":"enumerated","canonical_path":"","flag_known":false,"verification_flag":"","note":"detail URL按连续ID推断，round 002-B复核。"},
+    {"global_no":32,"round":2,"page":2,"page_index":12,"title":"OldDriver of Akina","event":"N1CTF-2018","category":"Reverse","bugku_url":"https://ctf.bugku.com/challenges/detail/id/259.html","repo_status":"enumerated","canonical_path":"","flag_known":false,"verification_flag":"","note":"detail URL按连续ID推断，round 002-B复核。"},
+    {"global_no":33,"round":2,"page":2,"page_index":13,"title":"N1CTF-LFI","event":"N1CTF-2018","category":"Reverse","bugku_url":"https://ctf.bugku.com/challenges/detail/id/260.html","repo_status":"enumerated","canonical_path":"","flag_known":false,"verification_flag":"","note":"detail URL按连续ID推断，round 002-B复核。"},
+    {"global_no":34,"round":2,"page":2,"page_index":14,"title":"baby_neural_network","event":"N1CTF-2018","category":"Reverse","bugku_url":"https://ctf.bugku.com/challenges/detail/id/261.html","repo_status":"enumerated","canonical_path":"","flag_known":false,"verification_flag":"","note":"detail URL按连续ID推断，round 002-B复核。"},
+    {"global_no":35,"round":2,"page":2,"page_index":15,"title":"N1CTF-baby unity3d","event":"N1CTF-2018","category":"Reverse","bugku_url":"https://ctf.bugku.com/challenges/detail/id/262.html","repo_status":"enumerated","canonical_path":"","flag_known":false,"verification_flag":"","note":"detail URL按连续ID推断，round 002-B复核。"},
+    {"global_no":36,"round":2,"page":2,"page_index":16,"title":"MaybeNotStandrad","event":"Xp0intCTF-2017","category":"Reverse","bugku_url":"https://ctf.bugku.com/challenges/detail/id/263.html","repo_status":"enumerated","canonical_path":"","flag_known":false,"verification_flag":"","note":"detail URL按连续ID推断，round 002-B复核。"},
+    {"global_no":37,"round":2,"page":2,"page_index":17,"title":"好像说太多了","event":"Xp0intCTF-2017","category":"MISC","bugku_url":"https://ctf.bugku.com/challenges/detail/id/264.html","repo_status":"enumerated","canonical_path":"","flag_known":false,"verification_flag":"","note":"detail URL按连续ID推断，round 002-B复核。"},
+    {"global_no":38,"round":2,"page":2,"page_index":18,"title":"这是什么编码","event":"Xp0intCTF-2017","category":"Crypto","bugku_url":"https://ctf.bugku.com/challenges/detail/id/265.html","repo_status":"enumerated","canonical_path":"","flag_known":false,"verification_flag":"","note":"detail URL按连续ID推断，round 002-B复核。"},
+    {"global_no":39,"round":2,"page":2,"page_index":19,"title":"一张含有信息的图片","event":"Xp0intCTF-2017","category":"MISC","bugku_url":"https://ctf.bugku.com/challenges/detail/id/266.html","repo_status":"enumerated","canonical_path":"","flag_known":false,"verification_flag":"","note":"detail URL按连续ID推断，round 002-B复核。"},
+    {"global_no":40,"round":2,"page":2,"page_index":20,"title":"一个普通的压缩包","event":"Xp0intCTF-2017","category":"MISC","bugku_url":"https://ctf.bugku.com/challenges/detail/id/267.html","repo_status":"enumerated","canonical_path":"","flag_known":false,"verification_flag":"","note":"detail URL按连续ID推断，round 002-B复核。"}
   ]
 }
