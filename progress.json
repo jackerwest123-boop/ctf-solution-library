@@ -6,19 +6,26 @@
   "page_count_planned": 130,
   "page_size": 20,
   "numbering_rule": "global_no = (page - 1) * 20 + page_index",
-  "current_phase": "manifest_first_then_contract_solving",
+  "current_phase": "round_001_A_completed_B_in_progress",
   "last_enumerated_round": 1,
   "last_enumerated_page": 1,
   "last_enumerated_global_no": 20,
-  "next_round": 2,
-  "next_page_url": "https://ctf.bugku.com/challenges/index/gid/2.html?page=2",
+  "next_round": 1,
+  "next_page_url": "https://ctf.bugku.com/challenges/index/gid/2.html?page=1",
   "round_001": {
     "page": 1,
     "range": [1, 20],
-    "worklog": "worklogs/bugku/rounds/round_001_page_001.md",
+    "worklog_enumeration": "worklogs/bugku/rounds/round_001_page_001.md",
+    "worklog_contract_status": "worklogs/bugku/rounds/round_001_page_001_contract.md",
     "manifest": "data/bugku_gid2_manifest.json",
-    "status": "enumerated",
-    "new_solved_verified": 0,
-    "notes": "本轮先完成全题库page=1清单梳理；第016题为此前已契约修复的solved_verified。"
-  }
+    "status": "A_completed_B_in_progress",
+    "stats": {
+      "solved_verified": 1,
+      "solved_unverified": 10,
+      "method_only": 2,
+      "blocked": 7
+    },
+    "notes": "第一轮-A已补齐page=1的detail URL与状态归一；第一轮-B已启动但未完成逐题README/card/solver升级。继续时仍处理page=1，不进入page=2。"
+  },
+  "next_action_full_prompt": "继续第一轮-B，不进入page=2。对 https://ctf.bugku.com/challenges/index/gid/2.html?page=1 的第0001—0020题逐题生成或升级 bugku/<编号_题名>/README.md、bugku/<编号_题名>/card.json；能本地执行的补 solver.solve()、--self-test、verification.executed=true 和真实输出；不能执行的保持 solved_unverified、method_only 或 blocked，不得伪造 solved_verified。"
 }
