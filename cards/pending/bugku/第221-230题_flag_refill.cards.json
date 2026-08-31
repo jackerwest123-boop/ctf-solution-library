@@ -1,0 +1,124 @@
+{
+  "batch": "Bugku 第221-230题逐题补flag",
+  "status": "refill",
+  "range": "221-230",
+  "solved_count": 2,
+  "analyzed_no_flag_count": 2,
+  "blocked_no_flag_count": 6,
+  "outside_range_confirmed_count": 1,
+  "items": [
+    {
+      "title": "第221题：LoGiC",
+      "source_id": "[Bugku] 第221题 / Securinets-Friendly-2022",
+      "category": "web",
+      "attachment_type": "无/未知",
+      "refill_status": "blocked-no-flag",
+      "detection": {"keywords": ["LoGiC", "logic", "Securinets", "Bugku"], "attachment_features": "在线 WEB 场景，附件未知。", "condition": "业务逻辑或条件判断绕过题。"},
+      "method": {"principle": "按题名优先检查服务端逻辑、客户端条件、Cookie/Session 和隐藏参数。", "steps": ["启动场景", "审计源码和请求", "枚举逻辑分支", "拿到 flag 后回填"], "tools": ["browser devtools", "Burp Suite", "curl"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_logic_manual", "code": "", "input": "目标 URL", "output": "验证结果"},
+      "verification": {"flag": "", "how": "未找到可核验公开 flag，需动态环境验证。"}
+    },
+    {
+      "title": "第222题：Request Basics 1",
+      "source_id": "[Bugku] 第222题 / Securinets-Friendly-2022",
+      "category": "web",
+      "attachment_type": "无/未知",
+      "refill_status": "blocked-no-flag",
+      "detection": {"keywords": ["Request Basics", "HTTP", "header", "method"], "attachment_features": "在线 WEB 场景。", "condition": "HTTP 请求方法、请求头、参数基础题。"},
+      "method": {"principle": "检查 HTTP method、headers、cookies、query/body 参数是否满足条件。", "steps": ["抓包", "查看响应提示", "修改 method/headers/body", "读取 flag"], "tools": ["curl", "Burp Suite"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_http_request_basics", "code": "", "input": "目标 URL", "output": "验证结果"},
+      "verification": {"flag": "", "how": "未找到可核验公开 flag。"}
+    },
+    {
+      "title": "第223题：Request Basics 2",
+      "source_id": "[Bugku] 第223题 / Securinets-Friendly-2022",
+      "category": "web",
+      "attachment_type": "无/未知",
+      "refill_status": "blocked-no-flag",
+      "detection": {"keywords": ["Request Basics", "HTTP", "Referer", "User-Agent"], "attachment_features": "在线 WEB 场景。", "condition": "HTTP 基础请求头题。"},
+      "method": {"principle": "根据提示组合伪造请求头和参数。", "steps": ["抓包", "修改请求头", "重放", "读取 flag"], "tools": ["curl", "Burp Suite"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_http_header_basic", "code": "", "input": "目标 URL", "output": "验证结果"},
+      "verification": {"flag": "", "how": "未找到可核验公开 flag。"}
+    },
+    {
+      "title": "第224题：Request Basics 3",
+      "source_id": "[Bugku] 第224题 / Securinets-Friendly-2022",
+      "category": "web",
+      "attachment_type": "无/未知",
+      "refill_status": "blocked-no-flag",
+      "detection": {"keywords": ["Request Basics", "HTTP", "headers", "method"], "attachment_features": "在线 WEB 场景。", "condition": "HTTP 方法和请求头组合题。"},
+      "method": {"principle": "综合调整 method、headers、cookies、body 参数。", "steps": ["抓包", "逐项满足提示", "重放请求", "读取 flag"], "tools": ["curl", "Burp Suite"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_http_request_combo", "code": "", "input": "目标 URL", "output": "验证结果"},
+      "verification": {"flag": "", "how": "未找到可核验公开 flag。"}
+    },
+    {
+      "title": "第225题：Tunisia",
+      "source_id": "[Bugku] 第225题 / Securinets-Friendly-2022",
+      "category": "web",
+      "attachment_type": "无/未知",
+      "refill_status": "blocked-no-flag",
+      "detection": {"keywords": ["Tunisia", "IP", "country", "header"], "attachment_features": "在线 WEB 场景。", "condition": "地域/IP/语言或请求头伪造题。"},
+      "method": {"principle": "检查是否需要伪造 X-Forwarded-For、Accept-Language、Host 或国家/地区相关字段。", "steps": ["查看提示", "伪造地域相关请求头", "重放", "读取 flag"], "tools": ["curl", "Burp Suite"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_country_header_bypass", "code": "", "input": "目标 URL", "output": "验证结果"},
+      "verification": {"flag": "", "how": "未找到可核验公开 flag。"}
+    },
+    {
+      "title": "第226题：baby_sqli",
+      "source_id": "[Bugku] 第226题 / Welcome CTF-2023",
+      "category": "web",
+      "attachment_type": "无/未知",
+      "refill_status": "solved-carded",
+      "detection": {"keywords": ["baby_sqli", "SQLi", "login", "Welcome CTF"], "attachment_features": "登录表单。", "condition": "基础 SQL 注入登录绕过。"},
+      "method": {"principle": "登录处未正确过滤 SQL 条件，使用恒真条件绕过。", "steps": ["用户名填 admin", "密码填 ' or 1=1;--", "提交登录", "读取 flag"], "tools": ["browser", "Burp Suite"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_basic_sqli_login", "code": "", "input": "目标 URL", "output": "flag"},
+      "verification": {"flag": "greyhats{B4by_5qL1_1s_e4sy_4nd_fUn}", "how": "Welcome CTF 2023 公开 writeup 给出 payload 与 flag。"}
+    },
+    {
+      "title": "第227题：inspector",
+      "source_id": "[Bugku] 第227题 / Welcome CTF-2023",
+      "category": "web",
+      "attachment_type": "无/未知",
+      "refill_status": "solved-carded",
+      "detection": {"keywords": ["inspector", "source", "css", "js", "comment"], "attachment_features": "前端源码、CSS、JS 注释。", "condition": "源码注释分段隐藏 flag。"},
+      "method": {"principle": "flag 被拆分在 HTML、CSS、JS 注释中。", "steps": ["查看 HTML 源码", "查看 CSS 注释", "查看 JS 注释", "拼接 flag"], "tools": ["browser devtools", "curl"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_frontend_comment_flag", "code": "", "input": "目标 URL", "output": "flag"},
+      "verification": {"flag": "greyhats{1_4m_4n_insp3t0r_n0w}", "how": "Welcome CTF 2023 公开 writeup 从 index、CSS、JS 拼接出完整 flag。"}
+    },
+    {
+      "title": "第228题：RCE won't help",
+      "source_id": "[Bugku] 第228题 / Welcome CTF-2023",
+      "category": "web",
+      "attachment_type": "无/未知",
+      "refill_status": "analyzed-no-flag",
+      "detection": {"keywords": ["RCE won't help", "SSTI", "Jinja", "RCE"], "attachment_features": "登录或模板输入。", "condition": "SSTI/RCE 可触发但未必能读到 flag。"},
+      "method": {"principle": "公开资料显示可通过 Jinja/SSTI 调用 os.popen，但 writeup 作者未找到 flag。", "steps": ["定位输入点", "测试 SSTI", "尝试 os.popen", "动态环境继续枚举"], "tools": ["curl", "Burp Suite", "python3"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_ssti_rce_probe", "code": "", "input": "目标 URL", "output": "验证结果"},
+      "verification": {"flag": "", "how": "公开 writeup 标记为 unsolved，无可核验 flag。"}
+    },
+    {
+      "title": "第229题：flasky",
+      "source_id": "[Bugku] 第229题 / Welcome CTF-2023",
+      "category": "web",
+      "attachment_type": "无/未知",
+      "refill_status": "blocked-no-flag",
+      "detection": {"keywords": ["flasky", "Flask", "SSTI", "session"], "attachment_features": "Flask Web 场景。", "condition": "Flask session/SSTI/调试信息题。"},
+      "method": {"principle": "优先检查 Flask session、SSTI、debug、源码泄露。", "steps": ["识别 Flask 指纹", "检查 session cookie", "测试模板注入", "查找源码和调试信息"], "tools": ["flask-unsign", "curl", "Burp Suite"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_flask_probe", "code": "", "input": "目标 URL", "output": "验证结果"},
+      "verification": {"flag": "", "how": "未找到可核验公开 flag。"}
+    },
+    {
+      "title": "第230题：toddlersqli",
+      "source_id": "[Bugku] 第230题 / Welcome CTF-2023",
+      "category": "web",
+      "attachment_type": "无/未知",
+      "refill_status": "analyzed-no-flag",
+      "detection": {"keywords": ["toddlersqli", "SQLi", "Welcome CTF"], "attachment_features": "SQL 注入场景。", "condition": "比 baby_sqli 稍复杂的 SQL 注入题。"},
+      "method": {"principle": "公开资料只有尝试 notebook，未给出最终 flag。", "steps": ["复现 notebook 思路", "枚举注入点", "尝试盲注/联合查询", "动态验证 flag"], "tools": ["python3", "Burp Suite", "sqlmap（谨慎）"], "produces_artifact": false},
+      "solver": {"reusable": false, "module_name": "web_toddler_sqli_manual", "code": "", "input": "目标 URL", "output": "验证结果"},
+      "verification": {"flag": "", "how": "公开 writeup 标记为 unsolved，无可核验 flag。"}
+    }
+  ],
+  "outside_range_confirmed": [
+    {"title": "第231题候选：SS Xperience", "verification": {"flag": "greyhats{b4by_x55_scr1pt1ng_92488c0f2286e33bc1eda97a2beb1a2b}", "how": "Welcome CTF 2023 公开 writeup 给出 XSS 盗取 admin cookie 的 flag。"}}
+  ]
+}
