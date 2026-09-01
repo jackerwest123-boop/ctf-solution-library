@@ -4,11 +4,58 @@
   "source_url": "https://ctf.bugku.com/challenges/detail/id/205.html",
   "capability_id": "cg_crypto_caesar_rot13",
   "category": "crypto",
-  "attachment_type": "unknown",
-  "attachment": {"path": "attachments/[SusCTF-2017] Bugku-0001 Caesar cipher/", "sha256": "", "size": 0},
-  "detection": {"keywords": ["Caesar", "ROT13", "SusCTF"], "attachment_features": "疑似凯撒/ROT13文本；附件尚未入库。", "condition": "题名或题面提示Caesar cipher，且需要枚举位移得到Susctf{}格式。"},
-  "method": {"principle": "枚举凯撒位移/ROT13，选择符合Susctf{}格式的结果。", "steps": ["取得密文", "枚举0-25位移或ROT13", "筛选Susctf{}格式"], "tools": ["python3"], "produces_artifact": false},
-  "solver": {"reusable": false, "module_name": "", "entrypoint": "", "code": "", "dependencies": [], "self_test": null},
-  "verification": {"flag": "Susctf{3e811e068f5ce27eb4bc1c37723d7ee2}", "how": "公开评论给出；未用仓库附件执行。", "executed": false, "executed_output": ""},
-  "status": "solved_unverified"
+  "attachment_type": "source_text",
+  "attachment": {
+    "path": "attachments/bugku/0001_caesar_cipher/cipher.txt",
+    "sha256": "b24cf16bae62dfc990c370363e8e533fec6534755edd08c837509ab494db2749",
+    "size": 41,
+    "note": "source-text input from Bugku comments and public writeup; not claimed as an official downloaded attachment."
+  },
+  "detection": {
+    "keywords": [
+      "Caesar",
+      "ROT13",
+      "SusCTF",
+      "Susctf{}"
+    ],
+    "attachment_features": "Text ciphertext; alphabetic characters can be Caesar-shifted.",
+    "condition": "Title is Caesar cipher and expected format is Susctf{}; ciphertext starts with Fhfpgs{}, which becomes Susctf{} under ROT13."
+  },
+  "method": {
+    "principle": "Enumerate Caesar shifts and select the candidate matching Susctf{32 hex chars}.",
+    "steps": [
+      "Read the source-text ciphertext.",
+      "Try all 26 Caesar shifts on alphabetic characters.",
+      "Keep digits and braces unchanged.",
+      "Select the candidate matching Susctf\\{[0-9a-f]{32}\\}; shift 13 yields the flag."
+    ],
+    "tools": [
+      "python3",
+      "solvers/crypto/caesar_rot.py"
+    ],
+    "produces_artifact": false,
+    "limitations": "Official download endpoint could not be fetched; verification uses source-text ciphertext consistently shown by Bugku comments and public writeup."
+  },
+  "solver": {
+    "reusable": true,
+    "module_name": "solvers.crypto.caesar_rot",
+    "entrypoint": "solve(attachment_path, **kwargs)",
+    "path": "solvers/crypto/caesar_rot.py",
+    "code_sha256": "41fed858d4e0854894e7d338b087e85366c6292f493d1282fed11c04897d91f1",
+    "code": "#!/usr/bin/env python3\n\"\"\"Generic Caesar/ROT solver for simple CTF flag text.\"\"\"\nfrom __future__ import annotations\n\nimport argparse\nimport json\nimport re\nfrom pathlib import Path\nfrom typing import Dict, List\n\nFLAG_RE = re.compile(r\"Susctf\\\\{[0-9a-f]{32}\\\\}\")\n\n\ndef caesar_shift(text: str, shift: int) -> str:\n    out: List[str] = []\n    for ch in text:\n        if \"a\" <= ch <= \"z\":\n            out.append(chr((ord(ch) - ord(\"a\") + shift) % 26 + ord(\"a\")))\n        elif \"A\" <= ch <= \"Z\":\n            out.append(chr((ord(ch) - ord(\"A\") + shift) % 26 + ord(\"A\")))\n        else:\n            out.append(ch)\n    return \"\".join(out)\n\n\ndef solve(attachment_path: str, **kwargs) -> Dict[str, object]:\n    text = Path(attachment_path).read_text(encoding=kwargs.get(\"encoding\", \"utf-8\")).strip()\n    candidates = []\n    for shift in range(26):\n        decoded = caesar_shift(text, shift)\n        candidates.append((shift, decoded))\n        m = FLAG_RE.search(decoded)\n        if m:\n            return {\n                \"flag\": m.group(0),\n                \"artifacts\": [],\n                \"evidence\": f\"matched {FLAG_RE.pattern} at caesar shift {shift}\",\n                \"shift\": shift,\n                \"decoded\": decoded,\n            }\n    return {\"flag\": None, \"artifacts\": [], \"evidence\": \"no matching flag format\", \"candidates\": candidates}\n\n\ndef _self_test() -> int:\n    sample = Path(__file__).with_name(\"caesar_rot13_sample.txt\")\n    if not sample.exists():\n        sample.write_text(\"Fhfpgs{3r811r068s5pr27ro4op1p37723q7rr2}\\n\", encoding=\"utf-8\")\n    result = solve(str(sample))\n    expected = \"Susctf{3e811e068f5ce27eb4bc1c37723d7ee2}\"\n    print(f\"SELF_TEST expected_output={expected}\")\n    print(f\"SELF_TEST result={result}\")\n    if result.get(\"flag\") != expected:\n        print(\"SELF_TEST FAIL\")\n        return 1\n    print(\"SELF_TEST PASS\")\n    return 0\n\n\ndef main() -> int:\n    parser = argparse.ArgumentParser(description=\"Solve Caesar/ROT ciphertext file\")\n    parser.add_argument(\"attachment_path\", nargs=\"?\", help=\"Path to ciphertext file\")\n    parser.add_argument(\"--self-test\", action=\"store_true\")\n    args = parser.parse_args()\n    if args.self_test:\n        return _self_test()\n    if not args.attachment_path:\n        parser.error(\"attachment_path is required unless --self-test is used\")\n    result = solve(args.attachment_path)\n    print(json.dumps(result, ensure_ascii=False))\n    return 0 if result.get(\"flag\") else 2\n\n\nif __name__ == \"__main__\":\n    raise SystemExit(main())\n",
+    "dependencies": [],
+    "self_test": {
+      "mock_input": "Fhfpgs{3r811r068s5pr27ro4op1p37723q7rr2}",
+      "expected_output": "Susctf{3e811e068f5ce27eb4bc1c37723d7ee2}",
+      "note": "Executed python3 solvers/crypto/caesar_rot.py --self-test; return code 0.",
+      "executed_output": "SELF_TEST expected_output=Susctf{3e811e068f5ce27eb4bc1c37723d7ee2}\nSELF_TEST result={'flag': 'Susctf{3e811e068f5ce27eb4bc1c37723d7ee2}', 'artifacts': [], 'evidence': 'matched Susctf\\\\{[0-9a-f]{32}\\\\} at caesar shift 13', 'shift': 13, 'decoded': 'Susctf{3e811e068f5ce27eb4bc1c37723d7ee2}'}\nSELF_TEST PASS"
+    }
+  },
+  "verification": {
+    "flag": "Susctf{3e811e068f5ce27eb4bc1c37723d7ee2}",
+    "how": "Executed the solver against attachments/bugku/0001_caesar_cipher/cipher.txt; return code 0.",
+    "executed": true,
+    "executed_output": "$ python3 solvers/crypto/caesar_rot.py --self-test\nSELF_TEST expected_output=Susctf{3e811e068f5ce27eb4bc1c37723d7ee2}\nSELF_TEST result={'flag': 'Susctf{3e811e068f5ce27eb4bc1c37723d7ee2}', 'artifacts': [], 'evidence': 'matched Susctf\\\\{[0-9a-f]{32}\\\\} at caesar shift 13', 'shift': 13, 'decoded': 'Susctf{3e811e068f5ce27eb4bc1c37723d7ee2}'}\nSELF_TEST PASS\n\n$ python3 solvers/crypto/caesar_rot.py attachments/bugku/0001_caesar_cipher/cipher.txt\n{\"flag\": \"Susctf{3e811e068f5ce27eb4bc1c37723d7ee2}\", \"artifacts\": [], \"evidence\": \"matched Susctf\\\\{[0-9a-f]{32}\\\\} at caesar shift 13\", \"shift\": 13, \"decoded\": \"Susctf{3e811e068f5ce27eb4bc1c37723d7ee2}\"}"
+  },
+  "status": "solved_verified"
 }
