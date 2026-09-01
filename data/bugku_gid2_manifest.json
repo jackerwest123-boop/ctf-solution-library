@@ -1,37 +1,19 @@
 {
-  "schema_version": 11,
+  "schema_version": 12,
   "platform": "Bugku",
   "target": "比赛真题全题库",
   "base_url": "https://ctf.bugku.com/challenges/index/gid/2.html",
   "page_count_planned": 130,
   "page_size": 20,
   "numbering_rule": "global_no=(page-1)*20+page_index",
-  "manifest_status": "real_solve_reset",
-  "completion_scope": {
-    "A_completed": "清单建档完成，不代表解题，不计为做完一轮",
-    "B_completed": "README/card契约工件完成，不代表解题，不计为做完一轮",
-    "round_done": "一轮20题全部solved_verified才算做完一轮",
-    "real_solved": "仅solved_verified计为真实做出"
-  },
-  "catalog_progress_archive": {
-    "last_catalog_enumerated_page": 7,
-    "last_catalog_enumerated_global_no": 140,
-    "note": "第1—7轮既有清单/契约文件只作为资料保留，不再视为完成轮次。"
-  },
-  "real_solve_progress": {
-    "current_round": 1,
-    "current_page": 1,
-    "range": [1, 20],
-    "round_done": false,
-    "solved_verified_items": [1, 16],
-    "pending_real_solve_items": [2,3,4,5,6,7,8,9,10,11,12,13,14,15,17,18,19,20],
-    "next_global_no": 2,
-    "next_title": "EasyXor"
-  },
-  "overall_stats_current": {"solved_verified": 2, "solved_unverified": 10, "method_only": 76, "blocked": 32},
+  "manifest_status": "real_solve_in_progress",
+  "completion_scope": {"A_completed":"清单建档完成，不代表解题，不计为做完一轮","B_completed":"README/card契约工件完成，不代表解题，不计为做完一轮","round_done":"一轮20题全部solved_verified才算做完一轮","real_solved":"仅solved_verified计为真实做出"},
+  "catalog_progress_archive": {"last_catalog_enumerated_page":7,"last_catalog_enumerated_global_no":140,"note":"第1—7轮既有清单/契约文件只作为资料保留，不再视为完成轮次。"},
+  "real_solve_progress": {"current_round":1,"current_page":1,"range":[1,20],"round_done":false,"solved_verified_items":[1,2,16],"pending_real_solve_items":[3,4,5,6,7,8,9,10,11,12,13,14,15,17,18,19,20],"next_global_no":3,"next_title":"EasyReverse"},
+  "overall_stats_current": {"solved_verified":3,"solved_unverified":9,"method_only":76,"blocked":32},
   "round_001_real_items": [
     {"global_no":1,"page_index":1,"title":"Caesar cipher","event":"SusCTF-2017","category":"Crypto","bugku_url":"https://ctf.bugku.com/challenges/detail/id/205.html","repo_status":"solved_verified","canonical_path":"bugku/0001_caesar_cipher","solver":"solvers/crypto/caesar_rot.py","verification":"executed on source-text ciphertext; official attachment not claimed"},
-    {"global_no":2,"page_index":2,"title":"EasyXor","event":"SusCTF-2017","category":"Reverse","bugku_url":"https://ctf.bugku.com/challenges/detail/id/206.html","repo_status":"pending_real_solve","canonical_path":"bugku/0002_easyxor"},
+    {"global_no":2,"page_index":2,"title":"EasyXor","event":"SusCTF-2017","category":"Reverse","bugku_url":"https://ctf.bugku.com/challenges/detail/id/206.html","repo_status":"solved_verified","canonical_path":"bugku/0002_easyxor","solver":"solvers/reverse/easyxor_index.py","verification":"executed 2026-09-01 on Bugku-206 source-page integer array; output Susctf{I_n3ed_hea1ing}; SELF_TEST PASS"},
     {"global_no":3,"page_index":3,"title":"EasyReverse","event":"SusCTF-2017","category":"Reverse","bugku_url":"https://ctf.bugku.com/challenges/detail/id/207.html","repo_status":"pending_real_solve","canonical_path":"bugku/0003_easyreverse"},
     {"global_no":4,"page_index":4,"title":"Crack Zip","event":"SusCTF-2017","category":"MISC","bugku_url":"https://ctf.bugku.com/challenges/detail/id/208.html","repo_status":"pending_real_solve","canonical_path":"bugku/0004_crack_zip"},
     {"global_no":5,"page_index":5,"title":"misc1","event":"SusCTF-2017","category":"MISC","bugku_url":"https://ctf.bugku.com/challenges/detail/id/209.html","repo_status":"pending_real_solve","canonical_path":"bugku/0005_misc1"},
@@ -51,5 +33,5 @@
     {"global_no":19,"page_index":19,"title":"3-hafuhafu","event":"网鼎杯-2018","category":"Crypto","bugku_url":"https://ctf.bugku.com/challenges/detail/id/246.html","repo_status":"pending_real_solve","canonical_path":"bugku/0019_3_hafuhafu"},
     {"global_no":20,"page_index":20,"title":"3-Unpleasant_music","event":"网鼎杯-2018","category":"MISC","bugku_url":"https://ctf.bugku.com/challenges/detail/id/247.html","repo_status":"pending_real_solve","canonical_path":"bugku/0020_3_unpleasant_music"}
   ],
-  "note": "从此版本起，做完一轮=该轮20题全部solved_verified。下一步从0002 EasyXor继续真实解题。"
+  "note":"0002 EasyXor已真实执行并升级solved_verified；下一步0003 EasyReverse。第001轮20题全部solved_verified前不得进入第002轮真实完成。"
 }
