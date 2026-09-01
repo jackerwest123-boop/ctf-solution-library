@@ -1,5 +1,5 @@
 {
-  "schema_version": 2,
+  "schema_version": 3,
   "platform": "Bugku",
   "target": "比赛真题全题库",
   "base_url": "https://ctf.bugku.com/challenges/index/gid/2.html",
@@ -7,24 +7,43 @@
   "page_size": 20,
   "numbering_rule": "global_no = (page - 1) * 20 + page_index",
   "completion_scope": {
-    "A_completed": "清单建档完成，不代表解题",
-    "B_completed": "README/card契约工件完成，不代表解题",
+    "A_completed": "清单建档完成，不代表解题，不计为做完一轮",
+    "B_completed": "README/card契约工件完成，不代表解题，不计为做完一轮",
+    "round_done": "该轮20题全部为solved_verified才算做完一轮",
     "real_solved": "仅solved_verified计为真实做出"
   },
-  "repair_note": "2026-09-01修复此前'完成一轮'表述：第1—7轮完成均按清单/契约工件建档理解，不代表逐题真实做出。",
-  "current_phase": "round_007_A_completed_next_round_007_B",
-  "last_enumerated_round": 7,
-  "last_enumerated_page": 7,
-  "last_enumerated_global_no": 140,
-  "next_round": 7,
-  "next_page_url": "https://ctf.bugku.com/challenges/index/gid/2.html?page=7",
-  "overall_stats_current": {"solved_verified": 1, "solved_unverified": 11, "method_only": 76, "blocked": 32},
-  "round_001": {"page": 1, "range": [1, 20], "status": "B_completed", "stats_current": {"solved_verified": 1, "solved_unverified": 10, "method_only": 2, "blocked": 7}, "note": "B_completed仅代表契约工件完成。"},
-  "round_002": {"page": 2, "range": [21, 40], "status": "B_completed", "stats_current": {"solved_verified": 0, "solved_unverified": 1, "method_only": 14, "blocked": 5}, "note": "B_completed仅代表契约工件完成。"},
-  "round_003": {"page": 3, "range": [41, 60], "status": "B_completed", "stats_current": {"solved_verified": 0, "solved_unverified": 0, "method_only": 19, "blocked": 1}, "note": "B_completed仅代表契约工件完成。"},
-  "round_004": {"page": 4, "range": [61, 80], "status": "B_completed", "stats_current": {"solved_verified": 0, "solved_unverified": 0, "method_only": 20, "blocked": 0}, "note": "B_completed仅代表契约工件完成。"},
-  "round_005": {"page": 5, "range": [81, 100], "status": "B_completed", "stats_current": {"solved_verified": 0, "solved_unverified": 0, "method_only": 20, "blocked": 0}, "note": "B_completed仅代表契约工件完成。"},
-  "round_006": {"page": 6, "range": [101, 120], "status": "B_completed", "stats_current": {"solved_verified": 0, "solved_unverified": 0, "method_only": 1, "blocked": 19}, "note": "B_completed仅代表契约工件完成；未新增solved_verified。"},
-  "round_007": {"page": 7, "range": [121, 140], "status": "A_completed_B_pending", "worklog_enumeration": "worklogs/bugku/rounds/round_007_page_007.md", "manifest": "data/bugku_gid2_manifest.json", "notes": "第007轮-A已完成清单建档；未解题、未创建README/card。0121—0140 detail URL均需第007轮-B继续复核。"},
-  "next_action_full_prompt": "进入第007轮-B：对 https://ctf.bugku.com/challenges/index/gid/2.html?page=7 的第0121—0140题逐题生成或升级 canonical 路径 bugku/<四位编号_题名>/README.md、bugku/<四位编号_题名>/card.json。具体任务：优先复核 0121—0140 的 detail URL，尤其核对 0121—0134 与 MISC 类型页顺序、0135—0140 与 SCTF 标签/全站分页顺序的对应关系；能通过原始附件或真实授权题目环境和 solver 真实执行的才允许写 verification.executed=true 并标 solved_verified；不能执行且只有通用方向的保持 blocked，只有题目特定步骤但未验证的保持 method_only，公开 flag 但未本地执行的保持 solved_unverified；不得伪造 flag 或执行输出。完成后更新 data/bugku_gid2_manifest.json 和 progress.json；若0121—0140完成，再把下一步提示改为第008轮-A，对 https://ctf.bugku.com/challenges/index/gid/2.html?page=8 的第0141—0160题做清单建档。"
+  "repair_note": "2026-09-01按用户要求重新来过：必须真正做出才算做完一轮；第1—7轮既有A/B完成仅作为建档资料保留。",
+  "current_phase": "round_001_real_solve_in_progress",
+  "last_catalog_enumerated_round": 7,
+  "last_catalog_enumerated_page": 7,
+  "last_catalog_enumerated_global_no": 140,
+  "current_real_round": 1,
+  "current_real_page": 1,
+  "current_real_range": [1, 20],
+  "next_real_target": {
+    "global_no": 2,
+    "title": "EasyXor",
+    "url": "https://ctf.bugku.com/challenges/detail/id/206.html"
+  },
+  "overall_stats_current": {"solved_verified": 2, "solved_unverified": 10, "method_only": 76, "blocked": 32},
+  "round_001": {
+    "page": 1,
+    "range": [1, 20],
+    "catalog_status": "A_completed_B_completed_as_artifacts_only",
+    "real_status": "real_solve_in_progress",
+    "solved_verified_items": [1, 16],
+    "pending_real_solve_items": [2,3,4,5,6,7,8,9,10,11,12,13,14,15,17,18,19,20],
+    "real_solved_count": 2,
+    "round_done": false,
+    "note": "只有0001和0016目前可计入真实做出；其余必须重新获取附件/环境并执行验证。"
+  },
+  "catalog_archive": {
+    "round_002": {"page": 2, "range": [21, 40], "status": "B_completed_as_artifacts_only"},
+    "round_003": {"page": 3, "range": [41, 60], "status": "B_completed_as_artifacts_only"},
+    "round_004": {"page": 4, "range": [61, 80], "status": "B_completed_as_artifacts_only"},
+    "round_005": {"page": 5, "range": [81, 100], "status": "B_completed_as_artifacts_only"},
+    "round_006": {"page": 6, "range": [101, 120], "status": "B_completed_as_artifacts_only"},
+    "round_007": {"page": 7, "range": [121, 140], "status": "A_completed_as_catalog_only"}
+  },
+  "next_action_full_prompt": "继续第001轮真实解题，不进入后续页。当前第001轮 page=1 只有0001和0016达到solved_verified，不能算做完一轮。下一题处理0002 EasyXor：https://ctf.bugku.com/challenges/detail/id/206.html。具体任务：获取或复核题目输入/附件，编写或升级可复用 solver，必须实现 solve(attachment_path, **kwargs) 和 --self-test；只有真实执行且输出flag时才把0002标为 solved_verified。完成后更新 bugku/0002_easyxor/README.md、bugku/0002_easyxor/card.json、data/bugku_gid2_manifest.json、progress.json，并追加真实解题 worklog。第001轮20题全部solved_verified之前不得写 round_done 或进入第002轮真实完成。"
 }
