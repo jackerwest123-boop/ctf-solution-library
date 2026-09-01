@@ -21,21 +21,21 @@
   "current_real_page": 1,
   "current_real_range": [1, 20],
   "next_real_target": {
-    "global_no": 2,
-    "title": "EasyXor",
-    "url": "https://ctf.bugku.com/challenges/detail/id/206.html"
+    "global_no": 3,
+    "title": "EasyReverse",
+    "url": "https://ctf.bugku.com/challenges/detail/id/207.html"
   },
-  "overall_stats_current": {"solved_verified": 2, "solved_unverified": 10, "method_only": 76, "blocked": 32},
+  "overall_stats_current": {"solved_verified": 3, "solved_unverified": 9, "method_only": 76, "blocked": 32},
   "round_001": {
     "page": 1,
     "range": [1, 20],
     "catalog_status": "A_completed_B_completed_as_artifacts_only",
     "real_status": "real_solve_in_progress",
-    "solved_verified_items": [1, 16],
-    "pending_real_solve_items": [2,3,4,5,6,7,8,9,10,11,12,13,14,15,17,18,19,20],
-    "real_solved_count": 2,
+    "solved_verified_items": [1, 2, 16],
+    "pending_real_solve_items": [3,4,5,6,7,8,9,10,11,12,13,14,15,17,18,19,20],
+    "real_solved_count": 3,
     "round_done": false,
-    "note": "只有0001和0016目前可计入真实做出；其余必须重新获取附件/环境并执行验证。"
+    "note": "0001、0002、0016目前可计入真实做出；其余必须重新获取题目输入/附件/环境并执行验证。"
   },
   "catalog_archive": {
     "round_002": {"page": 2, "range": [21, 40], "status": "B_completed_as_artifacts_only"},
@@ -45,5 +45,5 @@
     "round_006": {"page": 6, "range": [101, 120], "status": "B_completed_as_artifacts_only"},
     "round_007": {"page": 7, "range": [121, 140], "status": "A_completed_as_catalog_only"}
   },
-  "next_action_full_prompt": "继续第001轮真实解题，不进入后续页。当前第001轮 page=1 只有0001和0016达到solved_verified，不能算做完一轮。下一题处理0002 EasyXor：https://ctf.bugku.com/challenges/detail/id/206.html。具体任务：获取或复核题目输入/附件，编写或升级可复用 solver，必须实现 solve(attachment_path, **kwargs) 和 --self-test；只有真实执行且输出flag时才把0002标为 solved_verified。完成后更新 bugku/0002_easyxor/README.md、bugku/0002_easyxor/card.json、data/bugku_gid2_manifest.json、progress.json，并追加真实解题 worklog。第001轮20题全部solved_verified之前不得写 round_done 或进入第002轮真实完成。"
+  "next_action_full_prompt": "继续第001轮真实解题，严格停留在 https://ctf.bugku.com/challenges/index/gid/2.html?page=1，不进入page=2。下一题处理第0003题 EasyReverse：https://ctf.bugku.com/challenges/detail/id/207.html。具体交付：1）复核Bugku题面、评论、可取得的原始附件或题目特定输入；2）真正完成逆向并得到flag；3）编写或升级可复用solver，必须实现 solve(attachment_path, **kwargs) 和 --self-test；4）真实执行solver/题目输入并保存完整输出；5）只有 verification.executed=true 且真实输出能得到正确flag时，才将0003标为 solved_verified；否则保持 solved_unverified/method_only/blocked；6）更新 bugku/0003_easyreverse/README.md、bugku/0003_easyreverse/card.json、data/bugku_gid2_manifest.json、progress.json，并追加 worklogs/bugku/real_solve/round_001_0003_easyreverse.md。验收标准：0003的card满足docs/delivery_contract.md全部必填字段，solved_verified时 verification.flag 非空、verification.executed=true、executed_output为本轮真实执行输出，可复用solver有self_test；progress.json必须把下一目标推进到0004 Crack Zip。第0001—0020题未全部solved_verified前，round_done必须保持false，不得进入page=2。"
 }
