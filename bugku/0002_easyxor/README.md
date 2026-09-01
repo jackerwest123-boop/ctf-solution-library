@@ -4,12 +4,22 @@
 - 详情页：https://ctf.bugku.com/challenges/detail/id/206.html
 - 赛事：SusCTF-2017
 - 类型：Reverse
-- 状态：`solved_unverified`
+- 状态：`solved_verified`
 
-## 当前结论
+## 解法
 
-公开评论给出整数数组与按索引异或的脚本思路，候选 flag 为 `Susctf{I_n3ed_hea1ing}`。
+Bugku-206题目页公开评论给出22项整数数组：`[83,116,113,96,112,99,125,78,87,103,57,110,104,82,102,106,113,32,123,125,115,104]`。逐项执行 `chr(value ^ index)`，拼接得到 flag。
 
-## 验证情况
+可复用 solver：`solvers/reverse/easyxor_index.py`，实现 `solve(attachment_path, **kwargs)` 和 `--self-test`。
 
-`verification.executed=false`。未用原始附件在仓库中独立执行。
+## 真实验证
+
+2026-09-01实际执行输出：
+
+```text
+SELF_TEST source=Bugku-206-comment-array
+decoded=Susctf{I_n3ed_hea1ing}
+SELF_TEST PASS
+```
+
+Flag：`Susctf{I_n3ed_hea1ing}`。
